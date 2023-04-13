@@ -8,7 +8,7 @@ const kAssetFonts = [
   kDisplayFont,
 ];
 
-const _fontFamilyFallback = ['NotoSans'];
+const _fontFamilyFallback = ['Inter'];
 
 class AppTextTheme {
   AppTextTheme({

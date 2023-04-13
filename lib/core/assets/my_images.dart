@@ -12,6 +12,6 @@
 class MyImages {
   MyImages._();
 
-  static const String ic_index_bar_bubble_gray = 'assets/images/ic_index_bar_bubble_gray.png';
-  static const String ic_index_bar_bubble_white = 'assets/images/ic_index_bar_bubble_white.png';
+  static const String ic_logo_pair = 'assets/images/ic_logo_pair.png';
+  static const String ic_logo_sca = 'assets/images/ic_logo_sca.png';
 }

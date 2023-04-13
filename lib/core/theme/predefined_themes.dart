@@ -13,6 +13,16 @@ const predefinedProThemes = [
   _monokai,
 ];
 
+const _default = AppThemeData(
+  name: 'default',
+  backgroundColors: [0xffffffff],
+  primaryColor: 0xFF275FC4,
+  secondaryColor: 0xff4b8bfd,
+  cardColor: 0x14618de3,
+  statusBarColor: 0x00ffffff,
+  navBarColor: 0x00ffffff,
+);
+
 const _crow = AppThemeData(
   name: 'crow',
   backgroundColors: [0xff00030F, 0xff12254A],

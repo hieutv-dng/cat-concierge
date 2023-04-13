@@ -10,25 +10,35 @@
 import 'package:cat_concierge/components/index.dart';
 import 'package:get/get.dart';
 
-import 'ecst_get_page.dart';
+import 'app_get_page.dart';
 
 class AppRoutes {
   AppRoutes._();
 
   static final routes = [
-    EcstGetPage<SplashPage>(
+    AppGetPage<SplashPage>(
       name: SplashPage.path,
       page: () {
         final redirect = Get.parameters['redirect'];
         return SplashPage(redirect: redirect);
       },
     ),
-    EcstGetPage<MainPage>(
+    AppGetPage<MainPage>(
       name: '/',
       page: () => const MainPage(),
       bindings: [
         MainPageBinding(),
       ],
     ),
+    AppGetPage<AuthenticationFlow>(
+        name: '/authentication', page: () => const AuthenticationFlow(), binding: AuthenticationFlowBinding()),
+    AppGetPage<ResetPasswordFlow>(
+        name: '/reset-password', page: () => const ResetPasswordFlow(), binding: ResetPasswordFlowBinding()),
+    AppGetPage<LookupShopFlow>(
+        name: '/lookup-shop', page: () => const LookupShopFlow(), binding: LookupShopFlowBinding()),
+    AppGetPage<MainPage>(name: '/', page: () => const MainPage(), binding: MainPageBinding()),
+    AppGetPage<EditProfilePage>(name: '/edit-profile', page: () => const EditProfilePage()),
+    AppGetPage<PrivacyPolicyPage>(name: '/privacy-policy', page: () => const PrivacyPolicyPage()),
+    AppGetPage<PrivacyPolicyPage>(name: '/help-center', page: () => const HelpCenterPage())
   ];
 }

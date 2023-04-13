@@ -1,10 +1,10 @@
 /*
  * File: main_page_controller.dart
- * File Created: Monday, 12th December 2022 2:28:23 pm
- * Author: Hieu Tran
+ * File Created: Thursday, 9th February 2023 8:03:00 pm
+ * Author: Bruce Blake (hieutv)
  * -----
- * Last Modified: Monday, 12th December 2022 2:38:08 pm
- * Modified By: Hieu Tran
+ * Last Modified: Thursday, 9th February 2023 8:07:56 pm
+ * Modified By: Bruce Blake (hieutv)
  */
 
 import 'package:flutter/material.dart';

@@ -9,6 +9,7 @@ environment:
   sdk: '>=2.19.6 <3.0.0'
 
 dependencies:
+  animated_bottom_navigation_bar: ^1.2.0
   animated_size_and_fade: ^3.0.1
   auto_size_text: ^3.0.0
   auto_size_text_field: ^2.2.1
@@ -29,8 +30,10 @@ dependencies:
   easy_localization: ^3.0.1
   encrypt: ^5.0.1
   equatable: ^2.0.5
+  flow_builder: ^0.0.9
   flutter:
     sdk: flutter
+  flutter_countdown_timer: ^4.1.0
   flutter_dotenv: ^5.0.2
   flutter_easyloading: ^3.0.5
   flutter_keyboard_visibility: ^5.4.0
@@ -53,13 +56,19 @@ dependencies:
     git:
       url: https://github.com/hieutv-dng/one.dart.git
       ref: fbfa1ee
+  one_checkbox:
+    git:
+      url: https://github.com/hieutv-dng/one_checkbox.git
   package_info_plus: ^3.0.3
   path: ^1.8.2
   path_provider: ^2.0.13
   permission_handler: ^10.2.0
+  pin_code_fields: ^7.4.0
+  pull_to_refresh: ^2.0.0
   retrofit: ^4.0.1
   shared_preferences: ^2.0.18
   shimmer: ^2.0.0
+  smart_auth: ^1.0.8
   timeago: ^3.3.0
 
 dev_dependencies:
@@ -80,6 +89,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/localization/
+    - assets/logo/
     - assets/svgs/
   fonts:
     - family: Comfortaa
@@ -108,13 +118,4 @@ flutter:
         - asset: assets/fonts/Inter-SemiBold.ttf
           weight: 600
         - asset: assets/fonts/Inter-Bold.ttf
-          weight: 700
-
-    - family: NotoSans
-      # used as a fallback font
-      # covers a lot of scripts and obscure unicode characters
-      # https://fonts.google.com/specimen/Noto+Sans
-      fonts:
-        - asset: assets/fonts/NotoSans-Regular.ttf
-        - asset: assets/fonts/NotoSans-Bold.ttf
           weight: 700

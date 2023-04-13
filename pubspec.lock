@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.10.0"
+  animated_bottom_navigation_bar:
+    dependency: "direct main"
+    description:
+      name: animated_bottom_navigation_bar
+      sha256: "241307d13d3b1eeb2768017af906a0132e7a4569298d9e96a111faf154d6bf26"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   animated_size_and_fade:
     dependency: "direct main"
     description:
@@ -441,6 +449,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  flow_builder:
+    dependency: "direct main"
+    description:
+      name: flow_builder
+      sha256: "212a5c6575e87bec2003fa3f31dd7d80f0d89f6152db54f43fb0b6f45943e955"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.9"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -470,6 +486,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.3"
+  flutter_countdown_timer:
+    dependency: "direct main"
+    description:
+      name: flutter_countdown_timer
+      sha256: dfcbd7d6f76a5589f78f3f3ba2f9ea2e199368eccc1adce4153ce985b9587bc5
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.1.0"
   flutter_dotenv:
     dependency: "direct main"
     description:
@@ -846,6 +870,15 @@ packages:
       url: "https://github.com/hieutv-dng/one.dart.git"
     source: git
     version: "0.0.5"
+  one_checkbox:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: a998a2e6752abf51eb41b01feefeb1494862ca0e
+      url: "https://github.com/hieutv-dng/one_checkbox.git"
+    source: git
+    version: "0.0.1"
   package_config:
     dependency: transitive
     description:
@@ -1006,6 +1039,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.14.0"
+  pin_code_fields:
+    dependency: "direct main"
+    description:
+      name: pin_code_fields
+      sha256: c8652519d14688f3fe2a8288d86910a46aa0b9046d728f292d3bf6067c31b4c7
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.4.0"
   platform:
     dependency: transitive
     description:
@@ -1062,6 +1103,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.2"
+  pull_to_refresh:
+    dependency: "direct main"
+    description:
+      name: pull_to_refresh
+      sha256: bbadd5a931837b57739cf08736bea63167e284e71fb23b218c8c9a6e042aad12
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
   retrofit:
     dependency: "direct main"
     description:
@@ -1187,6 +1236,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.10"
+  smart_auth:
+    dependency: "direct main"
+    description:
+      name: smart_auth
+      sha256: "8cfaec55b77d5930ed1666bb7ae70db5bade099bb1422401386853b400962113"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.8"
   source_gen:
     dependency: transitive
     description:
