@@ -35,20 +35,27 @@ class LoginScreen extends GetView<LoginController> {
   Widget _buildBody(BuildContext context) {
     final theme = Theme.of(context);
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Expanded(
+        Center(
           child: SingleChildScrollView(
             padding: theme.spacing.edgeInsets,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Center(child: SCAPairLogoBrandView()),
                 SizedBox(height: theme.spacing.large),
                 Padding(
                   padding: theme.spacing.smallEdgeInsets,
-                  child: Text(
-                    'Give creadential to sign in your account',
-                    style: theme.textTheme.labelMedium,
+                  child: const Text(
+                    'Welcome',
+                    style: TextStyle(
+                      fontSize: 32,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w800,
+                      fontFamilyFallback: ['Inter'],
+                    ),
                   ),
                 ),
                 Padding(
@@ -60,7 +67,7 @@ class LoginScreen extends GetView<LoginController> {
                   child: const PasswordInputView(),
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     _buildForgotPasswordBtn(context),
                   ],
@@ -82,16 +89,29 @@ class LoginScreen extends GetView<LoginController> {
   Widget _buildForgotPasswordBtn(BuildContext context) {
     final theme = Theme.of(context);
     return OneButton.text(
-      label: Text('Forgot Password?', style: theme.textTheme.bodyLarge?.copyWith(color: theme.primaryColor)),
+      label: Text('Forgot Password?',
+          style: theme.textTheme.bodyLarge?.copyWith(
+            color: theme.primaryColor,
+            fontSize: 12,
+            fontWeight: FontWeight.w600,
+          )),
       onTap: () => Get.toNamed('/reset-password'),
     );
   }
 
   Widget _buildNextBtn(BuildContext context) {
+    final theme = Theme.of(context);
     return SizedBox(
       width: double.infinity,
       child: OneButton.elevated(
-        label: const Text('Sign In', style: TextStyle(color: Colors.white)),
+        label: Text(
+          'Log In',
+          style: theme.textTheme.bodyLarge?.copyWith(
+            color: Colors.white,
+            fontSize: 12,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
         onTap: () => Get.offAllNamed('/'),
       ),
     );
@@ -102,10 +122,9 @@ class LoginScreen extends GetView<LoginController> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('Don\'t have account?', style: theme.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w500)),
+        Text('Do not have account?', style: theme.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w500, color: Colors.black, fontSize: 12)),
         OneButton.text(
-          label: Text('Sign Up',
-              style: theme.textTheme.bodySmall?.copyWith(color: theme.primaryColor, fontWeight: FontWeight.bold)),
+          label: Text('Register now', style: theme.textTheme.bodySmall?.copyWith(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 12)),
           onTap: () => context.flow<AuthenticationFlowStep>().update((_) => AuthenticationFlowStep.signUp),
         ),
       ],
@@ -122,11 +141,26 @@ class _AccountInput extends GetView<LoginController> {
         onChanged: (value) {},
         autofocus: true,
         decoration: InputDecoration(
-          hintText: 'Type your email',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_mail),
+          hintStyle: theme.textTheme.bodyLarge?.copyWith(
+            color: AppColors.textHintColor,
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+          ),
+          hintText: 'Email Address',
+          fillColor: Colors.white,
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16.0),
+            borderSide: const BorderSide(
+              color: AppColors.primary,
+              width: 2.0,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16.0),
+            borderSide: const BorderSide(
+              color: AppColors.neutralLightDark,
+              width: 1.0,
+            ),
           ),
         ),
       ),

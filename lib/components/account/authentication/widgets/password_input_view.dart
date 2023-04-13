@@ -16,7 +16,7 @@ import 'package:cat_concierge/core/index.dart';
 class PasswordInputView extends StatefulWidget {
   const PasswordInputView({
     super.key,
-    this.hintText = 'Type your password',
+    this.hintText = 'Password',
   });
 
   final String hintText;
@@ -39,10 +39,25 @@ class PasswordInputViewState extends State<PasswordInputView> {
             obscureText: isObscurePass,
             decoration: InputDecoration(
               hintText: widget.hintText,
-              border: InputBorder.none,
-              prefixIcon: Padding(
-                padding: theme.spacing.edgeInsets,
-                child: SvgPicture.asset(MySvgs.ic_lock),
+              hintStyle: theme.textTheme.bodyLarge?.copyWith(
+                color: AppColors.textHintColor,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
+              fillColor: Colors.white,
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16.0),
+                borderSide: const BorderSide(
+                  color: AppColors.primary,
+                  width: 2.0,
+                ),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16.0),
+                borderSide: const BorderSide(
+                  color: AppColors.neutralLightDark,
+                  width: 1.0,
+                ),
               ),
               suffixIcon: InkWell(
                 onTap: () {
