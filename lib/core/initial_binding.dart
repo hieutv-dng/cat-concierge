@@ -7,6 +7,7 @@
  * Modified By: Hieu Tran
  */
 
+import 'package:cat_concierge/components/index.dart';
 import 'package:get/get.dart';
 // import 'package:invoice_pdf/components/components.dart';
 // import 'package:invoice_pdf/data/the_data.dart';
@@ -35,6 +36,6 @@ class InitialBinding implements Bindings {
     /*
     CONTROLLER
     */
-    // Get.put(ApplicationController(), permanent: true);
+    Get.put(ApplicationController(), permanent: true);
   }
 }

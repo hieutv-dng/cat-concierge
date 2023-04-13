@@ -10,6 +10,8 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:cat_concierge/components/index.dart';
+import 'package:cat_concierge/core/index.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,8 +22,6 @@ import 'package:hive/hive.dart';
 import 'package:one/one.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'core/core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,7 +37,7 @@ void main() async {
   );
   final sharedPreferences = await SharedPreferences.getInstance();
   final dir = (await getApplicationDocumentsDirectory()).path;
-  final hivePath = '$dir/invoices-db-1.0.2';
+  final hivePath = '$dir/cat-concierge-db-1.0.2';
 
   Hive..init(hivePath)
       // ..registerAdapter(UserInfoAdapter())
@@ -82,25 +82,25 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-    // Get.put(
-    //   DisplayPreferencesController(
-    //     preferences: Preferences.basic(
-    //       sharedPreferences: widget.sharedPreferences,
-    //     ),
-    //   ),
-    //   permanent: true,
-    // );
+    Get.put(
+      DisplayPreferencesController(
+        preferences: Preferences.basic(
+          sharedPreferences: widget.sharedPreferences,
+        ),
+      ),
+      permanent: true,
+    );
 
-    // Get.put(
-    //   ThemePreferencesController(
-    //     preferences: Preferences.basic(
-    //       sharedPreferences: widget.sharedPreferences,
-    //     ),
-    //   ),
-    //   permanent: true,
-    // );
+    Get.put(
+      ThemePreferencesController(
+        preferences: Preferences.basic(
+          sharedPreferences: widget.sharedPreferences,
+        ),
+      ),
+      permanent: true,
+    );
 
-    // Get.put(ThemeController(), permanent: true);
+    Get.put(ThemeController(), permanent: true);
     super.initState();
   }
 
@@ -130,15 +130,15 @@ class _MyAppState extends State<MyApp> {
         // restorationScopeId: 'app',
         debugShowCheckedModeBanner: false,
         color: Get.isDarkMode ? Colors.black : Colors.white,
-        // theme: Get.find<ThemeController>().lightTheme.themeData,
-        // darkTheme: Get.find<ThemeController>().darkTheme.themeData,
+        theme: Get.find<ThemeController>().lightTheme.themeData,
+        darkTheme: Get.find<ThemeController>().darkTheme.themeData,
         themeMode: ThemeMode.light,
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
         initialRoute: '/',
         initialBinding: InitialBinding(),
-        // getPages: AppRoutes.routes,
+        getPages: AppRoutes.routes,
         builder: EasyLoading.init(),
       );
     });

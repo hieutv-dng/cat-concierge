@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:cat_concierge/core/core.dart';
+import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';

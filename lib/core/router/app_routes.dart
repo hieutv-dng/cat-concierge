@@ -7,6 +7,7 @@
  * Modified By: Hieu Tran
  */
 
+import 'package:cat_concierge/components/index.dart';
 import 'package:get/get.dart';
 
 import 'ecst_get_page.dart';
@@ -15,28 +16,19 @@ class AppRoutes {
   AppRoutes._();
 
   static final routes = [
-    // EcstGetPage<SplashPage>(
-    //   name: SplashPage.path,
-    //   page: () {
-    //     final redirect = Get.parameters['redirect'];
-    //     return SplashPage(redirect: redirect);
-    //   },
-    // ),
-    // EcstGetPage<InvoicesPage>(
-    //   name: '/',
-    //   page: () => const InvoicesPage(),
-    //   bindings: [
-    //     // MainPageBinding(),
-    //     InvoicesPageBinding(),
-    //   ],
-    // ),
-    // EcstGetPage<MainPage>(
-    //   name: '/',
-    //   page: () => const MainPage(),
-    //   bindings: [
-    //     MainPageBinding(),
-    //     InvoicesPageBinding(),
-    //   ],
-    // ),
+    EcstGetPage<SplashPage>(
+      name: SplashPage.path,
+      page: () {
+        final redirect = Get.parameters['redirect'];
+        return SplashPage(redirect: redirect);
+      },
+    ),
+    EcstGetPage<MainPage>(
+      name: '/',
+      page: () => const MainPage(),
+      bindings: [
+        MainPageBinding(),
+      ],
+    ),
   ];
 }

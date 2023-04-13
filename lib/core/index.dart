@@ -1,12 +1,3 @@
-/*
- * File: core.dart
- * File Created: Wednesday, 7th December 2022 10:11:24 pm
- * Author: Hieu Tran
- * -----
- * Last Modified: Monday, 12th December 2022 2:45:42 pm
- * Modified By: Hieu Tran
- */
-
 export 'assets/my_images.dart';
 export 'assets/my_svgs.dart';
 export 'handle_error_extension.dart';

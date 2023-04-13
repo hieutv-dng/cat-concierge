@@ -32,6 +32,9 @@ migrate_working_dir/
 .pub/
 /build/
 
+# Web related
+lib/generated_plugin_registrant.dart
+
 # Symbolication related
 app.*.symbols
 
@@ -42,3 +45,15 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Hide generated files
+*.g.dart
+*.freezed.dart
+pubspec.lock
+Gemfile.lock
+
+# Except for SDK
+!/ios/Runner/SDK/**/**.**
+
+# Hide User's VSCode Configuration
+/.vscode/settings.json
