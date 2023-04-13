@@ -1,0 +1,32 @@
+{
+  "app_name": "SCAPair",
+  "intro_screen": {
+    "title": "Welcome to SCAPair",
+    "desc": "Lorem ipsum dolorlink in biosit amet\nNeque porro quisquam\n",
+    "start_txt_btn": "START"
+  },
+  "login_page": {
+    "phone_number_hint": "Enter your phone number",
+    "password_hint": "Enter your password",
+    "login_txt_btn": "Login",
+    "forgot_password_txt_btn": "Forgot password ?",
+    "terms1": "By logging in or registering, you agree to\n",
+    "terms2": "Terms of Service and Privacy Policy",
+    "terms3": "\nof SCAPair",
+    "or": "Or"
+  },
+  "main_page": {
+    "invoices": "Invoices",
+    "create": "Create",
+    "expenses": "Expenses",
+    "tab_invoices": {
+      "title": "Invoices"
+    },
+    "tab_create": {
+      "title": "Create"
+    },
+    "tab_expenses": {
+      "title": "Expenses"
+    }
+  }
+}

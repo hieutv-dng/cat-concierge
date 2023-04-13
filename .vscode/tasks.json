@@ -1,0 +1,51 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        //-----BUILD_APPBUNDLE_RELEASE-----
+        {
+            "label": "flutter_build_appbundle",
+            "type": "shell",
+            "command": "flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=BASE_URL=https://invoice-simple.utilityhelpful.com"
+        },
+        //-----BUILD_APK_RELEASE-----
+        {
+            "label": "flutter_build_apk",
+            "type": "shell",
+            "command": "flutter build apk --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=BASE_URL=https://invoice-simple.utilityhelpful.com"
+        },
+        //-----BUILD_IPA_RELEASE-----
+        {
+            "label": "flutter_build_ipa",
+            "type": "shell",
+            "command": "flutter build ipa --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=BASE_URL=https://invoice-simple.utilityhelpful.com"
+        },
+        //-----FLUTTER_PUB_GET-----
+        {
+            "label": "flutter_pub_get",
+            "type": "shell",
+            "command": "flutter pub get"
+        },
+        //-----FLUTTER_CLEAN-----
+        {
+            "label": "flutter_clean",
+            "type": "shell",
+            "command": "flutter clean"
+        },
+        //-----BUILD_RUNNER-----
+        {
+            "label": "build_runner",
+            "type": "shell",
+            "command": "flutter pub run build_runner build --delete-conflicting-outputs",
+            "dependsOn": [
+                "remove_gen_code"
+            ]
+        },
+        {
+            "label": "remove_gen_code",
+            "type": "shell",
+            "command": "find . -type f \\( -name \"*.g.dart\" -o -name \"*.freezed.dart\" \\) -delete"
+        }
+    ]
+}
