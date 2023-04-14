@@ -15,7 +15,6 @@ class MySvgs {
 
   static const String logo = 'assets/logo/ic_launcher.svg';
   static const String logo_transparent = 'assets/logo/ic_launcher_transparent.svg';
-  static const String ic_loco_main = 'assets/logo/ic_loco_main.svg';
   static const String ic_calendar = 'assets/svgs/ic_calendar.svg';
   static const String ic_eye_hide = 'assets/svgs/ic_eye_hide.svg';
   static const String ic_chat = 'assets/svgs/ic_chat.svg';

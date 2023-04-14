@@ -12,7 +12,6 @@ import 'package:cat_concierge/core/index.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
 
@@ -122,9 +121,12 @@ class LoginScreen extends GetView<LoginController> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('Do not have account?', style: theme.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w500, color: Colors.black, fontSize: 12)),
+        Text('Do not have account?',
+            style: theme.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w500, color: Colors.black, fontSize: 12)),
         OneButton.text(
-          label: Text('Register now', style: theme.textTheme.bodySmall?.copyWith(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 12)),
+          label: Text('Register now',
+              style: theme.textTheme.bodySmall
+                  ?.copyWith(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 12)),
           onTap: () => context.flow<AuthenticationFlowStep>().update((_) => AuthenticationFlowStep.signUp),
         ),
       ],
@@ -158,7 +160,7 @@ class _AccountInput extends GetView<LoginController> {
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16.0),
             borderSide: const BorderSide(
-              color: AppColors.neutralLightDark,
+              color: AppColors.lightGreyDark,
               width: 1.0,
             ),
           ),

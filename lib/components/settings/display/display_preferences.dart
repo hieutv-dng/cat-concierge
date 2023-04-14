@@ -7,9 +7,9 @@
  * Modified By: Hieu Tran
  */
 
+import 'package:cat_concierge/core/index.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get/get.dart';
-import 'package:cat_concierge/core/index.dart';
 import 'package:one/one.dart';
 
 part 'display_preferences.freezed.dart';

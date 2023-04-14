@@ -7,11 +7,11 @@
  * Modified By: Bruce Blake (hieutv)
  */
 
+import 'package:cat_concierge/components/index.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:one/one.dart';
-import 'package:cat_concierge/components/index.dart';
 
 class CreateNewPasswordScreen extends StatelessWidget {
   const CreateNewPasswordScreen({super.key});

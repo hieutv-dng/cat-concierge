@@ -7,11 +7,11 @@
  * Modified By: Bruce Blake (hieutv)
  */
 
+import 'package:cat_concierge/components/index.dart';
+import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:one/one.dart';
-import 'package:cat_concierge/components/index.dart';
-import 'package:cat_concierge/core/index.dart';
 
 class PasswordInputView extends StatefulWidget {
   const PasswordInputView({
@@ -55,7 +55,7 @@ class PasswordInputViewState extends State<PasswordInputView> {
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16.0),
                 borderSide: const BorderSide(
-                  color: AppColors.neutralLightDark,
+                  color: AppColors.lightGreyDark,
                   width: 1.0,
                 ),
               ),

@@ -92,7 +92,7 @@ class _SplashPageState extends State<SplashPage> {
         children: [
           LayoutBuilder(builder: (context, constraints) {
             return SvgPicture.asset(
-              MySvgs.ic_loco_main,
+              MySvgs.logo,
               fit: BoxFit.cover,
               height: constraints.maxWidth * .15,
             );
