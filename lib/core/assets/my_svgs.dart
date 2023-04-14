@@ -38,6 +38,7 @@ class MySvgs {
   static const String ic_star = 'assets/svgs/ic_star.svg';
   static const String ic_user1 = 'assets/svgs/ic_user1.svg';
   static const String ic_user2 = 'assets/svgs/ic_user2.svg';
+  static const String kittest_mask = 'assets/svgs/kittest_mask.svg';
 }
 
 class Exception {

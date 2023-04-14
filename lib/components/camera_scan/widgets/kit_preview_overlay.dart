@@ -1,5 +1,6 @@
 import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:camerawesome/pigeon.dart';
+import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
@@ -128,7 +129,7 @@ class _KitPreviewOverlayState extends State<KitPreviewOverlay> {
                 valueListenable: _barcodeInArea,
                 builder: (context, inArea, child) {
                   return SvgPicture.asset(
-                    'assets/layer_mask.svg',
+                    MySvgs.kittest_mask,
                     fit: BoxFit.contain,
                     colorFilter: ColorFilter.mode(inArea ? Colors.green : Colors.blue, BlendMode.srcIn),
                   );
