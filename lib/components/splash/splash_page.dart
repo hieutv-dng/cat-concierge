@@ -103,7 +103,6 @@ class _SplashPageState extends State<SplashPage> {
               fontSize: 32,
               color: AppColors.primary,
               fontWeight: FontWeight.w400,
-              fontFamilyFallback: ['Inter'],
             ),
           ),
           const Text(
@@ -112,7 +111,6 @@ class _SplashPageState extends State<SplashPage> {
               fontSize: 32,
               color: AppColors.primary,
               fontWeight: FontWeight.w900,
-              fontFamilyFallback: ['Inter'],
             ),
           ),
         ],

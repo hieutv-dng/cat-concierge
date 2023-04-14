@@ -7,14 +7,15 @@
  * Modified By: Bruce Blake (hieutv)
  */
 
+import 'dart:io';
+
 import 'package:cat_concierge/components/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import 'widgets/open_supplements_listview.dart';
-import 'widgets/recent_claims_gridview.dart';
+import 'widgets/scan_test_cardview.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -25,6 +26,21 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _refreshController = RefreshController();
+  File? _file;
+
+  Future<void> _openCameraScan() async {
+    final filePath = await Navigator.of(context).push<String?>(MaterialPageRoute(
+      builder: (context) {
+        return const CameraScanPage();
+      },
+    ));
+    if (filePath?.isNotEmpty ?? false) {
+      setState(() {
+        _file = File(filePath!);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,24 +65,16 @@ class _HomePageState extends State<HomePage> {
       title: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.circular(6),
-            ),
-          ),
           Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: theme.spacing.small),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Hello, Jennifer!',
+                  Text('Hi, John and Pixel',
                       maxLines: 1, style: theme.textTheme.labelMedium?.copyWith(fontWeight: FontWeight.bold)),
                   const SizedBox(height: 6),
-                  Text('Let\'s done your claims do today', maxLines: 1, style: theme.textTheme.labelSmall),
+                  Text('Let’s get learning', maxLines: 1, style: theme.textTheme.labelSmall),
                 ],
               ),
             ),
@@ -115,45 +123,9 @@ class _HomePageState extends State<HomePage> {
       slivers: [
         SliverList(
           delegate: SliverChildListDelegate([
-            _TileTitleView(
-              title: 'Recent Claims',
-              onTap: () => Get.toNamed('/open-supplements'),
-            ),
-            const RecentClaimsGridView(),
-            SizedBox(height: Theme.of(context).spacing.base),
-            _TileTitleView(
-              title: 'Open Supplements',
-              onTap: () => Get.toNamed('/open-supplements'),
-            ),
-            const OpenSupplementsListView(),
+            ScanTestCardView(onTapScanTest: _openCameraScan),
+            if (_file != null) Image.file(_file!),
           ]),
-        ),
-      ],
-    );
-  }
-}
-
-class _TileTitleView extends StatelessWidget {
-  const _TileTitleView({
-    required this.title,
-    this.onTap,
-  });
-
-  final String title;
-  final VoidCallback? onTap;
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Row(
-      children: [
-        Expanded(
-            child: Padding(
-          padding: theme.spacing.edgeInsets,
-          child: Text(title, style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
-        )),
-        OneButton.text(
-          label: Text('View All', style: theme.textTheme.labelMedium?.copyWith(fontWeight: FontWeight.bold)),
-          onTap: onTap,
         ),
       ],
     );

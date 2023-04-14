@@ -1,7 +1,7 @@
 part of 'app_theme.dart';
 
-const kBodyFont = 'OpenSans';
-const kDisplayFont = 'Comfortaa';
+const kBodyFont = 'Inter';
+const kDisplayFont = 'Inter';
 
 const kAssetFonts = [
   kBodyFont,

@@ -6,6 +6,7 @@ export 'account/lookup_shop/lookup_shop_flow.dart';
 export 'account/reset_password/controller/reset_password_flow_controller.dart';
 export 'account/reset_password/reset_password_flow.dart';
 export 'application/controller/application_controller.dart';
+export 'camera_scan/camera_scan_page.dart';
 export 'main/home/controller/home_page_controller.dart';
 export 'main/home/home_page.dart';
 export 'main/main_page.dart';
