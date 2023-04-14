@@ -10,6 +10,7 @@
 import 'dart:io';
 
 import 'package:cat_concierge/components/index.dart';
+import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
@@ -62,6 +63,7 @@ class _HomePageState extends State<HomePage> {
       pinned: false,
       floating: true,
       stretch: true,
+      backgroundColor: Colors.transparent,
       title: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -87,21 +89,17 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildNotificationBtn(BuildContext context) {
     final theme = Theme.of(context);
-    return Container(
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        border: Border.all(color: Colors.grey.shade400),
-      ),
-      clipBehavior: Clip.hardEdge,
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          child: Padding(
-            padding: theme.spacing.smallEdgeInsets,
-            child: const Icon(Icons.notifications_outlined),
-          ),
-          onTap: () => Get.toNamed('/notification'),
+    return Material(
+      color: Colors.transparent,
+      child: FloatingActionButton.small(
+        shape: const CircleBorder(),
+        backgroundColor: AppColors.primaryLightest,
+        foregroundColor: AppColors.primary,
+        child: Padding(
+          padding: theme.spacing.smallEdgeInsets,
+          child: const Icon(Icons.person_outline_rounded),
         ),
+        onPressed: () => Get.toNamed('/profile'),
       ),
     );
   }

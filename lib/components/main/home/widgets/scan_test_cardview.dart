@@ -7,6 +7,7 @@
  * Modified By: Bruce Blake (hieutv)
  */
 
+import 'package:cat_concierge/components/index.dart';
 import 'package:flutter/material.dart';
 import 'package:one/one.dart';
 
@@ -28,7 +29,7 @@ class _ScanTestCardViewState extends State<ScanTestCardView> {
     final theme = Theme.of(context);
     return Padding(
       padding: theme.spacing.edgeInsets,
-      child: Card(
+      child: OneCard(
         child: Padding(
           padding: theme.spacing.edgeInsets,
           child: Column(

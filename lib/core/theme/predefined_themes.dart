@@ -1,8 +1,8 @@
 import 'app_theme_data.dart';
 
 const predefinedThemes = [
-  _crow, // 0 -> default dark theme
-  _swan, // 1 -> default light theme
+  _default, // 0 -> default dark theme
+  _default, // 1 -> default light theme
   _harpy,
   ...predefinedProThemes,
 ];
@@ -18,9 +18,9 @@ const _default = AppThemeData(
   backgroundColors: [0xffffffff],
   primaryColor: 0xFF275FC4,
   secondaryColor: 0xff4b8bfd,
-  cardColor: 0x14618de3,
-  statusBarColor: 0x00ffffff,
-  navBarColor: 0x00ffffff,
+  cardColor: 0xffffffff,
+  statusBarColor: 0xffffffff,
+  navBarColor: 0xffffffff,
 );
 
 const _crow = AppThemeData(

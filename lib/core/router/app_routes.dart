@@ -37,6 +37,7 @@ class AppRoutes {
     AppGetPage<LookupShopFlow>(
         name: '/lookup-shop', page: () => const LookupShopFlow(), binding: LookupShopFlowBinding()),
     AppGetPage<MainPage>(name: '/', page: () => const MainPage(), binding: MainPageBinding()),
+    AppGetPage<ProfilePage>(name: '/profile', page: () => const ProfilePage()),
     AppGetPage<EditProfilePage>(name: '/edit-profile', page: () => const EditProfilePage()),
     AppGetPage<PrivacyPolicyPage>(name: '/privacy-policy', page: () => const PrivacyPolicyPage()),
     AppGetPage<PrivacyPolicyPage>(name: '/help-center', page: () => const HelpCenterPage())
