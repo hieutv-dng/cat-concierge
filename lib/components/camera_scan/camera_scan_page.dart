@@ -11,6 +11,7 @@ import 'widgets/custom_awesome_bottom_actions.dart';
 import 'widgets/custom_awesome_capture_button.dart';
 import 'widgets/kit_preview_overlay.dart';
 import 'widgets/mlkit_utils.dart';
+import 'package:image/image.dart' as img;
 
 class CameraScanPage extends StatefulWidget {
   const CameraScanPage({super.key});
@@ -104,7 +105,8 @@ class _CameraScanPageState extends State<CameraScanPage> {
               state: state,
               onTakenPhoto: (mediaCapture) {
                 if (mediaCapture != null && mediaCapture.status == MediaCaptureStatus.success) {
-                  Navigator.of(context).pop(mediaCapture.filePath);
+                  _cropImage(mediaCapture, context);
+                  // Navigator.of(context).pop(mediaCapture.filePath);
                 }
               },
             ),
@@ -133,10 +135,25 @@ class _CameraScanPageState extends State<CameraScanPage> {
 
   Future _processImage(AnalysisImage img) async {
     try {
-      var recognizedBarCodes = await _barcodeScanner.processImage(img.toInputImage());
+      final recognizedBarCodes = await _barcodeScanner.processImage(img.toInputImage());
       _imageAndBarcodes.value = Tuple2(img, recognizedBarCodes);
     } catch (error) {
       debugPrint('...sending image resulted error $error');
     }
+  }
+
+  Future _cropImage(MediaCapture takeImage, BuildContext contexted) async {
+    final image = await img.decodeImageFile(takeImage.filePath); //img.decodeImage(File(takeImage.filePath).readAsBytesSync())!;
+    final imageLow = img.copyResize(image!, width: image.width ~/ 4, height: image.height ~/ 4);
+    final croppedImage = img.copyCrop(
+      imageLow,
+      x: (imageLow.width * 0.178).toInt(),
+      y: (imageLow.height * 0.135).toInt(),
+      width: (imageLow.width * 0.66).toInt(),
+      height: (imageLow.height * 0.73).toInt(),
+    );
+    File(takeImage.filePath).writeAsBytesSync(img.encodeJpg(croppedImage));
+    if (!mounted) return;
+    Navigator.of(contexted).pop(takeImage.filePath);
   }
 }

@@ -16,6 +16,7 @@ import 'package:get/get.dart';
 import 'package:one/one.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
+import '../../widgets/background_main.dart';
 import 'widgets/scan_test_cardview.dart';
 
 class HomePage extends StatefulWidget {
@@ -44,8 +45,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
+    return BackgroundMain(
+      child: SafeArea(
         child: NestedScrollView(
           floatHeaderSlivers: true,
           headerSliverBuilder: (context, innerBoxIsScrolled) {
@@ -73,8 +74,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Hi, John and Pixel',
-                      maxLines: 1, style: theme.textTheme.labelMedium?.copyWith(fontWeight: FontWeight.bold)),
+                  Text('Hi, John and Pixel', maxLines: 1, style: theme.textTheme.labelMedium?.copyWith(fontWeight: FontWeight.bold)),
                   const SizedBox(height: 6),
                   Text('Let’s get learning', maxLines: 1, style: theme.textTheme.labelSmall),
                 ],
@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
         _refreshController.refreshCompleted();
         // _controller.loadData();
       },
-      child: _buildContent(context),
+      child: Container(margin: const EdgeInsets.only(top: 60), child: _buildContent(context)),
     );
   }
 
