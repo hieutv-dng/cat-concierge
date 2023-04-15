@@ -21,6 +21,7 @@ export 'settings/language/language_page.dart';
 export 'settings/theme/theme_controller.dart';
 export 'settings/theme/theme_preferences.dart';
 export 'splash/splash_page.dart';
+export 'widgets/app_background.dart';
 export 'widgets/exception_indicators/empty_list_indicator.dart';
 export 'widgets/exception_indicators/error_indicator.dart';
 export 'widgets/exception_indicators/exception_indicator.dart';

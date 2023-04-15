@@ -98,7 +98,7 @@ class _TaxIdInput extends StatelessWidget {
           border: InputBorder.none,
           prefixIcon: Padding(
             padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user1),
+            child: SvgPicture.asset(MySvgs.ic_user),
           ),
         ),
       ),
@@ -119,7 +119,7 @@ class _PhoneNumberInput extends StatelessWidget {
           border: InputBorder.none,
           prefixIcon: Padding(
             padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_phone),
+            child: SvgPicture.asset(MySvgs.ic_user),
           ),
         ),
       ),

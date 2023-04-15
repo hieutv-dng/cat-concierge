@@ -12,6 +12,7 @@ import 'package:cat_concierge/core/index.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
 import 'package:one_checkbox/one_checkbox.dart';
@@ -74,8 +75,9 @@ class RegisterScreen extends GetView<RegisterController> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child:
-                      Text('Sorry, but your email should be between 6 and 30 characters.\nExample: taras12@gmail.com ', style: style.bodyXS.copyWith(color: AppColors.errorDark)),
+                  child: Text(
+                      'Sorry, but your email should be between 6 and 30 characters.\nExample: taras12@gmail.com ',
+                      style: style.bodyXS.copyWith(color: AppColors.errorDark)),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -152,6 +154,49 @@ class RegisterScreen extends GetView<RegisterController> {
           onTap: () => context.flow<AuthenticationFlowStep>().update((_) => AuthenticationFlowStep.signIn),
         ),
       ],
+    );
+  }
+}
+
+class _UsernameInput extends GetView<RegisterController> {
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Card(
+      child: OneTextField(
+        onChanged: (value) {},
+        autofocus: true,
+        decoration: InputDecoration(
+          hintText: 'Type your name',
+          border: InputBorder.none,
+          prefixIcon: Padding(
+            padding: theme.spacing.edgeInsets,
+            child: SvgPicture.asset(MySvgs.ic_user),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _EmailInput extends GetView<RegisterController> {
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Card(
+      child: OneTextField(
+        onChanged: (value) {},
+        autofocus: true,
+        keyboardType: TextInputType.emailAddress,
+        decoration: InputDecoration(
+          hintText: 'Type your email',
+          border: InputBorder.none,
+          prefixIcon: Padding(
+            padding: theme.spacing.edgeInsets,
+            child: SvgPicture.asset(MySvgs.ic_user),
+          ),
+        ),
+      ),
     );
   }
 }

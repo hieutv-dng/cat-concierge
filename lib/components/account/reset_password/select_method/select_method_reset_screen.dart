@@ -53,7 +53,7 @@ class SelectMethodResetScreen extends StatelessWidget {
           Padding(
             padding: theme.spacing.smallEdgeInsets,
             child: _MethodItemView(
-              icon: SvgPicture.asset(MySvgs.ic_mail),
+              icon: SvgPicture.asset(MySvgs.ic_user),
               title: 'Email',
               content: '**************@gmail.com',
               onTap: () => context.flow<ResetPasswordFlowStep>().update((_) => ResetPasswordFlowStep.withEmail),
@@ -62,7 +62,7 @@ class SelectMethodResetScreen extends StatelessWidget {
           Padding(
             padding: theme.spacing.smallEdgeInsets,
             child: _MethodItemView(
-              icon: SvgPicture.asset(MySvgs.ic_phone),
+              icon: SvgPicture.asset(MySvgs.ic_user),
               title: 'Phone Number',
               content: '**** **** **** 0120',
               onTap: () => context.flow<ResetPasswordFlowStep>().update((_) => ResetPasswordFlowStep.withPhone),

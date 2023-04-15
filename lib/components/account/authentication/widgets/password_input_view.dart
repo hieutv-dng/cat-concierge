@@ -68,8 +68,8 @@ class PasswordInputViewState extends State<PasswordInputView> {
                     child: isObscurePass
                         // ? SvgPicture.asset(MySvgs.ic_eye_hide, colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn))
                         // : SvgPicture.asset(MySvgs.ic_eye_show, colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn))),
-                        ? SvgPicture.asset(MySvgs.ic_eye_hide, color: Colors.grey)
-                        : SvgPicture.asset(MySvgs.ic_eye_show, color: Colors.grey)),
+                        ? SvgPicture.asset(MySvgs.ic_user, color: Colors.grey)
+                        : SvgPicture.asset(MySvgs.ic_user, color: Colors.grey)),
               ),
             ),
           ),

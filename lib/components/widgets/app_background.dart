@@ -7,12 +7,11 @@
  * Modified By: Hieu Tran
  */
 
+import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/index.dart';
-
-class BackgroundMain extends StatelessWidget {
-  const BackgroundMain({
+class AppBackground extends StatelessWidget {
+  const AppBackground({
     super.key,
     required this.child,
   });
