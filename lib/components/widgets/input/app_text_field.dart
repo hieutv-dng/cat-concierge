@@ -7,11 +7,11 @@
  * Modified By: Dương Trí
  */
 
+import 'package:cat_concierge/components/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../core/index.dart';
-import '../index.dart';
+import 'one_text_field.dart';
 
 class AppTextField extends StatelessWidget {
   const AppTextField({
@@ -33,6 +33,7 @@ class AppTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return OneTextField(
       text: text,
       onChanged: (value) => onChanged,
@@ -42,31 +43,14 @@ class AppTextField extends StatelessWidget {
         hintText: hintText,
         filled: true,
         fillColor: Colors.white,
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16.0),
-          borderSide: const BorderSide(
-            color: AppColors.primary,
-            width: 2.0,
-          ),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16.0),
-          borderSide: const BorderSide(
-            color: AppColors.lightGreyDark,
-            width: 1.0,
-          ),
-        ),
         suffixIcon: (suffixIcon != null)
             ? InkWell(
                 onTap: () {},
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-                  child: SvgPicture.asset(
-                    suffixIcon!,
-                    color: Colors.grey,
-                    width: 24,
-                    height: 24,
-                  ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(suffixIcon!, width: 16, height: 16),
+                  ],
                 ),
               )
             : null,

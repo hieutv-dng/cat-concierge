@@ -15,16 +15,19 @@ class MySvgs {
 
   static const String logo = 'assets/logo/ic_launcher.svg';
   static const String logo_transparent = 'assets/logo/ic_launcher_transparent.svg';
-  static const String ic_caret_right = 'assets/svgs/ic_caret_right.svg';
-  static const String ic_arrow_right = 'assets/svgs/ic_arrow_right.svg';
   static const String ic_arrows_down_up = 'assets/svgs/ic_arrows_down_up.svg';
+  static const String ic_arrow_right = 'assets/svgs/ic_arrow_right.svg';
   static const String ic_bell_ringing = 'assets/svgs/ic_bell_ringing.svg';
   static const String ic_calendar_blank = 'assets/svgs/ic_calendar_blank.svg';
+  static const String ic_caret_down = 'assets/svgs/ic_caret_down.svg';
   static const String ic_caret_left = 'assets/svgs/ic_caret_left.svg';
+  static const String ic_caret_right = 'assets/svgs/ic_caret_right.svg';
+  static const String ic_caret_up = 'assets/svgs/ic_caret_up.svg';
   static const String ic_cat = 'assets/svgs/ic_cat.svg';
   static const String ic_check_circle = 'assets/svgs/ic_check_circle.svg';
   static const String ic_check = 'assets/svgs/ic_check.svg';
   static const String ic_close = 'assets/svgs/ic_close.svg';
+  static const String ic_down_arrow = 'assets/svgs/ic_down_arrow.svg';
   static const String ic_eye_slash = 'assets/svgs/ic_eye_slash.svg';
   static const String ic_eye = 'assets/svgs/ic_eye.svg';
   static const String ic_globe_simple = 'assets/svgs/ic_globe_simple.svg';
@@ -43,6 +46,7 @@ class MySvgs {
   static const String ic_user_circle = 'assets/svgs/ic_user_circle.svg';
   static const String ic_user = 'assets/svgs/ic_user.svg';
   static const String ic_warning = 'assets/svgs/ic_warning.svg';
+  static const String illustration_pet_profile = 'assets/svgs/illustration_pet_profile.svg';
   static const String kittest_mask = 'assets/svgs/kittest_mask.svg';
 }
 

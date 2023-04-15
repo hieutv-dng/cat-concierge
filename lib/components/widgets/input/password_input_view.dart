@@ -11,7 +11,6 @@ import 'package:cat_concierge/components/index.dart';
 import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:one/one.dart';
 
 class PasswordInputView extends StatefulWidget {
   const PasswordInputView({
@@ -39,37 +38,29 @@ class PasswordInputViewState extends State<PasswordInputView> {
             obscureText: isObscurePass,
             decoration: InputDecoration(
               hintText: widget.hintText,
-              hintStyle: theme.textTheme.bodyLarge?.copyWith(
-                color: AppColors.textHintColor,
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-              ),
-              fillColor: Colors.white,
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16.0),
-                borderSide: const BorderSide(
-                  color: AppColors.primary,
-                  width: 2.0,
-                ),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16.0),
-                borderSide: const BorderSide(
-                  color: AppColors.lightGreyDark,
-                  width: 1.0,
-                ),
-              ),
               suffixIcon: InkWell(
                 onTap: () {
                   _isObscurePass.value = !_isObscurePass.value;
                 },
-                child: Padding(
-                    padding: theme.spacing.edgeInsets,
-                    child: isObscurePass
-                        // ? SvgPicture.asset(MySvgs.ic_eye_hide, colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn))
-                        // : SvgPicture.asset(MySvgs.ic_eye_show, colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn))),
-                        ? SvgPicture.asset(MySvgs.ic_user, color: Colors.grey)
-                        : SvgPicture.asset(MySvgs.ic_user, color: Colors.grey)),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (isObscurePass)
+                      SvgPicture.asset(
+                        MySvgs.ic_eye,
+                        colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+                        width: 24,
+                        height: 24,
+                      )
+                    else
+                      SvgPicture.asset(
+                        MySvgs.ic_eye_slash,
+                        colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+                        width: 24,
+                        height: 24,
+                      ),
+                  ],
+                ),
               ),
             ),
           ),
