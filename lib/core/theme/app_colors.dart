@@ -34,6 +34,8 @@ abstract class AppColors {
 
   static const textHintColor = Color(0xFF8F9098);
 
+  static const text1F1F1F = Color(0xFF1F1F1F);
+
   static const LinearGradient gradientMain = LinearGradient(
     colors: [Color(0xFFB9D2FF), Color(0xFFFFFFFF)],
     begin: Alignment(0, -1),

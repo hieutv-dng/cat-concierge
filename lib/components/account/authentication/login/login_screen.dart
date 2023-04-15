@@ -15,6 +15,7 @@ import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
 
+import '../../../widgets/app_text_filed.dart';
 import 'controller/login_controller.dart';
 
 class LoginScreen extends GetView<LoginController> {
@@ -58,7 +59,10 @@ class LoginScreen extends GetView<LoginController> {
                 ),
                 Padding(
                   padding: theme.spacing.smallEdgeInsets,
-                  child: _AccountInput(),
+                  child: const AppTextField(
+                    hintText: 'Email Address',
+                  ),
+                  // child: _AccountInput(),
                 ),
                 Padding(
                   padding: theme.spacing.smallEdgeInsets,
@@ -110,7 +114,8 @@ class LoginScreen extends GetView<LoginController> {
             fontWeight: FontWeight.w600,
           ),
         ),
-        onTap: () => Get.offAllNamed('/'),
+        onTap: () => Get.toNamed('/pet-profile-create'),
+        // onTap: () => Get.offAllNamed('/'),
       ),
     );
   }
@@ -120,12 +125,9 @@ class LoginScreen extends GetView<LoginController> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('Do not have account?',
-            style: theme.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w500, color: Colors.black, fontSize: 12)),
+        Text('Do not have account?', style: theme.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w500, color: Colors.black, fontSize: 12)),
         OneButton.text(
-          label: Text('Register now',
-              style: theme.textTheme.bodySmall
-                  ?.copyWith(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 12)),
+          label: Text('Register now', style: theme.textTheme.bodySmall?.copyWith(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 12)),
           onTap: () => context.flow<AuthenticationFlowStep>().update((_) => AuthenticationFlowStep.signUp),
         ),
       ],

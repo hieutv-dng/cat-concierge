@@ -8,6 +8,7 @@
  */
 
 import 'package:cat_concierge/components/index.dart';
+import 'package:cat_concierge/components/pet_profile/pet_profile_create_page.dart';
 import 'package:get/get.dart';
 
 import 'app_get_page.dart';
@@ -30,16 +31,14 @@ class AppRoutes {
         MainPageBinding(),
       ],
     ),
-    AppGetPage<AuthenticationFlow>(
-        name: '/authentication', page: () => const AuthenticationFlow(), binding: AuthenticationFlowBinding()),
-    AppGetPage<ResetPasswordFlow>(
-        name: '/reset-password', page: () => const ResetPasswordFlow(), binding: ResetPasswordFlowBinding()),
-    AppGetPage<LookupShopFlow>(
-        name: '/lookup-shop', page: () => const LookupShopFlow(), binding: LookupShopFlowBinding()),
+    AppGetPage<AuthenticationFlow>(name: '/authentication', page: () => const AuthenticationFlow(), binding: AuthenticationFlowBinding()),
+    AppGetPage<ResetPasswordFlow>(name: '/reset-password', page: () => const ResetPasswordFlow(), binding: ResetPasswordFlowBinding()),
+    AppGetPage<LookupShopFlow>(name: '/lookup-shop', page: () => const LookupShopFlow(), binding: LookupShopFlowBinding()),
     AppGetPage<MainPage>(name: '/', page: () => const MainPage(), binding: MainPageBinding()),
     AppGetPage<ProfilePage>(name: '/profile', page: () => const ProfilePage()),
     AppGetPage<EditProfilePage>(name: '/edit-profile', page: () => const EditProfilePage()),
     AppGetPage<PrivacyPolicyPage>(name: '/privacy-policy', page: () => const PrivacyPolicyPage()),
-    AppGetPage<PrivacyPolicyPage>(name: '/help-center', page: () => const HelpCenterPage())
+    AppGetPage<PrivacyPolicyPage>(name: '/help-center', page: () => const HelpCenterPage()),
+    AppGetPage<ProfilePage>(name: '/pet-profile-create', page: () => const PetProfileCreatePage()),
   ];
 }

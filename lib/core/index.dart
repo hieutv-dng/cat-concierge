@@ -9,6 +9,7 @@ export 'router/app_get_page.dart';
 export 'router/app_routes.dart';
 export 'router/handle_redirect_middleware.dart';
 export 'theme/app_colors.dart';
+export 'theme/app_text_style.dart';
 export 'theme/app_theme.dart';
 export 'theme/app_theme_data.dart';
 export 'theme/predefined_themes.dart';
