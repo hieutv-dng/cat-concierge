@@ -1,17 +1,17 @@
 /*
- * File: privacy_policy_page.dart
- * File Created: Monday, 20th February 2023 9:58:09 pm
- * Author: Bruce Blake (hieutv)
+ * File: privacy_page.dart
+ * File Created: Thursday, 13th April 2023 9:46:19 pm
+ * Author: Hieu Tran
  * -----
- * Last Modified: Monday, 20th February 2023 10:02:28 pm
- * Modified By: Bruce Blake (hieutv)
+ * Last Modified: Sunday, 16th April 2023 11:41:40 pm
+ * Modified By: Hieu Tran
  */
 
 import 'package:flutter/material.dart';
 import 'package:one/one.dart';
 
-class PrivacyPolicyPage extends StatelessWidget {
-  const PrivacyPolicyPage({super.key});
+class PrivacyPage extends StatelessWidget {
+  const PrivacyPage({super.key});
 
   @override
   Widget build(BuildContext context) {

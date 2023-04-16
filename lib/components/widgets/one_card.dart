@@ -47,6 +47,8 @@ class OneCard extends StatelessWidget {
           ),
         ),
         ClipRRect(
+          clipBehavior: Clip.hardEdge,
+          borderRadius: borderRadius ?? theme.shape.borderRadius,
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
             child: Container(

@@ -30,14 +30,16 @@ class AppRoutes {
         MainPageBinding(),
       ],
     ),
-    AppGetPage<AuthenticationFlow>(name: '/authentication', page: () => const AuthenticationFlow(), binding: AuthenticationFlowBinding()),
-    AppGetPage<ResetPasswordFlow>(name: '/reset-password', page: () => const ResetPasswordFlow(), binding: ResetPasswordFlowBinding()),
-    AppGetPage<LookupShopFlow>(name: '/lookup-shop', page: () => const LookupShopFlow(), binding: LookupShopFlowBinding()),
+    AppGetPage<AuthenticationFlow>(
+        name: '/authentication', page: () => const AuthenticationFlow(), binding: AuthenticationFlowBinding()),
+    AppGetPage<ResetPasswordFlow>(
+        name: '/reset-password', page: () => const ResetPasswordFlow(), binding: ResetPasswordFlowBinding()),
+    AppGetPage<LookupShopFlow>(
+        name: '/lookup-shop', page: () => const LookupShopFlow(), binding: LookupShopFlowBinding()),
     AppGetPage<MainPage>(name: '/', page: () => const MainPage(), binding: MainPageBinding()),
     AppGetPage<ProfilePage>(name: '/profile', page: () => const ProfilePage()),
     AppGetPage<EditProfilePage>(name: '/edit-profile', page: () => const EditProfilePage()),
-    AppGetPage<PrivacyPolicyPage>(name: '/privacy-policy', page: () => const PrivacyPolicyPage()),
-    AppGetPage<PrivacyPolicyPage>(name: '/help-center', page: () => const HelpCenterPage()),
+    AppGetPage<PrivacyPage>(name: '/privacy', page: () => const PrivacyPage()),
     AppGetPage<ProfilePage>(name: '/pet-profile-create', page: () => const PetProfileCreatePage()),
     AppGetPage<ProfilePage>(name: '/pet-step-create', page: () => const PetStepPage()),
   ];

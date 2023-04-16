@@ -29,6 +29,7 @@ class MainPage extends GetView<MainPageController> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
+      backgroundColor: Colors.white,
       body: PageView(
         controller: controller.pageController,
         physics: const NeverScrollableScrollPhysics(),

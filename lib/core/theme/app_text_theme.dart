@@ -115,13 +115,13 @@ class AppTextTheme {
         // body
         bodyLarge: _applyBodyFont(
           const TextStyle(
-            fontSize: 14,
+            fontSize: 16,
             fontFamilyFallback: _fontFamilyFallback,
           ),
         ),
         bodyMedium: _applyBodyFont(
           const TextStyle(
-            fontSize: 16,
+            fontSize: 14,
             fontFamilyFallback: _fontFamilyFallback,
           ),
         ),
