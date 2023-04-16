@@ -1,18 +1,20 @@
 /*
- * File: pet_family_item.dart
- * File Created: Sunday, 16th April 2023 11:00:55 pm
+ * File: result_card_item.dart
+ * File Created: Monday, 17th April 2023 12:35:00 am
  * Author: Hieu Tran
  * -----
- * Last Modified: Sunday, 16th April 2023 11:01:10 pm
+ * Last Modified: Monday, 17th April 2023 12:37:49 am
  * Modified By: Hieu Tran
  */
 
 import 'package:cat_concierge/components/index.dart';
+import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:one/one.dart';
 
-class PetFamilyItem extends StatelessWidget {
-  const PetFamilyItem({
+class ResultCardItem extends StatelessWidget {
+  const ResultCardItem({
     super.key,
     required this.title,
     required this.subtitle,
@@ -36,11 +38,14 @@ class PetFamilyItem extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  width: theme.spacing.large,
-                  height: theme.spacing.large,
                   decoration: BoxDecoration(
-                    color: theme.primaryColor,
+                    color: AppColors.primaryLightest,
                     borderRadius: theme.shape.borderRadius,
+                  ),
+                  padding: theme.spacing.smallEdgeInsets,
+                  child: SvgPicture.asset(
+                    MySvgs.ic_test_tube,
+                    colorFilter: ColorFilter.mode(theme.primaryColor, BlendMode.srcIn),
                   ),
                 ),
                 SizedBox(width: theme.spacing.base),
@@ -48,7 +53,8 @@ class PetFamilyItem extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(title, style: theme.textTheme.bodyMedium),
+                      Text(title, style: theme.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w900)),
+                      SizedBox(height: theme.spacing.small * .5),
                       Text(subtitle, style: theme.textTheme.bodySmall),
                     ],
                   ),

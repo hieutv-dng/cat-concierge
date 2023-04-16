@@ -32,8 +32,8 @@ abstract class AppColors {
   static const successDark = Color(0xFF4CC792);
   static const successLight = Color(0xFFBCE8D5);
 
+  static const text = Color(0xFF171332);
   static const textHintColor = Color(0xFF8F9098);
-
   static const text1F1F1F = Color(0xFF1F1F1F);
 
   static const LinearGradient gradientMain = LinearGradient(

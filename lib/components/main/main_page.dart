@@ -36,7 +36,7 @@ class MainPage extends GetView<MainPageController> {
         children: const [
           HomePage(),
           SizedBox(),
-          ProfilePage(),
+          ResultsPage(),
         ],
       ),
       bottomNavigationBar: Obx(() {

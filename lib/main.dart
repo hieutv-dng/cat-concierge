@@ -126,7 +126,7 @@ class _MyAppState extends State<MyApp> {
 
     return Obx(() {
       return GetMaterialApp(
-        title: 'Invoice TM',
+        title: 'Cat Concierge',
         // restorationScopeId: 'app',
         debugShowCheckedModeBanner: false,
         color: Get.isDarkMode ? Colors.black : Colors.white,
@@ -136,7 +136,7 @@ class _MyAppState extends State<MyApp> {
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
-        initialRoute: '/authentication',
+        initialRoute: '/',
         initialBinding: InitialBinding(),
         getPages: AppRoutes.routes,
         builder: EasyLoading.init(),

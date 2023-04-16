@@ -31,7 +31,7 @@ class AppTextTheme {
   late final TextTheme textTheme;
 
   void _setupTextTheme() {
-    final typography = _brightness == Brightness.light ? Typography.blackMountainView : Typography.whiteMountainView;
+    final typography = _brightness == Brightness.light ? Typography.blackRedmond : Typography.whiteMountainView;
 
     textTheme = typography.merge(
       TextTheme(
@@ -39,23 +39,18 @@ class AppTextTheme {
         displayLarge: _applyDisplayFont(
           const TextStyle(
             fontSize: 64,
-            letterSpacing: 1.6,
-            fontWeight: FontWeight.w300,
             fontFamilyFallback: _fontFamilyFallback,
           ),
         ),
         displayMedium: _applyDisplayFont(
           const TextStyle(
             fontSize: 48,
-            letterSpacing: 1.3,
-            fontWeight: FontWeight.w300,
             fontFamilyFallback: _fontFamilyFallback,
           ),
         ),
         displaySmall: _applyDisplayFont(
           const TextStyle(
-            fontSize: 48,
-            letterSpacing: 0,
+            fontSize: 32,
             fontFamilyFallback: _fontFamilyFallback,
           ),
         ),
@@ -64,24 +59,19 @@ class AppTextTheme {
         headlineLarge: _applyDisplayFont(
           const TextStyle(
             fontSize: 22,
-            letterSpacing: 1.3,
-            fontWeight: FontWeight.w300,
+            fontWeight: FontWeight.bold,
             fontFamilyFallback: _fontFamilyFallback,
           ),
         ),
         headlineMedium: _applyDisplayFont(
           const TextStyle(
-            fontSize: 18,
-            letterSpacing: 1.3,
-            fontWeight: FontWeight.w300,
+            fontSize: 20,
             fontFamilyFallback: _fontFamilyFallback,
           ),
         ),
         headlineSmall: _applyDisplayFont(
           const TextStyle(
-            fontSize: 20,
-            letterSpacing: 1.3,
-            fontWeight: FontWeight.w300,
+            fontSize: 18,
             fontFamilyFallback: _fontFamilyFallback,
           ),
         ),
@@ -90,24 +80,18 @@ class AppTextTheme {
         titleLarge: _applyDisplayFont(
           const TextStyle(
             fontSize: 20,
-            letterSpacing: 1.3,
-            fontWeight: FontWeight.w300,
             fontFamilyFallback: _fontFamilyFallback,
           ),
         ),
         titleMedium: _applyDisplayFont(
           const TextStyle(
             fontSize: 18,
-            letterSpacing: 1,
-            fontWeight: FontWeight.w300,
             fontFamilyFallback: _fontFamilyFallback,
           ),
         ),
         titleSmall: _applyDisplayFont(
           const TextStyle(
-            height: 1.1,
             fontSize: 16,
-            fontWeight: FontWeight.w300,
             fontFamilyFallback: _fontFamilyFallback,
           ),
         ),
@@ -128,7 +112,6 @@ class AppTextTheme {
         bodySmall: _applyBodyFont(
           const TextStyle(
             fontSize: 12,
-            letterSpacing: .4,
             fontFamilyFallback: _fontFamilyFallback,
           ),
         ),
@@ -137,26 +120,25 @@ class AppTextTheme {
         labelLarge: _applyDisplayFont(
           const TextStyle(
             fontSize: 16,
-            letterSpacing: 1.2,
             fontFamilyFallback: _fontFamilyFallback,
           ),
         ),
         labelMedium: _applyDisplayFont(
           const TextStyle(
             fontSize: 14,
-            letterSpacing: 1.2,
             fontFamilyFallback: _fontFamilyFallback,
           ),
         ),
         labelSmall: _applyDisplayFont(
           const TextStyle(
             fontSize: 10,
-            letterSpacing: 1.5,
             fontFamilyFallback: _fontFamilyFallback,
           ),
         ),
       ).apply(
         fontSizeDelta: _fontSizeDelta,
+        bodyColor: AppColors.text,
+        displayColor: AppColors.text,
       ),
     );
   }

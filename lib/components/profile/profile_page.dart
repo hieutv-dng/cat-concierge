@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
 
-import 'widgets/pet_family_item.dart';
+import 'widgets/pet_family_card_item.dart';
 import 'widgets/setting_menu_tile.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -20,20 +20,20 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    // final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile'),
         centerTitle: true,
-        actions: [
-          InkWell(
-            child: Padding(
-              padding: theme.spacing.edgeInsets,
-              child: const Icon(Icons.close_rounded),
-            ),
-            onTap: () {},
-          ),
-        ],
+        // actions: [
+        //   InkWell(
+        //     child: Padding(
+        //       padding: theme.spacing.edgeInsets,
+        //       child: const Icon(Icons.close_rounded),
+        //     ),
+        //     onTap: () {},
+        //   ),
+        // ],
       ),
       body: SafeArea(child: _buildBody(context)),
     );
@@ -65,13 +65,13 @@ class ProfilePage extends StatelessWidget {
             style: theme.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
           ),
         ),
-        PetFamilyItem(
+        PetFamilyCardItem(
           title: 'John Doe',
           subtitle: 'john.doe@gmail.com',
           onTap: () {},
         ),
         SizedBox(height: theme.spacing.base),
-        PetFamilyItem(
+        PetFamilyCardItem(
           title: 'Pixel',
           subtitle: '5 years old',
           onTap: () {},
