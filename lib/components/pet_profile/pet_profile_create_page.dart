@@ -14,9 +14,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
 
-import '../account/authentication/register/controller/register_controller.dart';
+import 'controller/pet_profile_create_controller.dart';
 
-class PetProfileCreatePage extends GetView<RegisterController> {
+class PetProfileCreatePage extends GetView<PetProfileCreateController> {
   const PetProfileCreatePage({super.key});
 
   @override
@@ -71,7 +71,7 @@ class PetProfileCreatePage extends GetView<RegisterController> {
       child: OneButton.elevated(
         label: const Text('Let’s Go', style: TextStyle(color: Colors.white)),
         onTap: () {
-          // Get.toNamed('/lookup-shop');
+          Get.toNamed('/pet-step-create');
         },
       ),
     );

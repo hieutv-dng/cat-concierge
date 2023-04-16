@@ -48,6 +48,8 @@ class MySvgs {
   static const String ic_warning = 'assets/svgs/ic_warning.svg';
   static const String illustration_pet_profile = 'assets/svgs/illustration_pet_profile.svg';
   static const String kittest_mask = 'assets/svgs/kittest_mask.svg';
+  static const String ic_radio_false = 'assets/svgs/ic_radio_false.svg';
+  static const String ic_radio_true = 'assets/svgs/ic_radio_true.svg';
 }
 
 class Exception {

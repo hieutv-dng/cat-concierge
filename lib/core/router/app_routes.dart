@@ -8,7 +8,6 @@
  */
 
 import 'package:cat_concierge/components/index.dart';
-import 'package:cat_concierge/components/pet_profile/pet_profile_create_page.dart';
 import 'package:get/get.dart';
 
 import 'app_get_page.dart';
@@ -40,5 +39,6 @@ class AppRoutes {
     AppGetPage<PrivacyPolicyPage>(name: '/privacy-policy', page: () => const PrivacyPolicyPage()),
     AppGetPage<PrivacyPolicyPage>(name: '/help-center', page: () => const HelpCenterPage()),
     AppGetPage<ProfilePage>(name: '/pet-profile-create', page: () => const PetProfileCreatePage()),
+    AppGetPage<ProfilePage>(name: '/pet-step-create', page: () => const PetStepPage()),
   ];
 }

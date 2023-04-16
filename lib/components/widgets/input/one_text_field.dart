@@ -115,13 +115,13 @@ class _OneTextFieldState extends State<OneTextField> {
           style: theme.textTheme.bodyMedium,
           obscureText: widget.obscureText,
           decoration: widget.decoration.copyWith(
-            enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(
-                width: 2.0,
-                color: AppColors.lightGreyDark,
-              ),
-              borderRadius: theme.shape.borderRadius,
-            ),
+            // enabledBorder: OutlineInputBorder(
+            //   borderSide: const BorderSide(
+            //     width: 2.0,
+            //     color: AppColors.lightGreyDark,
+            //   ),
+            //   borderRadius: theme.shape.borderRadius,
+            // ),
             contentPadding: widget.decoration.contentPadding ?? contentPadding,
             hintStyle: theme.textTheme.labelMedium?.copyWith(
               color: AppColors.textHintColor,

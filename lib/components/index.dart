@@ -10,6 +10,8 @@ export 'main/home/controller/home_page_controller.dart';
 export 'main/home/home_page.dart';
 export 'main/main_page.dart';
 export 'main/main_page_controller.dart';
+export 'pet_profile/pet_profile_create_page.dart';
+export 'pet_profile_step/pet_step_page.dart';
 export 'profile/edit_profile/edit_profile_page.dart';
 export 'profile/help_center/help_center_page.dart';
 export 'profile/privacy_policy/privacy_policy_page.dart';
