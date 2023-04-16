@@ -72,7 +72,7 @@ class _OpenSupplementItemView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SvgPicture.asset(MySvgs.ic_more_vert),
+                  SvgPicture.asset(MySvgs.ic_user),
                 ],
               ),
               SizedBox(height: theme.spacing.base),

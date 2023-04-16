@@ -90,7 +90,7 @@ class _EmailInput extends StatelessWidget {
           border: InputBorder.none,
           prefixIcon: Padding(
             padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_mail),
+            child: SvgPicture.asset(MySvgs.ic_user),
           ),
         ),
       ),

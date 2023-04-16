@@ -109,7 +109,7 @@ class _TaxIdInput extends StatelessWidget {
           border: InputBorder.none,
           prefixIcon: Padding(
             padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user1),
+            child: SvgPicture.asset(MySvgs.ic_user),
           ),
         ),
       ),
@@ -130,7 +130,7 @@ class _ShopNameInput extends StatelessWidget {
           border: InputBorder.none,
           prefixIcon: Padding(
             padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_mail),
+            child: SvgPicture.asset(MySvgs.ic_user),
           ),
         ),
       ),
@@ -151,7 +151,7 @@ class _FirstNameInput extends StatelessWidget {
           border: InputBorder.none,
           prefixIcon: Padding(
             padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_mail),
+            child: SvgPicture.asset(MySvgs.ic_user),
           ),
         ),
       ),
@@ -172,7 +172,7 @@ class _LastNameInput extends StatelessWidget {
           border: InputBorder.none,
           prefixIcon: Padding(
             padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_mail),
+            child: SvgPicture.asset(MySvgs.ic_user),
           ),
         ),
       ),
@@ -193,7 +193,7 @@ class _Address1Input extends StatelessWidget {
           border: InputBorder.none,
           prefixIcon: Padding(
             padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_mail),
+            child: SvgPicture.asset(MySvgs.ic_user),
           ),
         ),
       ),
@@ -214,7 +214,7 @@ class _Address2Input extends StatelessWidget {
           border: InputBorder.none,
           prefixIcon: Padding(
             padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_mail),
+            child: SvgPicture.asset(MySvgs.ic_user),
           ),
         ),
       ),

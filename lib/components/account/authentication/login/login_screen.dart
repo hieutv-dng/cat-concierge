@@ -15,7 +15,6 @@ import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
 
-import '../../../widgets/app_text_filed.dart';
 import 'controller/login_controller.dart';
 
 class LoginScreen extends GetView<LoginController> {
@@ -59,9 +58,7 @@ class LoginScreen extends GetView<LoginController> {
                 ),
                 Padding(
                   padding: theme.spacing.smallEdgeInsets,
-                  child: const AppTextField(
-                    hintText: 'Email Address',
-                  ),
+                  child: _AccountInput(),
                   // child: _AccountInput(),
                 ),
                 Padding(
@@ -125,9 +122,12 @@ class LoginScreen extends GetView<LoginController> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('Do not have account?', style: theme.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w500, color: Colors.black, fontSize: 12)),
+        Text('Do not have account?',
+            style: theme.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w500, color: Colors.black, fontSize: 12)),
         OneButton.text(
-          label: Text('Register now', style: theme.textTheme.bodySmall?.copyWith(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 12)),
+          label: Text('Register now',
+              style: theme.textTheme.bodySmall
+                  ?.copyWith(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 12)),
           onTap: () => context.flow<AuthenticationFlowStep>().update((_) => AuthenticationFlowStep.signUp),
         ),
       ],
@@ -138,33 +138,12 @@ class LoginScreen extends GetView<LoginController> {
 class _AccountInput extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Card(
       child: OneTextField(
         onChanged: (value) {},
         autofocus: true,
-        decoration: InputDecoration(
-          hintStyle: theme.textTheme.bodyLarge?.copyWith(
-            color: AppColors.textHintColor,
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-          ),
+        decoration: const InputDecoration(
           hintText: 'Email Address',
-          fillColor: Colors.white,
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16.0),
-            borderSide: const BorderSide(
-              color: AppColors.primary,
-              width: 2.0,
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16.0),
-            borderSide: const BorderSide(
-              color: AppColors.lightGreyDark,
-              width: 1.0,
-            ),
-          ),
         ),
       ),
     );

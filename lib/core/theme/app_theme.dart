@@ -100,6 +100,7 @@ class AppTheme {
         scrolledUnderElevation: 0,
         color: colors.averageBackgroundColor,
         centerTitle: true,
+        titleTextStyle: text.textTheme.labelLarge?.copyWith(fontWeight: FontWeight.bold),
       ),
       dividerTheme: DividerThemeData(thickness: .6, color: theme.data.dividerColor),
     );

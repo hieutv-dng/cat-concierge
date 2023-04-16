@@ -14,9 +14,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
+import 'package:tuple/tuple.dart';
 
 class MainPage extends GetView<MainPageController> {
   const MainPage({super.key});
+
+  List<Tuple2<String, String>> get _barItems => const [
+        Tuple2('Home', MySvgs.ic_house),
+        Tuple2('Scan Test', MySvgs.ic_scan),
+        Tuple2('Results', MySvgs.ic_tube),
+      ];
 
   @override
   Widget build(BuildContext context) {
@@ -28,87 +35,33 @@ class MainPage extends GetView<MainPageController> {
         children: const [
           HomePage(),
           SizedBox(),
-          SizedBox(),
           ProfilePage(),
         ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: ElevatedButton(
-        style: theme.textButtonTheme.style?.copyWith(
-          padding: MaterialStateProperty.all(theme.spacing.smallEdgeInsets),
-          shape: MaterialStateProperty.all(const CircleBorder()),
-        ),
-        onPressed: () {},
-        child: Icon(Icons.add_rounded, size: theme.spacing.large, color: Colors.white),
-      ),
       bottomNavigationBar: Obx(() {
         return AnimatedBottomNavigationBar.builder(
-          itemCount: 4,
+          itemCount: _barItems.length,
           tabBuilder: (index, isActive) {
-            final color = isActive ? theme.primaryColor : Colors.grey;
+            final color = isActive ? AppColors.highlight : AppColors.darkGreyLightest;
+            final item = _barItems[index];
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Builder(builder: (context) {
-                  switch (index) {
-                    case 0:
-                      return SvgPicture.asset(MySvgs.ic_dashboard,
-                          colorFilter: ColorFilter.mode(color, BlendMode.srcIn));
-                    case 1:
-                      return SvgPicture.asset(MySvgs.ic_note_book,
-                          colorFilter: ColorFilter.mode(color, BlendMode.srcIn));
-                    case 2:
-                      return SvgPicture.asset(MySvgs.ic_chat, colorFilter: ColorFilter.mode(color, BlendMode.srcIn));
-                    case 3:
-                      return SvgPicture.asset(MySvgs.ic_user2, colorFilter: ColorFilter.mode(color, BlendMode.srcIn));
-                    default:
-                      return SvgPicture.asset(MySvgs.ic_dashboard,
-                          colorFilter: ColorFilter.mode(color, BlendMode.srcIn));
-                  }
-                }),
+                SvgPicture.asset(item.item2, colorFilter: ColorFilter.mode(color, BlendMode.srcIn)),
+                Text(
+                  item.item1,
+                  style: theme.textTheme.bodySmall?.copyWith(color: color),
+                ),
               ],
             );
           },
-          gapLocation: GapLocation.center,
+          gapLocation: GapLocation.none,
           leftCornerRadius: theme.spacing.large,
           rightCornerRadius: theme.spacing.large,
-          notchSmoothness: NotchSmoothness.softEdge,
           activeIndex: controller.currentPageIndex,
           onTap: (index) => controller.currentPageIndex = index,
         );
       }),
-      // bottomNavigationBar: Obx(() {
-      //   return BottomNavigationBar(
-      //     selectedItemColor: theme.colorScheme.primary,
-      //     showSelectedLabels: false,
-      //     showUnselectedLabels: false,
-      //     type: BottomNavigationBarType.fixed,
-      //     items: [
-      //       BottomNavigationBarItem(
-      //         icon: SvgPicture.asset(MySvgs.ic_dashboard),
-      //         activeIcon: SvgPicture.asset(MySvgs.ic_dashboard, color: theme.primaryColor),
-      //         label: 'Home',
-      //       ),
-      //       BottomNavigationBarItem(
-      //         icon: SvgPicture.asset(MySvgs.ic_note_book),
-      //         activeIcon: SvgPicture.asset(MySvgs.ic_note_book, color: theme.primaryColor),
-      //         label: 'Add',
-      //       ),
-      //       BottomNavigationBarItem(
-      //         icon: SvgPicture.asset(MySvgs.ic_chat),
-      //         activeIcon: SvgPicture.asset(MySvgs.ic_chat, color: theme.primaryColor),
-      //         label: 'Chat',
-      //       ),
-      //       BottomNavigationBarItem(
-      //         icon: SvgPicture.asset(MySvgs.ic_user2),
-      //         activeIcon: SvgPicture.asset(MySvgs.ic_user2, color: theme.primaryColor),
-      //         label: 'Profile ',
-      //       ),
-      //     ],
-      //     currentIndex: controller.currentPageIndex,
-      //     onTap: (index) => controller.currentPageIndex = index,
-      //   );
-      // }),
     );
   }
 }

@@ -97,7 +97,7 @@ class AppTextTheme {
         ),
         titleMedium: _applyDisplayFont(
           const TextStyle(
-            fontSize: 16,
+            fontSize: 18,
             letterSpacing: 1,
             fontWeight: FontWeight.w300,
             fontFamilyFallback: _fontFamilyFallback,

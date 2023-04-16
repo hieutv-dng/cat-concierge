@@ -153,7 +153,7 @@ class _SearchInput extends StatelessWidget {
           border: InputBorder.none,
           prefixIcon: Padding(
             padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_search),
+            child: SvgPicture.asset(MySvgs.ic_user),
           ),
         ),
       ),

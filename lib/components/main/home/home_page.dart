@@ -12,11 +12,11 @@ import 'dart:io';
 import 'package:cat_concierge/components/index.dart';
 import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import '../../widgets/background_main.dart';
 import 'widgets/scan_test_cardview.dart';
 
 class HomePage extends StatefulWidget {
@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundMain(
+    return AppBackground(
       child: SafeArea(
         child: NestedScrollView(
           floatHeaderSlivers: true,
@@ -74,20 +74,21 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Hi, John and Pixel', maxLines: 1, style: theme.textTheme.labelMedium?.copyWith(fontWeight: FontWeight.bold)),
+                  Text('Hi, John and Pixel',
+                      maxLines: 1, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
                   const SizedBox(height: 6),
                   Text('Let’s get learning', maxLines: 1, style: theme.textTheme.labelSmall),
                 ],
               ),
             ),
           ),
-          _buildNotificationBtn(context)
+          _buildProfileBtn(context),
         ],
       ),
     );
   }
 
-  Widget _buildNotificationBtn(BuildContext context) {
+  Widget _buildProfileBtn(BuildContext context) {
     final theme = Theme.of(context);
     return Material(
       color: Colors.transparent,
@@ -97,7 +98,10 @@ class _HomePageState extends State<HomePage> {
         foregroundColor: AppColors.primary,
         child: Padding(
           padding: theme.spacing.smallEdgeInsets,
-          child: const Icon(Icons.person_outline_rounded),
+          child: SvgPicture.asset(
+            MySvgs.ic_user,
+            colorFilter: ColorFilter.mode(theme.primaryColor, BlendMode.srcIn),
+          ),
         ),
         onPressed: () => Get.toNamed('/profile'),
       ),

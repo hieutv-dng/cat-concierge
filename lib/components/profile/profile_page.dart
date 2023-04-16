@@ -30,14 +30,7 @@ class ProfilePage extends StatelessWidget {
           InkWell(
             child: Padding(
               padding: theme.spacing.smallEdgeInsets,
-              child: SvgPicture.asset(MySvgs.ic_search),
-            ),
-            onTap: () {},
-          ),
-          InkWell(
-            child: Padding(
-              padding: theme.spacing.smallEdgeInsets,
-              child: SvgPicture.asset(MySvgs.ic_settings),
+              child: SvgPicture.asset(MySvgs.ic_close),
             ),
             onTap: () {},
           ),
@@ -53,22 +46,9 @@ class ProfilePage extends StatelessWidget {
       padding: theme.spacing.edgeInsets,
       child: Column(
         children: [
-          Container(
-            height: 100,
-            decoration: const BoxDecoration(
-              color: Colors.grey,
-              shape: BoxShape.circle,
-            ),
-          ),
-          SizedBox(height: theme.spacing.base),
-          Text('Bobs Auto Body', style: theme.textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold)),
-          SizedBox(height: theme.spacing.small * .5),
-          Text('rafiislamapon2001@workmail.com', style: theme.textTheme.bodySmall),
-          SizedBox(height: theme.spacing.large),
-          _buildEditBtn(context),
           SizedBox(height: theme.spacing.large),
           ProfileMenuTile(
-            leadingIcon: SvgPicture.asset(MySvgs.ic_lifebuoy),
+            leadingIcon: SvgPicture.asset(MySvgs.ic_user),
             title: 'Help Center',
             onTap: () => Get.toNamed('/help-center'),
           ),
@@ -83,7 +63,7 @@ class ProfilePage extends StatelessWidget {
             onTap: () => Get.toNamed('/privacy-policy'),
           ),
           ProfileMenuTile(
-            leadingIcon: SvgPicture.asset(MySvgs.ic_logout),
+            leadingIcon: SvgPicture.asset(MySvgs.ic_user),
             title: 'Log out',
             color: theme.colorScheme.error,
             onTap: () {

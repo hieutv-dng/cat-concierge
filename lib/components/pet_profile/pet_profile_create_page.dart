@@ -43,7 +43,7 @@ class PetProfileCreatePage extends GetView<RegisterController> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SvgPicture.asset(MySvgs.logo_pet_profile),
+                SvgPicture.asset(MySvgs.illustration_pet_profile),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text('Hello, John Doe!', style: style.headingH1),

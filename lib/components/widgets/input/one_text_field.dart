@@ -9,6 +9,7 @@
 
 import 'dart:async';
 
+import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -111,10 +112,20 @@ class _OneTextFieldState extends State<OneTextField> {
           textAlign: widget.textAlign,
           textAlignVertical: TextAlignVertical.center,
           keyboardType: widget.keyboardType,
-          style: theme.textTheme.titleMedium,
+          style: theme.textTheme.bodyMedium,
           obscureText: widget.obscureText,
           decoration: widget.decoration.copyWith(
+            enabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(
+                width: 2.0,
+                color: AppColors.lightGreyDark,
+              ),
+              borderRadius: theme.shape.borderRadius,
+            ),
             contentPadding: widget.decoration.contentPadding ?? contentPadding,
+            hintStyle: theme.textTheme.labelMedium?.copyWith(
+              color: AppColors.textHintColor,
+            ),
             suffixIcon: _buildSuffixIcon(context, hasText),
           ),
         );

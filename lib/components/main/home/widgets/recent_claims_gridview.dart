@@ -65,10 +65,10 @@ class _RecentClaimItemView extends StatelessWidget {
                   SizedBox(height: theme.spacing.small),
                   Row(
                     children: [
-                      SvgPicture.asset(MySvgs.ic_calendar, width: theme.spacing.small * 1.5),
+                      SvgPicture.asset(MySvgs.ic_user, width: theme.spacing.small * 1.5),
                       Text('June28, 2022', style: theme.textTheme.labelSmall),
                       Text('•', style: theme.textTheme.labelSmall),
-                      SvgPicture.asset(MySvgs.ic_chat, width: theme.spacing.small * 1.5),
+                      SvgPicture.asset(MySvgs.ic_user, width: theme.spacing.small * 1.5),
                       Text('16', style: theme.textTheme.labelSmall),
                     ],
                   ),
