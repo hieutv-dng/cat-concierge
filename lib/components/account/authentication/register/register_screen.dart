@@ -75,9 +75,8 @@ class RegisterScreen extends GetView<RegisterController> {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: theme.spacing.small),
-                  child: Text(
-                      'Sorry, but your email should be between 6 and 30 characters.\nExample: taras12@gmail.com ',
-                      style: style.bodyXS.copyWith(color: AppColors.errorDark)),
+                  child:
+                      Text('Sorry, but your email should be between 6 and 30 characters.\nExample: taras12@gmail.com ', style: style.bodyXS.copyWith(color: AppColors.errorDark)),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: theme.spacing.small),
@@ -102,10 +101,13 @@ class RegisterScreen extends GetView<RegisterController> {
                 const SizedBox(height: 8),
                 const PasswordInputView(hintText: 'Confirm password'),
                 _buildCheckboxTermsAndPrivacy(context),
-                _buildNextBtn(context),
               ],
             ),
           ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+          child: _buildNextBtn(context),
         ),
         _buildSignInBtn(context),
       ],
