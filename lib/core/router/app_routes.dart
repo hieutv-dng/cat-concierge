@@ -39,9 +39,9 @@ class AppRoutes {
     AppGetPage<MainPage>(name: '/', page: () => const MainPage(), binding: MainPageBinding()),
     AppGetPage<ProfilePage>(name: '/profile', page: () => const ProfilePage()),
     AppGetPage<ResultsPage>(name: '/results', page: () => const ResultsPage()),
-    AppGetPage<EditProfilePage>(name: '/edit-profile', page: () => const EditProfilePage()),
+    AppGetPage<OwnerProfilePage>(name: '/owner-profile', page: () => const OwnerProfilePage()),
     AppGetPage<PrivacyPage>(name: '/privacy', page: () => const PrivacyPage()),
-    AppGetPage<ProfilePage>(name: '/pet-profile-create', page: () => const PetProfileCreatePage()),
-    AppGetPage<ProfilePage>(name: '/pet-step-create', page: () => const PetStepPage()),
+    AppGetPage<PetProfileCreatePage>(name: '/pet-profile-create', page: () => const PetProfileCreatePage()),
+    AppGetPage<PetStepPage>(name: '/pet-step-create', page: () => const PetStepPage(), binding: PetStepBinding()),
   ];
 }

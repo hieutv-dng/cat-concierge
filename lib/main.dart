@@ -136,7 +136,7 @@ class _MyAppState extends State<MyApp> {
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
-        initialRoute: '/',
+        initialRoute: '/authentication',
         initialBinding: InitialBinding(),
         getPages: AppRoutes.routes,
         builder: EasyLoading.init(),

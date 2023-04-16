@@ -7,11 +7,9 @@
  * Modified By: Dương Trí
  */
 
+import 'package:cat_concierge/components/index.dart';
 import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
-import 'package:one/one.dart';
-
-import '../../index.dart';
 
 class Step1Body extends StatelessWidget {
   const Step1Body({super.key});

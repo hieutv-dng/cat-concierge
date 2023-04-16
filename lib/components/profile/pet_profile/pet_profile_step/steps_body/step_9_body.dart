@@ -7,10 +7,9 @@
  * Modified By: Dương Trí
  */
 
+import 'package:cat_concierge/components/index.dart';
 import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
-
-import '../../index.dart';
 
 enum Frequencys { often, normally, rarely }
 

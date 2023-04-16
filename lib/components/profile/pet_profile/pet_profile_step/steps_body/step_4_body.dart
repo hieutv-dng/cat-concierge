@@ -1,27 +1,26 @@
 /*
- * File: step_10_body.dart
- * File Created: Sunday, 16th April 2023 10:58:36 pm
+ * File: step_4_body.dart
+ * File Created: Sunday, 16th April 2023 10:58:34 pm
  * Author: Dương Trí
  * -----
- * Last Modified: Monday, 17th April 2023 12:46:42 am
+ * Last Modified: Monday, 17th April 2023 12:32:19 am
  * Modified By: Dương Trí
  */
 
+import 'package:cat_concierge/components/index.dart';
 import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
 
-import '../../index.dart';
-
 enum Answer { yes, no }
 
-class Step10Body extends StatefulWidget {
-  const Step10Body({super.key});
+class Step4Body extends StatefulWidget {
+  const Step4Body({super.key});
 
   @override
-  State<Step10Body> createState() => _Step10BodyState();
+  State<Step4Body> createState() => _Step4BodyState();
 }
 
-class _Step10BodyState extends State<Step10Body> {
+class _Step4BodyState extends State<Step4Body> {
   Answer gender = Answer.yes;
   @override
   Widget build(BuildContext context) {
@@ -32,7 +31,7 @@ class _Step10BodyState extends State<Step10Body> {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 32.0),
-          child: Text('Does your cat have any medical conditions?', style: styles.headingH1, textAlign: TextAlign.start),
+          child: Text('Has your cat been neutered?', style: styles.headingH1, textAlign: TextAlign.start),
         ),
         AppTextField(
           readonly: true,

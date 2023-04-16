@@ -1,10 +1,10 @@
 /*
- * File: edit_profile_page.dart
- * File Created: Monday, 20th February 2023 9:53:50 pm
- * Author: Bruce Blake (hieutv)
+ * File: owner_profile_page.dart
+ * File Created: Sunday, 16th April 2023 3:07:45 am
+ * Author: Hieu Tran
  * -----
- * Last Modified: Monday, 20th February 2023 9:54:09 pm
- * Modified By: Bruce Blake (hieutv)
+ * Last Modified: Monday, 17th April 2023 2:03:36 am
+ * Modified By: Hieu Tran
  */
 
 import 'package:cat_concierge/components/index.dart';
@@ -14,8 +14,8 @@ import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:one/one.dart';
 
-class EditProfilePage extends StatelessWidget {
-  const EditProfilePage({super.key});
+class OwnerProfilePage extends StatelessWidget {
+  const OwnerProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {

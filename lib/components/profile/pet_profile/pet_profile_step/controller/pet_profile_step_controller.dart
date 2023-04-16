@@ -28,19 +28,18 @@ class PetStepController extends GetxController {
     super.onInit();
   }
 
-  int progressStep = 1;
+  final MAX_STEP = 14;
+  final _currentStep = 1.obs;
+  int get currentStep => _currentStep.value;
+  set currentStep(int step) => _currentStep.value = step;
+  void moveStepForward() {
+    _currentStep.value += 1;
+    if (currentStep == MAX_STEP) Get.offAllNamed('/');
+  }
 
-  void moveStep(bool onNext) {
-    if (onNext) {
-      progressStep += 1;
-    } else {
-      progressStep -= 1;
-    }
-    if (progressStep > 0) {
-      update();
-    } else {
-      Get.back();
-    }
+  void moveStepBackward() {
+    _currentStep.value -= 1;
+    if (currentStep == 0) Get.back();
   }
 
   final _stateController = const PetStepState().obs;

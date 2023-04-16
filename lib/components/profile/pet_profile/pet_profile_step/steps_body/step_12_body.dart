@@ -1,19 +1,18 @@
 /*
- * File: step_3_body.dart
- * File Created: Sunday, 16th April 2023 10:58:29 pm
+ * File: step_1_body.dart
+ * File Created: Sunday, 16th April 2023 10:30:47 pm
  * Author: Dương Trí
  * -----
- * Last Modified: Monday, 17th April 2023 12:29:39 am
+ * Last Modified: Sunday, 16th April 2023 10:30:51 pm
  * Modified By: Dương Trí
  */
 
+import 'package:cat_concierge/components/index.dart';
 import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
 
-import '../../index.dart';
-
-class Step3Body extends StatelessWidget {
-  const Step3Body({super.key});
+class Step1Body extends StatelessWidget {
+  const Step1Body({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +23,11 @@ class Step3Body extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 32.0),
-          child: Text('How old is your kitty?', style: styles.headingH1, textAlign: TextAlign.start),
+          child: Text('What is your cat called?', style: styles.headingH1, textAlign: TextAlign.start),
         ),
         const AppTextField(
-          hintText: '1 year',
-          keyboardType: TextInputType.number,
+          hintText: 'Name',
+          title: 'Name',
         ),
       ],
     );
