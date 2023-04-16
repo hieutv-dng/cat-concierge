@@ -15,7 +15,7 @@ const predefinedProThemes = [
 
 const _default = AppThemeData(
   name: 'default',
-  backgroundColors: [0xffffffff],
+  backgroundColors: [0xffF7FAFF],
   primaryColor: 0xFF275FC4,
   secondaryColor: 0xff4b8bfd,
   cardColor: 0xffffffff,

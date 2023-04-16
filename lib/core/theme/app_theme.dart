@@ -71,8 +71,10 @@ class AppTheme {
       //
       iconTheme: IconThemeData(
         color: colors.onBackground,
+        // color: colors.primary,
         opacity: 1,
-        size: 20 + _fontSizeDelta,
+        // size: 20 + _fontSizeDelta,
+        size: 24 + _fontSizeDelta,
       ),
       cardTheme: CardTheme(
         color: colors.cardColor,
@@ -101,8 +103,12 @@ class AppTheme {
         color: colors.averageBackgroundColor,
         centerTitle: true,
         titleTextStyle: text.textTheme.labelLarge?.copyWith(fontWeight: FontWeight.bold),
+        iconTheme: IconThemeData(color: theme.data.primaryColor, size: 24 + _fontSizeDelta),
       ),
       dividerTheme: DividerThemeData(thickness: .6, color: theme.data.dividerColor),
+      listTileTheme: ListTileThemeData(
+        iconColor: theme.data.primaryColor,
+      ),
     );
   }
 

@@ -8,13 +8,12 @@
  */
 
 import 'package:cat_concierge/components/index.dart';
-import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
 
-import 'widgets/profile_menu_tile.dart';
+import 'widgets/pet_family_item.dart';
+import 'widgets/setting_menu_tile.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -29,14 +28,14 @@ class ProfilePage extends StatelessWidget {
         actions: [
           InkWell(
             child: Padding(
-              padding: theme.spacing.smallEdgeInsets,
-              child: SvgPicture.asset(MySvgs.ic_close),
+              padding: theme.spacing.edgeInsets,
+              child: const Icon(Icons.close_rounded),
             ),
             onTap: () {},
           ),
         ],
       ),
-      body: _buildBody(context),
+      body: SafeArea(child: _buildBody(context)),
     );
   }
 
@@ -46,40 +45,84 @@ class ProfilePage extends StatelessWidget {
       padding: theme.spacing.edgeInsets,
       child: Column(
         children: [
-          SizedBox(height: theme.spacing.large),
-          ProfileMenuTile(
-            leadingIcon: SvgPicture.asset(MySvgs.ic_user),
-            title: 'Help Center',
-            onTap: () => Get.toNamed('/help-center'),
-          ),
-          ProfileMenuTile(
-            leadingIcon: SvgPicture.asset(MySvgs.ic_star),
-            title: 'Rate the App',
-            onTap: () {},
-          ),
-          ProfileMenuTile(
-            leadingIcon: SvgPicture.asset(MySvgs.ic_eye),
-            title: 'Privacy Policy',
-            onTap: () => Get.toNamed('/privacy-policy'),
-          ),
-          ProfileMenuTile(
-            leadingIcon: SvgPicture.asset(MySvgs.ic_user),
-            title: 'Log out',
-            color: theme.colorScheme.error,
-            onTap: () {
-              MyDialog.show(
-                title: 'Are you sure, you want to\nlog out?',
-                confirmText: 'Logout',
-                cancelText: 'Cancel',
-                onConfirm: () {},
-                onCancel: () {
-                  Get.back();
-                },
-              );
-            },
-          ),
+          _buildPetFamily(context),
+          SizedBox(height: theme.spacing.small),
+          _buildSettingList(context),
         ],
       ),
+    );
+  }
+
+  Widget _buildPetFamily(BuildContext context) {
+    final theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: theme.spacing.base, horizontal: theme.spacing.small),
+          child: Text(
+            'Pet Family',
+            style: theme.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+          ),
+        ),
+        PetFamilyItem(
+          title: 'John Doe',
+          subtitle: 'john.doe@gmail.com',
+          onTap: () {},
+        ),
+        SizedBox(height: theme.spacing.base),
+        PetFamilyItem(
+          title: 'Pixel',
+          subtitle: '5 years old',
+          onTap: () {},
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSettingList(BuildContext context) {
+    final theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: theme.spacing.base, horizontal: theme.spacing.small),
+          child: Text(
+            'Settings',
+            style: theme.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+          ),
+        ),
+        OneCard(
+          child: Column(
+            children: [
+              SettingMenuTile(
+                title: 'Language',
+                onTap: () {},
+              ),
+              const Divider(height: 0),
+              SettingMenuTile(
+                title: 'Notifications',
+                onTap: () {},
+              ),
+              const Divider(height: 0),
+              SettingMenuTile(
+                title: 'Privacy & Security',
+                onTap: () => Get.toNamed('/privacy'),
+              ),
+              const Divider(height: 0),
+              SettingMenuTile(
+                title: 'About Us',
+                onTap: () {},
+              ),
+              const Divider(height: 0),
+              SettingMenuTile(
+                title: 'Feedback',
+                onTap: () {},
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 
