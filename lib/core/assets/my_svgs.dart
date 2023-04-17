@@ -50,7 +50,8 @@ class MySvgs {
   static const String kittest_mask = 'assets/svgs/kittest_mask.svg';
   static const String ic_radio_false = 'assets/svgs/ic_radio_false.svg';
   static const String ic_radio_true = 'assets/svgs/ic_radio_true.svg';
-  static const String logo_pet_finish = 'assets/svgs/logo_pet_finish.svg';
+  static const String logo_white = 'assets/svgs/logo_white.svg';
+  static const String bg_happy = 'assets/svgs/bg_happy.svg';
 }
 
 class Exception {

@@ -41,7 +41,8 @@ class PetProfileFinishPage extends GetView<PetProfileCreateController> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SvgPicture.asset(MySvgs.logo_pet_finish),
+            SvgPicture.asset(MySvgs.bg_happy),
+            SvgPicture.asset(MySvgs.logo_white),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text('Pet Account Created!', style: style.headingH1),
