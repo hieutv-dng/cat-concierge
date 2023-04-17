@@ -72,7 +72,6 @@ class _SplashPageState extends State<SplashPage> {
               right: -width * 0.23,
               child: bigCircleBorder(width),
             ),
-            Container(),
             SafeArea(
               child: Column(
                 children: [

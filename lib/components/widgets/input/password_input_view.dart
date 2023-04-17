@@ -28,16 +28,15 @@ class PasswordInputViewState extends State<PasswordInputView> {
   final _isObscurePass = ValueNotifier(true);
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return ValueListenableBuilder<bool>(
       valueListenable: _isObscurePass,
       builder: (context, isObscurePass, child) {
         return Card(
-          child: OneTextField(
+          child: AppTextField(
             onChanged: (value) {},
             obscureText: isObscurePass,
+            hintText: widget.hintText,
             decoration: InputDecoration(
-              hintText: widget.hintText,
               suffixIcon: InkWell(
                 onTap: () {
                   _isObscurePass.value = !_isObscurePass.value;
