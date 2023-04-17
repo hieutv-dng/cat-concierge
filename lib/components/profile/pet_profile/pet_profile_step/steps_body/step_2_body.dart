@@ -34,7 +34,7 @@ class _Step2BodyState extends State<Step2Body> {
           child: Text('What is your cat’s gender?', style: styles.headingH1, textAlign: TextAlign.start),
         ),
         AppTextField(
-          readonly: true,
+          readOnly: true,
           focusedColor: gender == Genders.male ? AppColors.primaryLightest : null,
           borderColor: gender == Genders.male ? AppColors.primaryLightest : null,
           fillColor: gender == Genders.male ? AppColors.primaryLightest : null,
@@ -48,7 +48,7 @@ class _Step2BodyState extends State<Step2Body> {
         ),
         const SizedBox(height: 8),
         AppTextField(
-          readonly: true,
+          readOnly: true,
           focusedColor: gender == Genders.female ? AppColors.primaryLightest : null,
           borderColor: gender == Genders.female ? AppColors.primaryLightest : null,
           fillColor: gender == Genders.female ? AppColors.primaryLightest : null,

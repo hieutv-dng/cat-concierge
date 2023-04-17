@@ -16,6 +16,10 @@ import 'package:one/one.dart';
 
 import 'controller/pet_profile_step_controller.dart';
 import 'steps_body/step_10_body.dart';
+import 'steps_body/step_11_body.dart';
+import 'steps_body/step_12_body.dart';
+import 'steps_body/step_13_body.dart';
+import 'steps_body/step_14_body.dart';
 import 'steps_body/step_1_body.dart';
 import 'steps_body/step_2_body.dart';
 import 'steps_body/step_3_body.dart';
@@ -137,12 +141,14 @@ class PetStepPage extends GetView<PetStepController> {
           return const Step9Body();
         case 10:
           return const Step10Body();
-        //  case 1:
-        // return const Step1Body();
-        //  case 1:
-        // return const Step1Body();
-        //  case 1:
-        // return const Step1Body();
+        case 11:
+          return const Step11Body();
+        case 12:
+          return const Step12Body();
+        case 13:
+          return const Step13Body();
+        case 14:
+          return const Step14Body();
 
         default:
           return Container();

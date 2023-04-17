@@ -165,7 +165,7 @@ class _UsernameInput extends GetView<RegisterController> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
-      child: OneTextField(
+      child: AppTextField(
         onChanged: (value) {},
         autofocus: true,
         decoration: InputDecoration(
@@ -186,7 +186,7 @@ class _EmailInput extends GetView<RegisterController> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
-      child: OneTextField(
+      child: AppTextField(
         onChanged: (value) {},
         autofocus: true,
         keyboardType: TextInputType.emailAddress,

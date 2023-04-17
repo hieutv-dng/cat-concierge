@@ -34,7 +34,7 @@ class _Step8BodyState extends State<Step8Body> {
           child: Text('What is the cat’s appetite?', style: styles.headingH1, textAlign: TextAlign.start),
         ),
         AppTextField(
-          readonly: true,
+          readOnly: true,
           focusedColor: appetites == Appetites.good ? AppColors.primaryLightest : null,
           borderColor: appetites == Appetites.good ? AppColors.primaryLightest : null,
           fillColor: appetites == Appetites.good ? AppColors.primaryLightest : null,
@@ -48,7 +48,7 @@ class _Step8BodyState extends State<Step8Body> {
         ),
         const SizedBox(height: 8),
         AppTextField(
-          readonly: true,
+          readOnly: true,
           focusedColor: appetites == Appetites.bad ? AppColors.primaryLightest : null,
           borderColor: appetites == Appetites.bad ? AppColors.primaryLightest : null,
           fillColor: appetites == Appetites.bad ? AppColors.primaryLightest : null,
@@ -62,7 +62,7 @@ class _Step8BodyState extends State<Step8Body> {
         ),
         const SizedBox(height: 8),
         AppTextField(
-          readonly: true,
+          readOnly: true,
           focusedColor: appetites == Appetites.pickyinfood ? AppColors.primaryLightest : null,
           borderColor: appetites == Appetites.pickyinfood ? AppColors.primaryLightest : null,
           fillColor: appetites == Appetites.pickyinfood ? AppColors.primaryLightest : null,

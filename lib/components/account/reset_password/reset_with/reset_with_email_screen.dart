@@ -81,7 +81,7 @@ class _EmailInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
-      child: OneTextField(
+      child: AppTextField(
         onChanged: (value) {},
         autofocus: true,
         keyboardType: TextInputType.emailAddress,

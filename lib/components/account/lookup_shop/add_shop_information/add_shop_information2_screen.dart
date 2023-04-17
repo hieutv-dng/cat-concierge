@@ -89,7 +89,7 @@ class _PhoneNumberInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
-      child: OneTextField(
+      child: AppTextField(
         onChanged: (value) {},
         keyboardType: TextInputType.phone,
         decoration: InputDecoration(
@@ -110,7 +110,7 @@ class _FaxInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
-      child: OneTextField(
+      child: AppTextField(
         onChanged: (value) {},
         keyboardType: TextInputType.phone,
         decoration: InputDecoration(
@@ -131,7 +131,7 @@ class _EmailInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
-      child: OneTextField(
+      child: AppTextField(
         onChanged: (value) {},
         autofocus: true,
         keyboardType: TextInputType.emailAddress,

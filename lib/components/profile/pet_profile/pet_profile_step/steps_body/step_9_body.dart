@@ -34,7 +34,7 @@ class _Step9BodyState extends State<Step9Body> {
           child: Text('How often does the cat drink?', style: styles.headingH1, textAlign: TextAlign.start),
         ),
         AppTextField(
-          readonly: true,
+          readOnly: true,
           focusedColor: frequencys == Frequencys.often ? AppColors.primaryLightest : null,
           borderColor: frequencys == Frequencys.often ? AppColors.primaryLightest : null,
           fillColor: frequencys == Frequencys.often ? AppColors.primaryLightest : null,
@@ -48,7 +48,7 @@ class _Step9BodyState extends State<Step9Body> {
         ),
         const SizedBox(height: 8),
         AppTextField(
-          readonly: true,
+          readOnly: true,
           focusedColor: frequencys == Frequencys.normally ? AppColors.primaryLightest : null,
           borderColor: frequencys == Frequencys.normally ? AppColors.primaryLightest : null,
           fillColor: frequencys == Frequencys.normally ? AppColors.primaryLightest : null,
@@ -62,7 +62,7 @@ class _Step9BodyState extends State<Step9Body> {
         ),
         const SizedBox(height: 8),
         AppTextField(
-          readonly: true,
+          readOnly: true,
           focusedColor: frequencys == Frequencys.rarely ? AppColors.primaryLightest : null,
           borderColor: frequencys == Frequencys.rarely ? AppColors.primaryLightest : null,
           fillColor: frequencys == Frequencys.rarely ? AppColors.primaryLightest : null,

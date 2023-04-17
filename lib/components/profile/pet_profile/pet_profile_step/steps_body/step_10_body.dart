@@ -31,11 +31,10 @@ class _Step10BodyState extends State<Step10Body> {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 32.0),
-          child:
-              Text('Does your cat have any medical conditions?', style: styles.headingH1, textAlign: TextAlign.start),
+          child: Text('Does your cat have any medical conditions?', style: styles.headingH1, textAlign: TextAlign.start),
         ),
         AppTextField(
-          readonly: true,
+          readOnly: true,
           focusedColor: gender == Answer.yes ? AppColors.primaryLightest : null,
           borderColor: gender == Answer.yes ? AppColors.primaryLightest : null,
           fillColor: gender == Answer.yes ? AppColors.primaryLightest : null,
@@ -49,7 +48,7 @@ class _Step10BodyState extends State<Step10Body> {
         ),
         const SizedBox(height: 8),
         AppTextField(
-          readonly: true,
+          readOnly: true,
           focusedColor: gender == Answer.no ? AppColors.primaryLightest : null,
           borderColor: gender == Answer.no ? AppColors.primaryLightest : null,
           fillColor: gender == Answer.no ? AppColors.primaryLightest : null,

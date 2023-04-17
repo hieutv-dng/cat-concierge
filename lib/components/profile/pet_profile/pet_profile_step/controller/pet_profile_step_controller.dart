@@ -34,7 +34,7 @@ class PetStepController extends GetxController {
   set currentStep(int step) => _currentStep.value = step;
   void moveStepForward() {
     _currentStep.value += 1;
-    if (currentStep == MAX_STEP) Get.offAllNamed('/');
+    if (currentStep > MAX_STEP) Get.offAllNamed('/pet-profile-finish');
   }
 
   void moveStepBackward() {

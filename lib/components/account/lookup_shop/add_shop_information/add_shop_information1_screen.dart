@@ -101,7 +101,7 @@ class _TaxIdInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
-      child: OneTextField(
+      child: AppTextField(
         onChanged: (value) {},
         autofocus: true,
         decoration: InputDecoration(
@@ -122,7 +122,7 @@ class _ShopNameInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
-      child: OneTextField(
+      child: AppTextField(
         onChanged: (value) {},
         keyboardType: TextInputType.phone,
         decoration: InputDecoration(
@@ -143,7 +143,7 @@ class _FirstNameInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
-      child: OneTextField(
+      child: AppTextField(
         onChanged: (value) {},
         keyboardType: TextInputType.phone,
         decoration: InputDecoration(
@@ -164,7 +164,7 @@ class _LastNameInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
-      child: OneTextField(
+      child: AppTextField(
         onChanged: (value) {},
         keyboardType: TextInputType.phone,
         decoration: InputDecoration(
@@ -185,7 +185,7 @@ class _Address1Input extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
-      child: OneTextField(
+      child: AppTextField(
         onChanged: (value) {},
         keyboardType: TextInputType.phone,
         decoration: InputDecoration(
@@ -206,7 +206,7 @@ class _Address2Input extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
-      child: OneTextField(
+      child: AppTextField(
         onChanged: (value) {},
         keyboardType: TextInputType.phone,
         decoration: InputDecoration(

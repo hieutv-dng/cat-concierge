@@ -74,8 +74,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Hi, John and Pixel',
-                      maxLines: 1, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
+                  Text('Hi, John and Pixel', maxLines: 1, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
                   const SizedBox(height: 6),
                   Text('Let’s get learning', maxLines: 1, style: theme.textTheme.labelSmall),
                 ],

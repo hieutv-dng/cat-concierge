@@ -34,7 +34,7 @@ class _Step7BodyState extends State<Step7Body> {
           child: Text('How active is your cat?', style: styles.headingH1, textAlign: TextAlign.start),
         ),
         AppTextField(
-          readonly: true,
+          readOnly: true,
           focusedColor: actives == Actives.active ? AppColors.primaryLightest : null,
           borderColor: actives == Actives.active ? AppColors.primaryLightest : null,
           fillColor: actives == Actives.active ? AppColors.primaryLightest : null,
@@ -48,7 +48,7 @@ class _Step7BodyState extends State<Step7Body> {
         ),
         const SizedBox(height: 8),
         AppTextField(
-          readonly: true,
+          readOnly: true,
           focusedColor: actives == Actives.normal ? AppColors.primaryLightest : null,
           borderColor: actives == Actives.normal ? AppColors.primaryLightest : null,
           fillColor: actives == Actives.normal ? AppColors.primaryLightest : null,
@@ -62,7 +62,7 @@ class _Step7BodyState extends State<Step7Body> {
         ),
         const SizedBox(height: 8),
         AppTextField(
-          readonly: true,
+          readOnly: true,
           focusedColor: actives == Actives.passive ? AppColors.primaryLightest : null,
           borderColor: actives == Actives.passive ? AppColors.primaryLightest : null,
           fillColor: actives == Actives.passive ? AppColors.primaryLightest : null,

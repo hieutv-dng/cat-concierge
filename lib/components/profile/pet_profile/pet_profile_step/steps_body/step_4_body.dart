@@ -34,7 +34,7 @@ class _Step4BodyState extends State<Step4Body> {
           child: Text('Has your cat been neutered?', style: styles.headingH1, textAlign: TextAlign.start),
         ),
         AppTextField(
-          readonly: true,
+          readOnly: true,
           focusedColor: gender == Answer.yes ? AppColors.primaryLightest : null,
           borderColor: gender == Answer.yes ? AppColors.primaryLightest : null,
           fillColor: gender == Answer.yes ? AppColors.primaryLightest : null,
@@ -48,7 +48,7 @@ class _Step4BodyState extends State<Step4Body> {
         ),
         const SizedBox(height: 8),
         AppTextField(
-          readonly: true,
+          readOnly: true,
           focusedColor: gender == Answer.no ? AppColors.primaryLightest : null,
           borderColor: gender == Answer.no ? AppColors.primaryLightest : null,
           fillColor: gender == Answer.no ? AppColors.primaryLightest : null,
