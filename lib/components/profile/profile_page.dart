@@ -12,8 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
 
-import 'widgets/setting_menu_tile.dart';
-
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
@@ -24,12 +22,12 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Profile'),
         centerTitle: true,
-        // actions: [
-        //     OneButton.text(
-        //       icon: const Icon(Icons.close_rounded),
-        //       onTap: () {},
-        //     ),
-        //   ],
+        actions: [
+          OneButton.text(
+            icon: const Icon(Icons.close_rounded),
+            onTap: () => Get.back(),
+          ),
+        ],
       ),
       body: SafeArea(child: _buildBody(context)),
     );

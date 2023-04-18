@@ -10,6 +10,7 @@
 import 'package:cat_concierge/components/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:get/get.dart';
 import 'package:one/one.dart';
 
 class OwnerProfilePage extends StatelessWidget {
@@ -24,7 +25,7 @@ class OwnerProfilePage extends StatelessWidget {
           actions: [
             OneButton.text(
               label: const Text('Edit'),
-              onTap: () {},
+              onTap: () => Get.toNamed('/owner-edit-profile'),
             ),
           ],
         ),

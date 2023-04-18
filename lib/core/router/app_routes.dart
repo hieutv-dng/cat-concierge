@@ -40,6 +40,7 @@ class AppRoutes {
     AppGetPage<ProfilePage>(name: '/profile', page: () => const ProfilePage()),
     AppGetPage<ResultsPage>(name: '/results', page: () => const ResultsPage()),
     AppGetPage<OwnerProfilePage>(name: '/owner-profile', page: () => const OwnerProfilePage()),
+    AppGetPage<OwnerEditProfilePage>(name: '/owner-edit-profile', page: () => const OwnerEditProfilePage()),
     AppGetPage<PrivacyPage>(name: '/privacy', page: () => const PrivacyPage()),
     AppGetPage<PetProfileCreatePage>(name: '/pet-profile-create', page: () => const PetProfileCreatePage()),
     AppGetPage<PetStepPage>(name: '/pet-step-create', page: () => const PetStepPage(), binding: PetStepBinding()),
