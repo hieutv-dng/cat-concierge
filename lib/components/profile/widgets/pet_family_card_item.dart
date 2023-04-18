@@ -43,6 +43,10 @@ class PetFamilyCardItem extends StatelessWidget {
                     color: AppColors.primaryLight,
                     borderRadius: theme.shape.borderRadius,
                   ),
+                  child: ClipRRect(
+                    borderRadius: theme.shape.borderRadius,
+                    child: Image.asset(MyImages.img_pixel),
+                  ),
                 ),
                 SizedBox(width: theme.spacing.base),
                 Expanded(

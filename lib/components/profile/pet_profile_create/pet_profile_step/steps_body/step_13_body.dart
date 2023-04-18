@@ -21,14 +21,6 @@ class Step13Body extends StatefulWidget {
 }
 
 class _Step13BodyState extends State<Step13Body> {
-  final List<Options> _listOptional = [
-    Options(name: 'Raw', isSelected: false),
-    Options(name: 'WET', isSelected: false),
-    Options(name: 'DRY', isSelected: false),
-    Options(name: 'HOME-COOKED', isSelected: false),
-    Options(name: 'FRESH', isSelected: false),
-  ];
-
   @override
   Widget build(BuildContext context) {
     final styles = AppTextStyle.fromContext(context);
@@ -42,7 +34,7 @@ class _Step13BodyState extends State<Step13Body> {
           child: Text('What does he usually eat?', style: styles.headingH1, textAlign: TextAlign.start),
         ),
         Column(
-            children: _listOptional.map((e) {
+            children: listFoods.map((e) {
           return _buildItemOption(
             context,
             e,

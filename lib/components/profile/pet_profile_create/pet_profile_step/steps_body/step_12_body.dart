@@ -11,7 +11,7 @@ import 'package:cat_concierge/components/index.dart';
 import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
 
-enum Answer { housekeeping, goes_outside }
+enum Maintenance { housekeeping, goes_outside }
 
 class Step12Body extends StatefulWidget {
   const Step12Body({super.key});
@@ -21,7 +21,7 @@ class Step12Body extends StatefulWidget {
 }
 
 class _Step12BodyState extends State<Step12Body> {
-  Answer gender = Answer.housekeeping;
+  Maintenance maintenance = Maintenance.housekeeping;
   @override
   Widget build(BuildContext context) {
     final styles = AppTextStyle.fromContext(context);
@@ -35,28 +35,28 @@ class _Step12BodyState extends State<Step12Body> {
         ),
         AppTextField(
           readOnly: true,
-          focusedColor: gender == Answer.housekeeping ? AppColors.primaryLightest : null,
-          borderColor: gender == Answer.housekeeping ? AppColors.primaryLightest : null,
-          fillColor: gender == Answer.housekeeping ? AppColors.primaryLightest : null,
-          prefixIcon: gender == Answer.housekeeping ? MySvgs.ic_radio_true : MySvgs.ic_radio_false,
+          focusedColor: maintenance == Maintenance.housekeeping ? AppColors.primaryLightest : null,
+          borderColor: maintenance == Maintenance.housekeeping ? AppColors.primaryLightest : null,
+          fillColor: maintenance == Maintenance.housekeeping ? AppColors.primaryLightest : null,
+          prefixIcon: maintenance == Maintenance.housekeeping ? MySvgs.ic_radio_true : MySvgs.ic_radio_false,
           text: 'Housekeeping',
           onTap: () {
             setState(() {
-              gender = Answer.housekeeping;
+              maintenance = Maintenance.housekeeping;
             });
           },
         ),
         const SizedBox(height: 8),
         AppTextField(
           readOnly: true,
-          focusedColor: gender == Answer.goes_outside ? AppColors.primaryLightest : null,
-          borderColor: gender == Answer.goes_outside ? AppColors.primaryLightest : null,
-          fillColor: gender == Answer.goes_outside ? AppColors.primaryLightest : null,
-          prefixIcon: gender == Answer.goes_outside ? MySvgs.ic_radio_true : MySvgs.ic_radio_false,
-          text: 'Goes outside',
+          focusedColor: maintenance == Maintenance.goes_outside ? AppColors.primaryLightest : null,
+          borderColor: maintenance == Maintenance.goes_outside ? AppColors.primaryLightest : null,
+          fillColor: maintenance == Maintenance.goes_outside ? AppColors.primaryLightest : null,
+          prefixIcon: maintenance == Maintenance.goes_outside ? MySvgs.ic_radio_true : MySvgs.ic_radio_false,
+          text: 'Goes for a walk outside',
           onTap: () {
             setState(() {
-              gender = Answer.goes_outside;
+              maintenance = Maintenance.goes_outside;
             });
           },
         ),

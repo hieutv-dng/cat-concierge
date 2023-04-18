@@ -11,7 +11,5 @@
 
 class MyImages {
   MyImages._();
-
-  static const String ic_logo_pair = 'assets/images/ic_logo_pair.png';
-  static const String ic_logo_sca = 'assets/images/ic_logo_sca.png';
+  static const String img_pixel = 'assets/images/img_pixel.png';
 }

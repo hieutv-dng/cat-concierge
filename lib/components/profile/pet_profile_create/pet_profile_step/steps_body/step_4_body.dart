@@ -21,7 +21,7 @@ class Step4Body extends StatefulWidget {
 }
 
 class _Step4BodyState extends State<Step4Body> {
-  Answer gender = Answer.yes;
+  Answer answer = Answer.yes;
   @override
   Widget build(BuildContext context) {
     final styles = AppTextStyle.fromContext(context);
@@ -35,28 +35,28 @@ class _Step4BodyState extends State<Step4Body> {
         ),
         AppTextField(
           readOnly: true,
-          focusedColor: gender == Answer.yes ? AppColors.primaryLightest : null,
-          borderColor: gender == Answer.yes ? AppColors.primaryLightest : null,
-          fillColor: gender == Answer.yes ? AppColors.primaryLightest : null,
-          prefixIcon: gender == Answer.yes ? MySvgs.ic_radio_true : MySvgs.ic_radio_false,
+          focusedColor: answer == Answer.yes ? AppColors.primaryLightest : null,
+          borderColor: answer == Answer.yes ? AppColors.primaryLightest : null,
+          fillColor: answer == Answer.yes ? AppColors.primaryLightest : null,
+          prefixIcon: answer == Answer.yes ? MySvgs.ic_radio_true : MySvgs.ic_radio_false,
           text: 'Yes',
           onTap: () {
             setState(() {
-              gender = Answer.yes;
+              answer = Answer.yes;
             });
           },
         ),
         const SizedBox(height: 8),
         AppTextField(
           readOnly: true,
-          focusedColor: gender == Answer.no ? AppColors.primaryLightest : null,
-          borderColor: gender == Answer.no ? AppColors.primaryLightest : null,
-          fillColor: gender == Answer.no ? AppColors.primaryLightest : null,
-          prefixIcon: gender == Answer.no ? MySvgs.ic_radio_true : MySvgs.ic_radio_false,
+          focusedColor: answer == Answer.no ? AppColors.primaryLightest : null,
+          borderColor: answer == Answer.no ? AppColors.primaryLightest : null,
+          fillColor: answer == Answer.no ? AppColors.primaryLightest : null,
+          prefixIcon: answer == Answer.no ? MySvgs.ic_radio_true : MySvgs.ic_radio_false,
           text: 'No',
           onTap: () {
             setState(() {
-              gender = Answer.no;
+              answer = Answer.no;
             });
           },
         ),

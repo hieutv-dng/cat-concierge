@@ -47,11 +47,10 @@ class _Step11BodyState extends State<Step11Body> {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: theme.spacing.large),
-          child: Text('Please, select all medical conditions that your cat  has:',
-              style: styles.headingH1, textAlign: TextAlign.start),
+          child: Text('Please, select all medical conditions that your cat  has:', style: styles.headingH1, textAlign: TextAlign.start),
         ),
         Column(
-            children: _listOptional.map((e) {
+            children: listOptions.map((e) {
           return _buildItemOption(
             context,
             e,
@@ -96,3 +95,28 @@ class Options {
   String name;
   bool isSelected;
 }
+
+final List<Options> listOptions = [
+  Options(name: 'My cat is health', isSelected: false),
+  Options(name: 'Arthritis', isSelected: false),
+  Options(name: 'Cancer', isSelected: false),
+  Options(name: 'Cystitis', isSelected: false),
+  Options(name: 'Diabetes', isSelected: false),
+  Options(name: 'Diarrhoea of an unknown cause', isSelected: false),
+  Options(name: 'Epilepsy', isSelected: false),
+  Options(name: 'Hyperthyroidism', isSelected: false),
+  Options(name: 'Inflammatory bowel disease', isSelected: false),
+  Options(name: 'Chronic Kidney Disease (CKD)', isSelected: false),
+  Options(name: 'Liver Disease', isSelected: false),
+  Options(name: 'Pancreatitis', isSelected: false),
+  Options(name: 'Urinary disease', isSelected: false),
+  Options(name: 'Other', isSelected: false),
+];
+
+final List<Options> listFoods = [
+  Options(name: 'Raw', isSelected: false),
+  Options(name: 'WET', isSelected: false),
+  Options(name: 'DRY', isSelected: false),
+  Options(name: 'HOME-COOKED', isSelected: false),
+  Options(name: 'FRESH', isSelected: false),
+];
