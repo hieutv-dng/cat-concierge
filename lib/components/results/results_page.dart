@@ -9,6 +9,7 @@
 
 import 'package:cat_concierge/components/index.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:one/one.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -117,7 +118,7 @@ class _ResultsPageState extends State<ResultsPage> {
                   child: ResultCardItem(
                     title: '2 Mar, 2023',
                     subtitle: '5:27 PM',
-                    onTap: () {},
+                    onTap: () => Get.toNamed('/result-detail'),
                   ),
                 );
               },

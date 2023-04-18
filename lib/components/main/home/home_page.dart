@@ -17,8 +17,6 @@ import 'package:get/get.dart';
 import 'package:one/one.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import 'widgets/scan_test_cardview.dart';
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -126,10 +124,18 @@ class _HomePageState extends State<HomePage> {
     final theme = Theme.of(context);
     return CustomScrollView(
       slivers: [
-        SliverPadding(padding: theme.spacing.edgeInsets),
+        SliverPadding(padding: theme.spacing.smallEdgeInsets),
         SliverList(
           delegate: SliverChildListDelegate([
-            ScanTestCardView(onTapScanTest: _openCameraScan),
+            Padding(
+              padding: theme.spacing.edgeInsets,
+              child: AppActionCardView(
+                title: 'Welcome!',
+                description: 'Let’s get started by scanning home test.',
+                actionLabel: 'Scan Test',
+                onTapAction: _openCameraScan,
+              ),
+            ),
           ]),
         ),
       ],
