@@ -1,4 +1,3 @@
-
 /*
  * File: result_page.dart
  * File Created: Monday, 17th April 2023 12:04:13 am
@@ -9,10 +8,7 @@
  */
 
 import 'package:cat_concierge/components/index.dart';
-import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 import 'package:one/one.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 

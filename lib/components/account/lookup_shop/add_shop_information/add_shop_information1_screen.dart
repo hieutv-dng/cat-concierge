@@ -100,17 +100,15 @@ class _TaxIdInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        autofocus: true,
-        decoration: InputDecoration(
-          hintText: 'Tax ID',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user),
-          ),
+    return AppTextField(
+      onChanged: (value) {},
+      autofocus: true,
+      decoration: InputDecoration(
+        hintText: 'Tax ID',
+        border: InputBorder.none,
+        prefixIcon: Padding(
+          padding: theme.spacing.edgeInsets,
+          child: SvgPicture.asset(MySvgs.ic_user),
         ),
       ),
     );
@@ -121,17 +119,15 @@ class _ShopNameInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        keyboardType: TextInputType.phone,
-        decoration: InputDecoration(
-          hintText: 'Shop Name',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user),
-          ),
+    return AppTextField(
+      onChanged: (value) {},
+      keyboardType: TextInputType.phone,
+      decoration: InputDecoration(
+        hintText: 'Shop Name',
+        border: InputBorder.none,
+        prefixIcon: Padding(
+          padding: theme.spacing.edgeInsets,
+          child: SvgPicture.asset(MySvgs.ic_user),
         ),
       ),
     );
@@ -142,17 +138,15 @@ class _FirstNameInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        keyboardType: TextInputType.phone,
-        decoration: InputDecoration(
-          hintText: 'First Name',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user),
-          ),
+    return AppTextField(
+      onChanged: (value) {},
+      keyboardType: TextInputType.phone,
+      decoration: InputDecoration(
+        hintText: 'First Name',
+        border: InputBorder.none,
+        prefixIcon: Padding(
+          padding: theme.spacing.edgeInsets,
+          child: SvgPicture.asset(MySvgs.ic_user),
         ),
       ),
     );
@@ -163,17 +157,15 @@ class _LastNameInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        keyboardType: TextInputType.phone,
-        decoration: InputDecoration(
-          hintText: 'Last Name',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user),
-          ),
+    return AppTextField(
+      onChanged: (value) {},
+      keyboardType: TextInputType.phone,
+      decoration: InputDecoration(
+        hintText: 'Last Name',
+        border: InputBorder.none,
+        prefixIcon: Padding(
+          padding: theme.spacing.edgeInsets,
+          child: SvgPicture.asset(MySvgs.ic_user),
         ),
       ),
     );
@@ -184,17 +176,15 @@ class _Address1Input extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        keyboardType: TextInputType.phone,
-        decoration: InputDecoration(
-          hintText: 'Address 1',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user),
-          ),
+    return AppTextField(
+      onChanged: (value) {},
+      keyboardType: TextInputType.phone,
+      decoration: InputDecoration(
+        hintText: 'Address 1',
+        border: InputBorder.none,
+        prefixIcon: Padding(
+          padding: theme.spacing.edgeInsets,
+          child: SvgPicture.asset(MySvgs.ic_user),
         ),
       ),
     );
@@ -205,17 +195,15 @@ class _Address2Input extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        keyboardType: TextInputType.phone,
-        decoration: InputDecoration(
-          hintText: 'Address 2',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user),
-          ),
+    return AppTextField(
+      onChanged: (value) {},
+      keyboardType: TextInputType.phone,
+      decoration: InputDecoration(
+        hintText: 'Address 2',
+        border: InputBorder.none,
+        prefixIcon: Padding(
+          padding: theme.spacing.edgeInsets,
+          child: SvgPicture.asset(MySvgs.ic_user),
         ),
       ),
     );

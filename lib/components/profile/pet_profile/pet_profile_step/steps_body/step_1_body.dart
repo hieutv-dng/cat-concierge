@@ -27,7 +27,7 @@ class Step1Body extends StatelessWidget {
         ),
         const AppTextField(
           hintText: 'Name',
-          title: 'Name',
+          label: 'Name',
         ),
       ],
     );

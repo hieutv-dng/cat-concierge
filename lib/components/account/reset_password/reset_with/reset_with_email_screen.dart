@@ -80,18 +80,16 @@ class _EmailInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        autofocus: true,
-        keyboardType: TextInputType.emailAddress,
-        decoration: InputDecoration(
-          hintText: 'Type your email',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user),
-          ),
+    return AppTextField(
+      onChanged: (value) {},
+      autofocus: true,
+      keyboardType: TextInputType.emailAddress,
+      decoration: InputDecoration(
+        hintText: 'Type your email',
+        border: InputBorder.none,
+        prefixIcon: Padding(
+          padding: theme.spacing.edgeInsets,
+          child: SvgPicture.asset(MySvgs.ic_user),
         ),
       ),
     );

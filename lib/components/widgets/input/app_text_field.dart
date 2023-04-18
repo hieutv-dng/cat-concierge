@@ -20,7 +20,7 @@ class AppTextField extends StatefulWidget {
   const AppTextField({
     super.key,
     this.text,
-    this.title,
+    this.label,
     this.hintText,
     this.prefixIcon,
     this.suffixIcon,
@@ -45,7 +45,7 @@ class AppTextField extends StatefulWidget {
     this.suffixColor,
     this.borderRadius,
   });
-  final String? title;
+  final String? label;
   final String? text;
   final String? hintText;
   final String? prefixIcon;
@@ -69,7 +69,7 @@ class AppTextField extends StatefulWidget {
   final Color? focusedColor;
   final Color? borderColor;
   final Color? suffixColor;
-  final double? borderRadius;
+  final BorderRadius? borderRadius;
 
   @override
   State<AppTextField> createState() => _AppTextFieldState();
@@ -81,7 +81,7 @@ class _AppTextFieldState extends State<AppTextField> {
   final _textUpdate = StreamController<String>();
   bool get _isClearVisible => widget.clearable && !widget.readOnly;
   bool get _selectionEnable => widget.selectionEnable;
-  String? get _title => widget.title;
+  String? get _label => widget.label;
   String? get _hintText => widget.hintText;
   String? get _prefixIcon => widget.prefixIcon;
   String? get _suffixIcon => widget.suffixIcon;
@@ -89,7 +89,7 @@ class _AppTextFieldState extends State<AppTextField> {
   Color? get _focusedColor => widget.focusedColor;
   Color? get _borderColor => widget.borderColor;
   Color? get _suffixColor => widget.suffixColor;
-  double? get _borderRadius => widget.borderRadius;
+  BorderRadius? get _borderRadius => widget.borderRadius;
   final _hasText = ValueNotifier(false);
 
   @override
@@ -132,10 +132,10 @@ class _AppTextFieldState extends State<AppTextField> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (_title != null)
+            if (_label != null)
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Text(_title!, style: AppTextStyle.fromContext(context).headingH5),
+                padding: EdgeInsets.symmetric(vertical: theme.spacing.small),
+                child: Text(_label!, style: AppTextStyle.fromContext(context).headingH5),
               ),
             TextField(
               enableInteractiveSelection: _selectionEnable,
@@ -153,20 +153,20 @@ class _AppTextFieldState extends State<AppTextField> {
               keyboardType: widget.keyboardType,
               style: theme.textTheme.bodyMedium,
               obscureText: widget.obscureText,
-              decoration: InputDecoration(
+              decoration: widget.decoration.copyWith(
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    width: 2.0,
+                    width: 1.5,
                     color: _focusedColor ?? AppColors.primary,
                   ),
-                  borderRadius: BorderRadius.all(Radius.circular(_borderRadius ?? 16)),
+                  borderRadius: _borderRadius ?? theme.shape.borderRadius,
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    width: 2.0,
+                    width: 1.0,
                     color: _borderColor ?? AppColors.lightGrey,
                   ),
-                  borderRadius: BorderRadius.all(Radius.circular(_borderRadius ?? 16)),
+                  borderRadius: _borderRadius ?? theme.shape.borderRadius,
                 ),
                 contentPadding: widget.decoration.contentPadding ?? contentPadding,
                 hintStyle: theme.textTheme.labelMedium?.copyWith(

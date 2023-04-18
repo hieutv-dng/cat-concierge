@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
+import 'package:image/image.dart' as img;
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tuple/tuple.dart';
@@ -11,7 +12,6 @@ import 'widgets/custom_awesome_bottom_actions.dart';
 import 'widgets/custom_awesome_capture_button.dart';
 import 'widgets/kit_preview_overlay.dart';
 import 'widgets/mlkit_utils.dart';
-import 'package:image/image.dart' as img;
 
 class CameraScanPage extends StatefulWidget {
   const CameraScanPage({super.key});
@@ -143,7 +143,8 @@ class _CameraScanPageState extends State<CameraScanPage> {
   }
 
   Future _cropImage(MediaCapture takeImage, BuildContext contexted) async {
-    final image = await img.decodeImageFile(takeImage.filePath); //img.decodeImage(File(takeImage.filePath).readAsBytesSync())!;
+    final image =
+        await img.decodeImageFile(takeImage.filePath); //img.decodeImage(File(takeImage.filePath).readAsBytesSync())!;
     final imageLow = img.copyResize(image!, width: image.width ~/ 4, height: image.height ~/ 4);
     final croppedImage = img.copyCrop(
       imageLow,

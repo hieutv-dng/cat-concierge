@@ -61,7 +61,7 @@ class _Step11BodyState extends State<Step11Body> {
           padding: EdgeInsets.only(bottom: theme.spacing.small),
           child: const AppTextField(
             maxLines: 10,
-            title: 'Add further details if required',
+            label: 'Add further details if required',
             hintText: 'Placeholder',
           ),
         ),

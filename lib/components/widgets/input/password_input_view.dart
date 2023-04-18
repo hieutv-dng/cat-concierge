@@ -31,35 +31,33 @@ class PasswordInputViewState extends State<PasswordInputView> {
     return ValueListenableBuilder<bool>(
       valueListenable: _isObscurePass,
       builder: (context, isObscurePass, child) {
-        return Card(
-          child: AppTextField(
-            onChanged: (value) {},
-            obscureText: isObscurePass,
-            hintText: widget.hintText,
-            decoration: InputDecoration(
-              suffixIcon: InkWell(
-                onTap: () {
-                  _isObscurePass.value = !_isObscurePass.value;
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    if (isObscurePass)
-                      SvgPicture.asset(
-                        MySvgs.ic_eye,
-                        colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
-                        width: 24,
-                        height: 24,
-                      )
-                    else
-                      SvgPicture.asset(
-                        MySvgs.ic_eye_slash,
-                        colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
-                        width: 24,
-                        height: 24,
-                      ),
-                  ],
-                ),
+        return AppTextField(
+          onChanged: (value) {},
+          obscureText: isObscurePass,
+          hintText: widget.hintText,
+          decoration: InputDecoration(
+            suffixIcon: InkWell(
+              onTap: () {
+                _isObscurePass.value = !_isObscurePass.value;
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (isObscurePass)
+                    SvgPicture.asset(
+                      MySvgs.ic_eye,
+                      colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+                      width: 24,
+                      height: 24,
+                    )
+                  else
+                    SvgPicture.asset(
+                      MySvgs.ic_eye_slash,
+                      colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+                      width: 24,
+                      height: 24,
+                    ),
+                ],
               ),
             ),
           ),

@@ -17,6 +17,8 @@ export 'profile/pet_profile/pet_profile_step/controller/pet_profile_step_control
 export 'profile/pet_profile/pet_profile_step/pet_step_page.dart';
 export 'profile/privacy/privacy_page.dart';
 export 'profile/profile_page.dart';
+export 'profile/widgets/pet_family_card_item.dart';
+export 'profile/widgets/setting_menu_tile.dart';
 export 'results/results_page.dart';
 export 'settings/display/display_preferences.dart';
 export 'settings/language/controller/language_controller.dart';

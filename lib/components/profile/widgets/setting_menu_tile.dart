@@ -7,20 +7,21 @@
  * Modified By: Hieu Tran
  */
 
-import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:one/one.dart';
 
 class SettingMenuTile extends StatelessWidget {
   const SettingMenuTile({
     super.key,
     required this.title,
+    this.showArrowRight = true,
     this.onTap,
   });
 
   final String title;
+  final bool showArrowRight;
   final VoidCallback? onTap;
+
+  Widget? get _trailing => showArrowRight ? const Icon(Icons.keyboard_arrow_right_rounded) : null;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class SettingMenuTile extends StatelessWidget {
           title,
           style: theme.textTheme.bodyMedium,
         ),
-        trailing: const Icon(Icons.keyboard_arrow_right_rounded),
+        trailing: _trailing,
         onTap: onTap,
       ),
     );

@@ -30,9 +30,12 @@ class AppRoutes {
         MainPageBinding(),
       ],
     ),
-    AppGetPage<AuthenticationFlow>(name: '/authentication', page: () => const AuthenticationFlow(), binding: AuthenticationFlowBinding()),
-    AppGetPage<ResetPasswordFlow>(name: '/reset-password', page: () => const ResetPasswordFlow(), binding: ResetPasswordFlowBinding()),
-    AppGetPage<LookupShopFlow>(name: '/lookup-shop', page: () => const LookupShopFlow(), binding: LookupShopFlowBinding()),
+    AppGetPage<AuthenticationFlow>(
+        name: '/authentication', page: () => const AuthenticationFlow(), binding: AuthenticationFlowBinding()),
+    AppGetPage<ResetPasswordFlow>(
+        name: '/reset-password', page: () => const ResetPasswordFlow(), binding: ResetPasswordFlowBinding()),
+    AppGetPage<LookupShopFlow>(
+        name: '/lookup-shop', page: () => const LookupShopFlow(), binding: LookupShopFlowBinding()),
     AppGetPage<MainPage>(name: '/', page: () => const MainPage(), binding: MainPageBinding()),
     AppGetPage<ProfilePage>(name: '/profile', page: () => const ProfilePage()),
     AppGetPage<ResultsPage>(name: '/results', page: () => const ResultsPage()),
@@ -40,6 +43,6 @@ class AppRoutes {
     AppGetPage<PrivacyPage>(name: '/privacy', page: () => const PrivacyPage()),
     AppGetPage<PetProfileCreatePage>(name: '/pet-profile-create', page: () => const PetProfileCreatePage()),
     AppGetPage<PetStepPage>(name: '/pet-step-create', page: () => const PetStepPage(), binding: PetStepBinding()),
-    AppGetPage<PetStepPage>(name: '/pet-profile-finish', page: () => const PetProfileFinishPage()),
+    AppGetPage<PetProfileFinishPage>(name: '/pet-profile-finish', page: () => const PetProfileFinishPage()),
   ];
 }

@@ -75,8 +75,9 @@ class RegisterScreen extends GetView<RegisterController> {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: theme.spacing.small),
-                  child:
-                      Text('Sorry, but your email should be between 6 and 30 characters.\nExample: taras12@gmail.com ', style: style.bodyXS.copyWith(color: AppColors.errorDark)),
+                  child: Text(
+                      'Sorry, but your email should be between 6 and 30 characters.\nExample: taras12@gmail.com ',
+                      style: style.bodyXS.copyWith(color: AppColors.errorDark)),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: theme.spacing.small),
@@ -164,17 +165,15 @@ class _UsernameInput extends GetView<RegisterController> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        autofocus: true,
-        decoration: InputDecoration(
-          hintText: 'Type your name',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user),
-          ),
+    return AppTextField(
+      onChanged: (value) {},
+      autofocus: true,
+      decoration: InputDecoration(
+        hintText: 'Type your name',
+        border: InputBorder.none,
+        prefixIcon: Padding(
+          padding: theme.spacing.edgeInsets,
+          child: SvgPicture.asset(MySvgs.ic_user),
         ),
       ),
     );
@@ -185,18 +184,16 @@ class _EmailInput extends GetView<RegisterController> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        autofocus: true,
-        keyboardType: TextInputType.emailAddress,
-        decoration: InputDecoration(
-          hintText: 'Type your email',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user),
-          ),
+    return AppTextField(
+      onChanged: (value) {},
+      autofocus: true,
+      keyboardType: TextInputType.emailAddress,
+      decoration: InputDecoration(
+        hintText: 'Type your email',
+        border: InputBorder.none,
+        prefixIcon: Padding(
+          padding: theme.spacing.edgeInsets,
+          child: SvgPicture.asset(MySvgs.ic_user),
         ),
       ),
     );

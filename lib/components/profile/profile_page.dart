@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
 
-import 'widgets/pet_family_card_item.dart';
 import 'widgets/setting_menu_tile.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -26,14 +25,11 @@ class ProfilePage extends StatelessWidget {
         title: const Text('Profile'),
         centerTitle: true,
         // actions: [
-        //   InkWell(
-        //     child: Padding(
-        //       padding: theme.spacing.edgeInsets,
-        //       child: const Icon(Icons.close_rounded),
+        //     OneButton.text(
+        //       icon: const Icon(Icons.close_rounded),
+        //       onTap: () {},
         //     ),
-        //     onTap: () {},
-        //   ),
-        // ],
+        //   ],
       ),
       body: SafeArea(child: _buildBody(context)),
     );
@@ -68,7 +64,7 @@ class ProfilePage extends StatelessWidget {
         PetFamilyCardItem(
           title: 'John Doe',
           subtitle: 'john.doe@gmail.com',
-          onTap: () {},
+          onTap: () => Get.toNamed('/owner-profile'),
         ),
         SizedBox(height: theme.spacing.base),
         PetFamilyCardItem(

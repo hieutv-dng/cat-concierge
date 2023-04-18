@@ -8,10 +8,8 @@
  */
 
 import 'package:cat_concierge/components/index.dart';
-import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:one/one.dart';
 
 class OwnerProfilePage extends StatelessWidget {
@@ -22,7 +20,13 @@ class OwnerProfilePage extends StatelessWidget {
     return KeyboardDismissOnTap(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Edit Profile'),
+          title: const Text('Profile'),
+          actions: [
+            OneButton.text(
+              label: const Text('Edit'),
+              onTap: () {},
+            ),
+          ],
         ),
         body: SafeArea(
           child: _buildBody(context),
@@ -33,189 +37,36 @@ class OwnerProfilePage extends StatelessWidget {
 
   Widget _buildBody(BuildContext context) {
     final theme = Theme.of(context);
-    return Column(
-      children: [
-        Expanded(
-          child: SingleChildScrollView(
-            padding: theme.spacing.edgeInsets,
+    return SingleChildScrollView(
+      padding: theme.spacing.edgeInsets,
+      child: Column(
+        children: [
+          const PetFamilyCardItem(
+            title: 'John Doe',
+            subtitle: 'john.doe@gmail.com',
+          ),
+          SizedBox(height: theme.spacing.base),
+          OneCard(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: theme.spacing.smallEdgeInsets,
-                  child: Text(
-                    'Shop Information for Supplements',
-                    style: theme.textTheme.labelMedium,
-                  ),
+                SettingMenuTile(
+                  title: 'Change Password',
+                  onTap: () {},
                 ),
-                Padding(
-                  padding: theme.spacing.smallEdgeInsets,
-                  child: _TaxIdInput(),
+                SettingMenuTile(
+                  title: 'Log Out',
+                  showArrowRight: false,
+                  onTap: () {},
                 ),
-                Padding(
-                  padding: theme.spacing.smallEdgeInsets,
-                  child: _ShopNameInput(),
-                ),
-                Padding(
-                  padding: theme.spacing.smallEdgeInsets,
-                  child: _FirstNameInput(),
-                ),
-                Padding(
-                  padding: theme.spacing.smallEdgeInsets,
-                  child: _LastNameInput(),
-                ),
-                Padding(
-                  padding: theme.spacing.smallEdgeInsets,
-                  child: _Address1Input(),
-                ),
-                Padding(
-                  padding: theme.spacing.smallEdgeInsets,
-                  child: _Address2Input(),
+                SettingMenuTile(
+                  title: 'Delete Account',
+                  showArrowRight: false,
+                  onTap: () {},
                 ),
               ],
             ),
-          ),
-        ),
-        Padding(
-          padding: theme.spacing.edgeInsets,
-          child: _buildNextBtn(context),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildNextBtn(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: OneButton.elevated(
-        label: const Text('Continue', style: TextStyle(color: Colors.white)),
-        onTap: () {},
-      ),
-    );
-  }
-}
-
-class _TaxIdInput extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        autofocus: true,
-        decoration: InputDecoration(
-          hintText: 'Tax ID',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _ShopNameInput extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        keyboardType: TextInputType.phone,
-        decoration: InputDecoration(
-          hintText: 'Shop Name',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _FirstNameInput extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        keyboardType: TextInputType.phone,
-        decoration: InputDecoration(
-          hintText: 'First Name',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _LastNameInput extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        keyboardType: TextInputType.phone,
-        decoration: InputDecoration(
-          hintText: 'Last Name',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _Address1Input extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        keyboardType: TextInputType.phone,
-        decoration: InputDecoration(
-          hintText: 'Address 1',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _Address2Input extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        keyboardType: TextInputType.phone,
-        decoration: InputDecoration(
-          hintText: 'Address 2',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user),
-          ),
-        ),
+          )
+        ],
       ),
     );
   }

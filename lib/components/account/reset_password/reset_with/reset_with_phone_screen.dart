@@ -80,18 +80,16 @@ class _PhoneNumberInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        autofocus: true,
-        keyboardType: TextInputType.phone,
-        decoration: InputDecoration(
-          hintText: 'Type your phone number',
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: theme.spacing.edgeInsets,
-            child: SvgPicture.asset(MySvgs.ic_user),
-          ),
+    return AppTextField(
+      onChanged: (value) {},
+      autofocus: true,
+      keyboardType: TextInputType.phone,
+      decoration: InputDecoration(
+        hintText: 'Type your phone number',
+        border: InputBorder.none,
+        prefixIcon: Padding(
+          padding: theme.spacing.edgeInsets,
+          child: SvgPicture.asset(MySvgs.ic_user),
         ),
       ),
     );

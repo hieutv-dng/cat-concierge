@@ -138,12 +138,10 @@ class LoginScreen extends GetView<LoginController> {
 class _AccountInput extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: AppTextField(
-        onChanged: (value) {},
-        autofocus: true,
-        hintText: 'Email Address',
-      ),
+    return AppTextField(
+      onChanged: (value) {},
+      autofocus: true,
+      hintText: 'Email Address',
     );
   }
 }

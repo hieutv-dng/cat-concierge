@@ -8,7 +8,7 @@
  */
 
 import 'package:cat_concierge/components/index.dart';
-import 'package:cat_concierge/core/theme/app_colors.dart';
+import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
 import 'package:one/one.dart';
 
@@ -50,12 +50,14 @@ class PetFamilyCardItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(title, style: theme.textTheme.bodyMedium),
-                      Text(subtitle, style: theme.textTheme.bodySmall),
+                      Text(subtitle, style: theme.textTheme.bodySmall?.copyWith(color: AppColors.darkGreyLight)),
                     ],
                   ),
                 ),
-                SizedBox(width: theme.spacing.base),
-                Icon(Icons.keyboard_arrow_right_rounded, color: theme.primaryColor)
+                if (onTap != null) ...[
+                  SizedBox(width: theme.spacing.base),
+                  Icon(Icons.keyboard_arrow_right_rounded, color: theme.primaryColor),
+                ]
               ],
             ),
           ),
