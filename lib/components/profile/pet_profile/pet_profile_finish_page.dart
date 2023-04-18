@@ -7,6 +7,7 @@
  * Modified By: Dương Trí
  */
 
+import 'package:cat_concierge/components/index.dart';
 import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -14,7 +15,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
 
-import '../../index.dart';
 import 'controller/pet_profile_create_controller.dart';
 
 class PetProfileFinishPage extends GetView<PetProfileCreateController> {
@@ -23,10 +23,13 @@ class PetProfileFinishPage extends GetView<PetProfileCreateController> {
   @override
   Widget build(BuildContext context) {
     return KeyboardDismissOnTap(
-      child: AppBackground(
-        child: SafeArea(
-          top: false,
-          child: _buildBody(context),
+      child: Scaffold(
+        body: AppBackground(
+          showBottomCircle: true,
+          child: SafeArea(
+            top: false,
+            child: _buildBody(context),
+          ),
         ),
       ),
     );
@@ -68,7 +71,7 @@ class PetProfileFinishPage extends GetView<PetProfileCreateController> {
       child: OneButton.elevated(
         label: const Text('Continue', style: TextStyle(color: Colors.white)),
         onTap: () {
-          Get.toNamed('/');
+          Get.offAllNamed('/');
         },
       ),
     );

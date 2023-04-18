@@ -31,7 +31,7 @@ class _Step4BodyState extends State<Step4Body> {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 32.0),
-          child: Text('Has your cat been neutered?', style: styles.headingH1, textAlign: TextAlign.start),
+          child: Text('Has your cat been\nneutered/sterilised?', style: styles.headingH1, textAlign: TextAlign.start),
         ),
         AppTextField(
           readOnly: true,

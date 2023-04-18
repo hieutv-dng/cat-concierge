@@ -46,42 +46,19 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Stack(
-          children: [
-            bgMain(),
-            Positioned(
-              top: -width * 0.5,
-              left: -width * 0.31,
-              child: bigCircle(width),
-            ),
-            Positioned(
-              bottom: -width * 0.73,
-              right: -width * 0.42,
-              child: bigCircle(width),
-            ),
-            Positioned(
-              top: -width * 0.38,
-              left: -width * 0.43,
-              child: bigCircleBorder(width),
-            ),
-            Positioned(
-              top: -width * 0.65,
-              right: -width * 0.23,
-              child: bigCircleBorder(width),
-            ),
-            SafeArea(
-              child: Column(
-                children: [
-                  _buildLogo(),
-                  _buildPoweredBy(),
-                ],
-              ),
-            ),
-          ],
-        ));
+      body: AppBackground(
+        showBottomCircle: true,
+        child: SafeArea(
+          child: Column(
+            children: [
+              _buildLogo(),
+              _buildPoweredBy(),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _buildLogo() {
@@ -128,39 +105,6 @@ class _SplashPageState extends State<SplashPage> {
           size: Theme.of(context).spacing.large,
         ),
       ],
-    );
-  }
-
-  Widget bigCircle(double size) {
-    return Container(
-      width: size,
-      height: size,
-      decoration: const BoxDecoration(
-        color: AppColors.primaryLight,
-        shape: BoxShape.circle,
-      ),
-    );
-  }
-
-  Widget bigCircleBorder(double size) {
-    return Container(
-      width: size,
-      height: size,
-      decoration: BoxDecoration(
-        border: Border.all(color: AppColors.primary, width: 1),
-        // color: AppColors.primary,
-        shape: BoxShape.circle,
-      ),
-    );
-  }
-
-  Widget bgMain() {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
-      decoration: const BoxDecoration(
-        gradient: AppColors.gradientMain,
-      ),
     );
   }
 }

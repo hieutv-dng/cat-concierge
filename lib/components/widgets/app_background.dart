@@ -14,44 +14,49 @@ class AppBackground extends StatelessWidget {
   const AppBackground({
     super.key,
     required this.child,
+    this.showBottomCircle = false,
   });
 
+  final bool showBottomCircle;
   final Widget child;
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Stack(
-          children: [
-            bgMain(context),
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: AppColors.bgGradient,
+      ),
+      child: Stack(
+        children: [
+          Positioned(
+            top: -width * 0.5,
+            left: -width * 0.31,
+            child: _bigCircle(width),
+          ),
+          if (showBottomCircle)
             Positioned(
-              top: -width * 0.5,
-              left: -width * 0.31,
-              child: bigCircle(width),
+              bottom: -width * 0.73,
+              right: -width * 0.42,
+              child: _bigCircle(width),
             ),
-            // Positioned(
-            //   bottom: -width * 0.73,
-            //   right: -width * 0.42,
-            //   child: bigCircle(width),
-            // ),
-            Positioned(
-              top: -width * 0.38,
-              left: -width * 0.43,
-              child: bigCircleBorder(width),
-            ),
-            Positioned(
-              top: -width * 0.65,
-              right: -width * 0.23,
-              child: bigCircleBorder(width),
-            ),
-            Container(),
-            SafeArea(child: child),
-          ],
-        ));
+          Positioned(
+            top: -width * 0.38,
+            left: -width * 0.43,
+            child: _bigCircleBorder(width),
+          ),
+          Positioned(
+            top: -width * 0.65,
+            right: -width * 0.23,
+            child: _bigCircleBorder(width),
+          ),
+          child,
+        ],
+      ),
+    );
   }
 
-  Widget bigCircle(double size) {
+  Widget _bigCircle(double size) {
     return Container(
       width: size,
       height: size,
@@ -62,7 +67,7 @@ class AppBackground extends StatelessWidget {
     );
   }
 
-  Widget bigCircleBorder(double size) {
+  Widget _bigCircleBorder(double size) {
     return Container(
       width: size,
       height: size,
@@ -70,16 +75,6 @@ class AppBackground extends StatelessWidget {
         border: Border.all(color: AppColors.primary, width: 1),
         // color: AppColors.primary,
         shape: BoxShape.circle,
-      ),
-    );
-  }
-
-  Widget bgMain(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
-      decoration: const BoxDecoration(
-        gradient: AppColors.gradientMain,
       ),
     );
   }

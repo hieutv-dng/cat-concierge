@@ -23,7 +23,7 @@ class Step6Body extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 32.0),
-          child: Text('What is the cat\'s breed?', style: styles.headingH1, textAlign: TextAlign.start),
+          child: Text('What is the cat breed?', style: styles.headingH1, textAlign: TextAlign.start),
         ),
         const AppTextField(
           hintText: '3 kg',

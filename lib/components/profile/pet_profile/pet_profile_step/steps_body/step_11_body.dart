@@ -7,10 +7,10 @@
  * Modified By: Dương Trí
  */
 
+import 'package:cat_concierge/components/index.dart';
 import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../index.dart';
+import 'package:one/one.dart';
 
 class Step11Body extends StatefulWidget {
   const Step11Body({super.key});
@@ -21,12 +21,12 @@ class Step11Body extends StatefulWidget {
 
 class _Step11BodyState extends State<Step11Body> {
   final List<Options> _listOptional = [
-    Options(name: 'Diarrhoea of an unknown cause', isSelected: false),
     Options(name: 'My cat is health', isSelected: false),
     Options(name: 'Arthritis', isSelected: false),
     Options(name: 'Cancer', isSelected: false),
     Options(name: 'Cystitis', isSelected: false),
     Options(name: 'Diabetes', isSelected: false),
+    Options(name: 'Diarrhoea of an unknown cause', isSelected: false),
     Options(name: 'Epilepsy', isSelected: false),
     Options(name: 'Hyperthyroidism', isSelected: false),
     Options(name: 'Inflammatory bowel disease', isSelected: false),
@@ -40,14 +40,15 @@ class _Step11BodyState extends State<Step11Body> {
   @override
   Widget build(BuildContext context) {
     final styles = AppTextStyle.fromContext(context);
-
+    final theme = Theme.of(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 32.0),
-          child: Text('Please, select all medical conditions that your cat  has:', style: styles.headingH1, textAlign: TextAlign.start),
+          padding: EdgeInsets.symmetric(vertical: theme.spacing.large),
+          child: Text('Please, select all medical conditions that your cat  has:',
+              style: styles.headingH1, textAlign: TextAlign.start),
         ),
         Column(
             children: _listOptional.map((e) {
@@ -56,9 +57,9 @@ class _Step11BodyState extends State<Step11Body> {
             e,
           );
         }).toList()),
-        const Padding(
-          padding: EdgeInsets.only(bottom: 8.0),
-          child: AppTextField(
+        Padding(
+          padding: EdgeInsets.only(bottom: theme.spacing.small),
+          child: const AppTextField(
             maxLines: 10,
             title: 'Add further details if required',
             hintText: 'Placeholder',

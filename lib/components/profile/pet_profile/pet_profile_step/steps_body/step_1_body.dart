@@ -23,7 +23,7 @@ class Step1Body extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 32.0),
-          child: Text('What is your cat called?', style: styles.headingH1, textAlign: TextAlign.start),
+          child: Text('What is your cat’s name?', style: styles.headingH1, textAlign: TextAlign.start),
         ),
         const AppTextField(
           hintText: 'Name',

@@ -45,14 +45,16 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return AppBackground(
-      child: SafeArea(
-        child: NestedScrollView(
-          floatHeaderSlivers: true,
-          headerSliverBuilder: (context, innerBoxIsScrolled) {
-            return [_buildSliverAppBar(context)];
-          },
-          body: _buildBody(context),
+    return Scaffold(
+      body: AppBackground(
+        child: SafeArea(
+          child: NestedScrollView(
+            floatHeaderSlivers: true,
+            headerSliverBuilder: (context, innerBoxIsScrolled) {
+              return [_buildSliverAppBar(context)];
+            },
+            body: _buildBody(context),
+          ),
         ),
       ),
     );
@@ -74,7 +76,8 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Hi, John and Pixel', maxLines: 1, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
+                  Text('Hi, John and Pixel',
+                      maxLines: 1, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
                   const SizedBox(height: 6),
                   Text('Let’s get learning', maxLines: 1, style: theme.textTheme.labelSmall),
                 ],
@@ -115,17 +118,18 @@ class _HomePageState extends State<HomePage> {
         _refreshController.refreshCompleted();
         // _controller.loadData();
       },
-      child: Container(margin: const EdgeInsets.only(top: 60), child: _buildContent(context)),
+      child: _buildContent(context),
     );
   }
 
   Widget _buildContent(BuildContext context) {
+    final theme = Theme.of(context);
     return CustomScrollView(
       slivers: [
+        SliverPadding(padding: theme.spacing.edgeInsets),
         SliverList(
           delegate: SliverChildListDelegate([
             ScanTestCardView(onTapScanTest: _openCameraScan),
-            if (_file != null) Image.file(_file!),
           ]),
         ),
       ],
