@@ -1,9 +1,9 @@
 /*
- * File: owner_edit_profile_page.dart
- * File Created: Tuesday, 18th April 2023 10:24:54 am
+ * File: pet_profile_edit_page.dart
+ * File Created: Tuesday, 18th April 2023 11:43:56 am
  * Author: Hieu Tran
  * -----
- * Last Modified: Tuesday, 18th April 2023 10:25:03 am
+ * Last Modified: Tuesday, 18th April 2023 11:44:21 am
  * Modified By: Hieu Tran
  */
 
@@ -13,8 +13,8 @@ import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
 
-class OwnerEditProfilePage extends StatelessWidget {
-  const OwnerEditProfilePage({super.key});
+class PetProfileEditPage extends StatelessWidget {
+  const PetProfileEditPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,33 +46,17 @@ class OwnerEditProfilePage extends StatelessWidget {
             child: Column(
               children: [
                 const PetFamilyCardItem(
-                  title: 'John Doe',
-                  subtitle: 'john.doe@gmail.com',
+                  title: 'Pixel',
+                  subtitle: '5 years old',
                 ),
                 SizedBox(height: theme.spacing.base),
                 const AppTextField(
-                  label: 'First Name',
-                  hintText: 'First Name',
+                  label: 'Name',
+                  hintText: 'Name',
                 ),
                 const AppTextField(
-                  label: 'Last Name',
-                  hintText: 'Last Name',
-                ),
-                const AppTextField(
-                  label: 'Email',
-                  hintText: 'Email',
-                ),
-                const AppTextField(
-                  label: 'Date of Birth',
-                  hintText: 'Date of Birth',
-                ),
-                const AppTextField(
-                  label: 'Country',
-                  hintText: 'Country',
-                ),
-                const AppTextField(
-                  label: 'City',
-                  hintText: 'City',
+                  label: 'Age or dob',
+                  hintText: 'Age or dob',
                 ),
               ],
             ),

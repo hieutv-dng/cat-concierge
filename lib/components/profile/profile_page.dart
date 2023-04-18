@@ -68,7 +68,7 @@ class ProfilePage extends StatelessWidget {
         PetFamilyCardItem(
           title: 'Pixel',
           subtitle: '5 years old',
-          onTap: () {},
+          onTap: () => Get.toNamed('/pet-profile'),
         ),
       ],
     );

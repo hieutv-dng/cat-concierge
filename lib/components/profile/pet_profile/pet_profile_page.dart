@@ -1,9 +1,9 @@
 /*
- * File: owner_profile_page.dart
- * File Created: Sunday, 16th April 2023 3:07:45 am
+ * File: pet_profile_page.dart
+ * File Created: Tuesday, 18th April 2023 11:06:59 am
  * Author: Hieu Tran
  * -----
- * Last Modified: Monday, 17th April 2023 2:03:36 am
+ * Last Modified: Tuesday, 18th April 2023 11:09:40 am
  * Modified By: Hieu Tran
  */
 
@@ -13,8 +13,8 @@ import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
 
-class OwnerProfilePage extends StatelessWidget {
-  const OwnerProfilePage({super.key});
+class PetProfilePage extends StatelessWidget {
+  const PetProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class OwnerProfilePage extends StatelessWidget {
           actions: [
             OneButton.text(
               label: const Text('Edit'),
-              onTap: () => Get.toNamed('/owner-profile-edit'),
+              onTap: () => Get.toNamed('/pet-profile-edit'),
             ),
           ],
         ),
@@ -43,30 +43,18 @@ class OwnerProfilePage extends StatelessWidget {
       child: Column(
         children: [
           const PetFamilyCardItem(
-            title: 'John Doe',
-            subtitle: 'john.doe@gmail.com',
+            title: 'Pixel',
+            subtitle: '5 years old',
           ),
           SizedBox(height: theme.spacing.base),
-          OneCard(
-            child: Column(
-              children: [
-                SettingMenuTile(
-                  title: 'Change Password',
-                  onTap: () {},
-                ),
-                SettingMenuTile(
-                  title: 'Log Out',
-                  showArrowRight: false,
-                  onTap: () {},
-                ),
-                SettingMenuTile(
-                  title: 'Delete Account',
-                  showArrowRight: false,
-                  onTap: () {},
-                ),
-              ],
-            ),
-          )
+          const AppTextField(
+            label: 'Name',
+            hintText: 'Name',
+          ),
+          const AppTextField(
+            label: 'Age or dob',
+            hintText: 'Age or dob',
+          ),
         ],
       ),
     );
