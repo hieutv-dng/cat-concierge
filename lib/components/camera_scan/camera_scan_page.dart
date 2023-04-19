@@ -66,7 +66,7 @@ class _CameraScanPageState extends State<CameraScanPage> {
                 barcodes: tuple.item2,
                 analysisImage: tuple.item1,
                 isDetectBarcodeInArea: true,
-                isDrawBarcodeTracking: true,
+                // isDrawBarcodeTracking: true,
               );
             },
           );

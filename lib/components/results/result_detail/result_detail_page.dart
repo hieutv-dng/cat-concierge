@@ -10,6 +10,10 @@
 import 'package:cat_concierge/components/widgets/app_action_cardview.dart';
 import 'package:flutter/material.dart';
 import 'package:one/one.dart';
+import 'package:tuple/tuple.dart';
+
+import 'color_result.dart';
+import 'colors_result_item.dart';
 
 class ResultDetailPage extends StatelessWidget {
   const ResultDetailPage({super.key});
@@ -35,6 +39,18 @@ class ResultDetailPage extends StatelessWidget {
           actionLabel: 'See Feedback',
           onTapAction: () {},
         ),
+        SizedBox(height: theme.spacing.base),
+        Column(
+          children: List.generate(colorResults.length, (index) {
+            final result = colorResults[index];
+            return Padding(
+              padding: EdgeInsets.symmetric(vertical: theme.spacing.small),
+              child: ColorsResultItem(
+                colorResult: result,
+              ),
+            );
+          }),
+        )
       ]),
     );
   }
