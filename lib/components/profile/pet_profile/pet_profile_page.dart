@@ -38,8 +38,15 @@ class PetProfilePage extends StatelessWidget {
   }
 
   Widget _buildBody(BuildContext context) {
-    final listMC = ['Arthritis', 'Inflammatory bowel disease', 'Cystitis'];
-    final listFood = ['Raw', 'HOME-COOKED'];
+    final listMC = [
+      Options(name: 'Arthritis', isSelected: false),
+      Options(name: 'Inflammatory bowel disease', isSelected: false),
+      Options(name: 'Cystitis', isSelected: false),
+    ];
+    final listFood = [
+      Options(name: 'Raw', isSelected: false),
+      Options(name: 'HOME-COOKED', isSelected: false),
+    ];
     final theme = Theme.of(context);
     return SingleChildScrollView(
       padding: theme.spacing.edgeInsets,

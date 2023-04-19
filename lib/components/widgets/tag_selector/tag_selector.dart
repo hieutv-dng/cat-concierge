@@ -7,6 +7,7 @@
  * Modified By: Dương Trí
  */
 
+import 'package:cat_concierge/components/index.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/index.dart';
@@ -15,7 +16,7 @@ class TagSelector extends StatefulWidget {
   const TagSelector({super.key, required this.title, required this.data});
 
   final String title;
-  final List<String> data;
+  final List<Options> data;
 
   @override
   State<TagSelector> createState() => _TagSelectorState();
@@ -23,13 +24,13 @@ class TagSelector extends StatefulWidget {
 
 class _TagSelectorState extends State<TagSelector> {
   String get _title => widget.title;
-  List<String> get _data => widget.data;
+  List<Options> get _data => widget.data;
   @override
   Widget build(BuildContext context) {
     return _buildTagLayout(context, _title, _data);
   }
 
-  Widget _buildTagLayout(BuildContext context, String title, List<String> data) {
+  Widget _buildTagLayout(BuildContext context, String title, List<Options> data) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
@@ -46,12 +47,22 @@ class _TagSelectorState extends State<TagSelector> {
     );
   }
 
-  Widget _buildItem(String text, BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(4),
-      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(16.0), color: AppColors.primary),
-      child: Text(text.toUpperCase(), style: AppTextStyle.fromContext(context).captionM.copyWith(color: Colors.white)),
+  Widget _buildItem(Options item, BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          item.isSelected = !item.isSelected;
+        });
+      },
+      child: Container(
+        margin: const EdgeInsets.all(4),
+        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(16.0), color: item.isSelected ? AppColors.primary : AppColors.primaryLightest),
+        child: Text(item.name.toUpperCase(),
+            style: AppTextStyle.fromContext(context).captionM.copyWith(
+                  color: item.isSelected ? Colors.white : AppColors.primary,
+                )),
+      ),
     );
   }
 }

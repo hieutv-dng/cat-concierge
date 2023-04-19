@@ -26,9 +26,25 @@ class _FeedBackPageState extends State<FeedBackPage> {
   Answer answer = Answer.yes;
   int _rate = 0;
 
-  final listFav = ['Easy to use', 'helpful', 'Convenient', 'Looks good'];
-  final listCon = ['From friends', 'Telegram', 'Advertising', 'Facebook', 'Instagram'];
-  final listImp = ['Text', 'Text', 'Text', 'Text'];
+  final listFav = [
+    Options(name: 'Easy to use', isSelected: false),
+    Options(name: 'helpful', isSelected: false),
+    Options(name: 'Convenient', isSelected: false),
+    Options(name: 'Looks good', isSelected: false),
+  ];
+  final listCon = [
+    Options(name: 'From friends', isSelected: false),
+    Options(name: 'Telegram', isSelected: false),
+    Options(name: 'Advertising', isSelected: false),
+    Options(name: 'Facebook', isSelected: false),
+    Options(name: 'Instagram', isSelected: false),
+  ];
+  final listImp = [
+    Options(name: 'Text', isSelected: false),
+    Options(name: 'Text', isSelected: false),
+    Options(name: 'Text', isSelected: false),
+    Options(name: 'Text', isSelected: false),
+  ];
 
   @override
   Widget build(BuildContext context) {
