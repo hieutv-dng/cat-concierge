@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:get/get.dart';
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 import 'package:image/image.dart' as img;
 import 'package:open_filex/open_filex.dart';
@@ -64,7 +66,7 @@ class _CameraScanPageState extends State<CameraScanPage> {
                 barcodes: tuple.item2,
                 analysisImage: tuple.item1,
                 isDetectBarcodeInArea: true,
-                isDrawBarcodeTracking: false,
+                isDrawBarcodeTracking: true,
               );
             },
           );
@@ -103,10 +105,10 @@ class _CameraScanPageState extends State<CameraScanPage> {
             }),
             captureButton: CustomAwesomeCaptureButton(
               state: state,
-              onTakenPhoto: (mediaCapture) {
+              onTakenPhoto: (mediaCapture) async {
                 if (mediaCapture != null && mediaCapture.status == MediaCaptureStatus.success) {
-                  _cropImage(mediaCapture, context);
-                  // Navigator.of(context).pop(mediaCapture.filePath);
+                  final cropedFile = await _cropImage(mediaCapture, context);
+                  Get.back(result: cropedFile?.path);
                 }
               },
             ),
@@ -127,7 +129,7 @@ class _CameraScanPageState extends State<CameraScanPage> {
           androidOptions: const AndroidAnalysisOptions.nv21(
             width: 1024,
           ),
-          maxFramesPerSecond: 30,
+          maxFramesPerSecond: 20,
         ),
       ),
     );
@@ -142,9 +144,9 @@ class _CameraScanPageState extends State<CameraScanPage> {
     }
   }
 
-  Future _cropImage(MediaCapture takeImage, BuildContext contexted) async {
-    final image =
-        await img.decodeImageFile(takeImage.filePath); //img.decodeImage(File(takeImage.filePath).readAsBytesSync())!;
+  Future<File?> _cropImage(MediaCapture takeImage, BuildContext contexted) async {
+    final image = await img.decodeImageFile(takeImage.filePath);
+    //img.decodeImage(File(takeImage.filePath).readAsBytesSync())!;
     final imageLow = img.copyResize(image!, width: image.width ~/ 4, height: image.height ~/ 4);
     final croppedImage = img.copyCrop(
       imageLow,
@@ -153,8 +155,6 @@ class _CameraScanPageState extends State<CameraScanPage> {
       width: (imageLow.width * 0.66).toInt(),
       height: (imageLow.height * 0.73).toInt(),
     );
-    File(takeImage.filePath).writeAsBytesSync(img.encodeJpg(croppedImage));
-    if (!mounted) return;
-    Navigator.of(contexted).pop(takeImage.filePath);
+    return File(takeImage.filePath)..writeAsBytesSync(img.encodeJpg(croppedImage));
   }
 }

@@ -12,4 +12,5 @@
 class MyImages {
   MyImages._();
   static const String img_pixel = 'assets/images/img_pixel.png';
+  static const String img_john = 'assets/images/img_john.png';
 }

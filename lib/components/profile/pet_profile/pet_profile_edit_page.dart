@@ -60,9 +60,10 @@ class _PetProfileEditPageState extends State<PetProfileEditPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const PetFamilyCardItem(
+                PetFamilyCardItem(
                   title: 'Pixel',
                   subtitle: '5 years old',
+                  avatar: Image.asset(MyImages.img_pixel),
                 ),
                 SizedBox(height: theme.spacing.base),
                 const AppTextField(

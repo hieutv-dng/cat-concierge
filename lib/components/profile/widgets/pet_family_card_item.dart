@@ -15,11 +15,13 @@ import 'package:one/one.dart';
 class PetFamilyCardItem extends StatelessWidget {
   const PetFamilyCardItem({
     super.key,
+    this.avatar,
     required this.title,
     required this.subtitle,
     this.onTap,
   });
 
+  final Widget? avatar;
   final String title;
   final String subtitle;
   final VoidCallback? onTap;
@@ -43,10 +45,8 @@ class PetFamilyCardItem extends StatelessWidget {
                     color: AppColors.primaryLight,
                     borderRadius: theme.shape.borderRadius,
                   ),
-                  child: ClipRRect(
-                    borderRadius: theme.shape.borderRadius,
-                    child: Image.asset(MyImages.img_pixel),
-                  ),
+                  clipBehavior: Clip.hardEdge,
+                  child: avatar,
                 ),
                 SizedBox(width: theme.spacing.base),
                 Expanded(

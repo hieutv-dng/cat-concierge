@@ -40,7 +40,6 @@ class _KitPreviewOverlayState extends State<KitPreviewOverlay> {
   late Size _screenSize;
   late Rect _scanArea;
 
-  final _maskColor = ValueNotifier<Color>(Colors.blue);
   final _barcodeInArea = ValueNotifier<bool>(false);
 
   bool get _isDrawBarcodeTracking {
@@ -113,7 +112,7 @@ class _KitPreviewOverlayState extends State<KitPreviewOverlay> {
                 return CustomPaint(
                   painter: BarcodeFocusAreaPainter(
                     scanArea: _scanArea.size,
-                    color: inArea ? Colors.green : Colors.blue,
+                    color: inArea ? Colors.green : Colors.red,
                   ),
                 );
               },
@@ -121,17 +120,16 @@ class _KitPreviewOverlayState extends State<KitPreviewOverlay> {
           ),
           Align(
             alignment: Alignment.center,
-            child: Container(
+            child: SizedBox(
               width: _scanArea.width,
               height: _scanArea.height,
-              padding: const EdgeInsets.all(16.0),
               child: ValueListenableBuilder<bool>(
                 valueListenable: _barcodeInArea,
                 builder: (context, inArea, child) {
                   return SvgPicture.asset(
                     MySvgs.kittest_mask,
                     fit: BoxFit.contain,
-                    colorFilter: ColorFilter.mode(inArea ? Colors.green : Colors.blue, BlendMode.srcIn),
+                    colorFilter: ColorFilter.mode(inArea ? Colors.green : Colors.red, BlendMode.srcIn),
                   );
                 },
               ),
@@ -164,10 +162,11 @@ class _KitPreviewOverlayState extends State<KitPreviewOverlay> {
     final croppedSize = img.croppedSize;
     final ratioAnalysisToPreview = widget.previewSize.width / croppedSize.width;
     try {
-      final rects = <Rect>[];
+      final rects = <String, Rect>{};
       _barcodeInArea.value = false;
-      // debugPrint(barcodes.map((e) => e.displayValue ?? '').join(','));
-      for (final barcode in barcodes.where((e) => e.displayValue == 'CCTR' || e.displayValue == 'CCBL')) {
+      for (final barcode in barcodes
+          .where((e) => e.displayValue?.isNotEmpty ?? false)
+          .where((e) => e.displayValue!.trim().contains('CCTR') || e.displayValue!.trim().contains('CCBL'))) {
         // Check if the barcode is within bounds
         if (barcode.cornerPoints != null) {
           final topLeft = croppedPosition(
@@ -186,14 +185,22 @@ class _KitPreviewOverlayState extends State<KitPreviewOverlay> {
             ratio: ratioAnalysisToPreview,
             flipXY: false,
           ).translate(-widget.previewRect.left, -widget.previewRect.top);
-          rects.add(Rect.fromLTRB(topLeft.dx, topLeft.dy, bottomRight.dx, bottomRight.dy));
+          rects[barcode.displayValue!.trim()] = Rect.fromLTRB(topLeft.dx, topLeft.dy, bottomRight.dx, bottomRight.dy);
         }
       }
 
       if (rects.length == 2) {
-        _barcodeInArea.value = rects.every((e) => _scanArea.contains(
-              e.center,
-            ));
+        _barcodeInArea.value =
+            _scanArea.contains(rects['CCTR']!.topCenter) && !_scanArea.intersect(rects['CCBL']!).isEmpty;
+        // _barcodeInArea.value = rects.every((e) {
+        //   final intersect = _scanArea.intersect(e);
+        //   return !intersect.isEmpty;
+        // });
+        // _barcodeInArea.value = rects.every((e) {
+        //   return _scanArea.contains(
+        //       e.center,
+        //     );
+        // });
       } else {
         _barcodeInArea.value = false;
       }

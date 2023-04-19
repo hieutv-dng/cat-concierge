@@ -5,6 +5,7 @@
 import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class CustomAwesomeCaptureButton extends StatefulWidget {
   final CameraState state;
@@ -95,9 +96,11 @@ class _CustomAwesomeCaptureButtonState extends State<CustomAwesomeCaptureButton>
   VoidCallback get onTap => () {
         widget.state.when(
           onPhotoMode: (photoState) async {
+            EasyLoading.show();
             await photoState.takePhoto();
             final mediaCapture = photoState.captureState;
             widget.onTakenPhoto(mediaCapture);
+            EasyLoading.dismiss();
           },
           onVideoMode: (videoState) => videoState.startRecording(),
           onVideoRecordingMode: (videoState) => videoState.stopRecording(),
