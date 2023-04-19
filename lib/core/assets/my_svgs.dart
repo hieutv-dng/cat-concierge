@@ -52,6 +52,7 @@ class MySvgs {
   static const String ic_radio_true = 'assets/svgs/ic_radio_true.svg';
   static const String logo_white = 'assets/svgs/logo_white.svg';
   static const String bg_happy = 'assets/svgs/bg_happy.svg';
+  static const String ic_lock = 'assets/svgs/ic_lock.svg';
 }
 
 class Exception {

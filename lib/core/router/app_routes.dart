@@ -8,6 +8,7 @@
  */
 
 import 'package:cat_concierge/components/index.dart';
+import 'package:cat_concierge/components/profile/feedback/feedback_page.dart';
 import 'package:get/get.dart';
 
 import 'app_get_page.dart';
@@ -30,12 +31,9 @@ class AppRoutes {
         MainPageBinding(),
       ],
     ),
-    AppGetPage<AuthenticationFlow>(
-        name: '/authentication', page: () => const AuthenticationFlow(), binding: AuthenticationFlowBinding()),
-    AppGetPage<ResetPasswordFlow>(
-        name: '/reset-password', page: () => const ResetPasswordFlow(), binding: ResetPasswordFlowBinding()),
-    AppGetPage<LookupShopFlow>(
-        name: '/lookup-shop', page: () => const LookupShopFlow(), binding: LookupShopFlowBinding()),
+    AppGetPage<AuthenticationFlow>(name: '/authentication', page: () => const AuthenticationFlow(), binding: AuthenticationFlowBinding()),
+    AppGetPage<ResetPasswordFlow>(name: '/reset-password', page: () => const ResetPasswordFlow(), binding: ResetPasswordFlowBinding()),
+    AppGetPage<LookupShopFlow>(name: '/lookup-shop', page: () => const LookupShopFlow(), binding: LookupShopFlowBinding()),
     AppGetPage<MainPage>(name: '/', page: () => const MainPage(), binding: MainPageBinding()),
     //PROFILE
     AppGetPage<ProfilePage>(name: '/profile', page: () => const ProfilePage()),
@@ -50,5 +48,6 @@ class AppRoutes {
     //RESULT
     AppGetPage<ResultsPage>(name: '/results', page: () => const ResultsPage()),
     AppGetPage<ResultDetailPage>(name: '/result-detail', page: () => const ResultDetailPage()),
+    AppGetPage<ResultDetailPage>(name: '/feedback', page: () => const FeedBackPage()),
   ];
 }
