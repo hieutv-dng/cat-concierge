@@ -96,7 +96,7 @@ class PetProfilePage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16),
-            child: _buildSearchLayout(context, 'Medical Conditionals', listMC),
+            child: TagSelector(title: 'Medical Conditionals', data: listMC),
           ),
           const AppTextField(
             readOnly: true,
@@ -113,7 +113,7 @@ class PetProfilePage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16),
-            child: _buildSearchLayout(context, 'Food', listFood),
+            child: TagSelector(title: 'Food', data: listFood),
           ),
           const AppTextField(
             readOnly: true,
@@ -123,32 +123,6 @@ class PetProfilePage extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildSearchLayout(BuildContext context, String title, List<String> data) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: AppTextStyle.fromContext(context).headingH5,
-        ),
-        const SizedBox(height: 8),
-        Wrap(
-          children: List.generate(data.length, (index) => _buildItem(data[index], context)),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildItem(String text, BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(4),
-      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(16.0), color: AppColors.primary),
-      child: Text(text.toUpperCase(), style: AppTextStyle.fromContext(context).captionM.copyWith(color: Colors.white)),
     );
   }
 }

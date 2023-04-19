@@ -53,6 +53,9 @@ class MySvgs {
   static const String logo_white = 'assets/svgs/logo_white.svg';
   static const String bg_happy = 'assets/svgs/bg_happy.svg';
   static const String ic_lock = 'assets/svgs/ic_lock.svg';
+  static const String ic_star_outline = 'assets/svgs/ic_star_outlined.svg';
+  static const String ic_star_filled = 'assets/svgs/ic_star_filled.svg';
+  static const String logo_finish_feedback = 'assets/svgs/logo_finish_feedback.svg';
 }
 
 class Exception {

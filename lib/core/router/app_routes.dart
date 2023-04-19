@@ -8,7 +8,6 @@
  */
 
 import 'package:cat_concierge/components/index.dart';
-import 'package:cat_concierge/components/profile/feedback/feedback_page.dart';
 import 'package:get/get.dart';
 
 import 'app_get_page.dart';
@@ -49,5 +48,6 @@ class AppRoutes {
     AppGetPage<ResultsPage>(name: '/results', page: () => const ResultsPage()),
     AppGetPage<ResultDetailPage>(name: '/result-detail', page: () => const ResultDetailPage()),
     AppGetPage<ResultDetailPage>(name: '/feedback', page: () => const FeedBackPage()),
+    AppGetPage<ResultDetailPage>(name: '/feedback-finish', page: () => const FeedBackFinishPage()),
   ];
 }
