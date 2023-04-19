@@ -136,6 +136,11 @@ class _HomePageState extends State<HomePage> {
                 onTapAction: _openCameraScan,
               ),
             ),
+            if (_file != null)
+              Padding(
+                padding: theme.spacing.largeEdgeInsets,
+                child: Image.file(_file!),
+              ),
           ]),
         ),
       ],

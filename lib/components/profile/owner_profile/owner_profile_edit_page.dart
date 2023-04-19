@@ -8,6 +8,7 @@
  */
 
 import 'package:cat_concierge/components/index.dart';
+import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:get/get.dart';
@@ -45,9 +46,10 @@ class OwnerProfileEditPage extends StatelessWidget {
             padding: theme.spacing.edgeInsets,
             child: Column(
               children: [
-                const PetFamilyCardItem(
+                PetFamilyCardItem(
                   title: 'John Doe',
                   subtitle: 'john.doe@gmail.com',
+                  avatar: Image.asset(MyImages.img_john),
                 ),
                 SizedBox(height: theme.spacing.base),
                 const AppTextField(

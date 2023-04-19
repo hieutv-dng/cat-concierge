@@ -8,6 +8,7 @@
  */
 
 import 'package:cat_concierge/components/index.dart';
+import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:one/one.dart';
@@ -62,12 +63,14 @@ class ProfilePage extends StatelessWidget {
         PetFamilyCardItem(
           title: 'John Doe',
           subtitle: 'john.doe@gmail.com',
+          avatar: Image.asset(MyImages.img_john),
           onTap: () => Get.toNamed('/owner-profile'),
         ),
         SizedBox(height: theme.spacing.base),
         PetFamilyCardItem(
           title: 'Pixel',
           subtitle: '5 years old',
+          avatar: Image.asset(MyImages.img_pixel),
           onTap: () => Get.toNamed('/pet-profile'),
         ),
       ],
