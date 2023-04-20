@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
+import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:image/image.dart' as img;
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
@@ -14,6 +15,7 @@ import 'widgets/custom_awesome_bottom_actions.dart';
 import 'widgets/custom_awesome_capture_button.dart';
 import 'widgets/kit_preview_overlay.dart';
 import 'widgets/mlkit_utils.dart';
+import 'widgets/painters/text_detector_painter.dart';
 
 class CameraScanPage extends StatefulWidget {
   const CameraScanPage({super.key});
@@ -23,8 +25,8 @@ class CameraScanPage extends StatefulWidget {
 }
 
 class _CameraScanPageState extends State<CameraScanPage> {
-  final _barcodeScanner = BarcodeScanner(formats: [BarcodeFormat.qrCode]);
-  final _imageAndBarcodes = ValueNotifier<Tuple2<AnalysisImage?, List<Barcode>>>(const Tuple2(null, []));
+  final _textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
+  final _imageAndText = ValueNotifier<Tuple2<AnalysisImage?, RecognizedText?>>(const Tuple2(null, null));
 
   Future<String> _path(CaptureMode captureMode) async {
     final Directory extDir = await getTemporaryDirectory();
@@ -56,18 +58,34 @@ class _CameraScanPageState extends State<CameraScanPage> {
           OpenFilex.open(mediaCapture.filePath);
         },
         previewDecoratorBuilder: (state, previewSize, previewRect) {
+          // return ValueListenableBuilder(
+          //   valueListenable: _imageAndText,
+          //   builder: (context, tuple, child) {
+          //     return KitPreviewOverlay(
+          //       state: state,
+          //       previewSize: previewSize,
+          //       previewRect: previewRect,
+          //       recognizedText: tuple.item2,
+          //       analysisImage: tuple.item1,
+          //       isDetectBarcodeInArea: true,
+          //       // isDrawBarcodeTracking: true,
+          //     );
+          //   },
+          // );
+
           return ValueListenableBuilder(
-            valueListenable: _imageAndBarcodes,
+            valueListenable: _imageAndText,
             builder: (context, tuple, child) {
-              return KitPreviewOverlay(
-                state: state,
-                previewSize: previewSize,
-                previewRect: previewRect,
-                barcodes: tuple.item2,
-                analysisImage: tuple.item1,
-                isDetectBarcodeInArea: true,
-                // isDrawBarcodeTracking: true,
-              );
+              final img = tuple.item1;
+              if (img?.size != null && img?.inputImageRotation != null && tuple.item2 != null) {
+                final painter = TextRecognizerPainter(
+                  tuple.item2!,
+                  img!.size,
+                  img!.inputImageRotation,
+                );
+                return CustomPaint(painter: painter);
+              }
+              return const SizedBox();
             },
           );
         },
@@ -127,9 +145,10 @@ class _CameraScanPageState extends State<CameraScanPage> {
         onImageForAnalysis: (img) => _processImage(img),
         imageAnalysisConfig: AnalysisConfig(
           androidOptions: const AndroidAnalysisOptions.nv21(
-            width: 1024,
+            width: 512,
           ),
-          maxFramesPerSecond: 20,
+          maxFramesPerSecond: 10,
+          cupertinoOptions: const CupertinoAnalysisOptions.bgra8888(),
         ),
       ),
     );
@@ -137,8 +156,8 @@ class _CameraScanPageState extends State<CameraScanPage> {
 
   Future _processImage(AnalysisImage img) async {
     try {
-      final recognizedBarCodes = await _barcodeScanner.processImage(img.toInputImage());
-      _imageAndBarcodes.value = Tuple2(img, recognizedBarCodes);
+      final recognizedText = await _textRecognizer.processImage(img.toInputImage());
+      _imageAndText.value = Tuple2(img, recognizedText);
     } catch (error) {
       debugPrint('...sending image resulted error $error');
     }
