@@ -58,36 +58,37 @@ class _CameraScanPageState extends State<CameraScanPage> {
           OpenFilex.open(mediaCapture.filePath);
         },
         previewDecoratorBuilder: (state, previewSize, previewRect) {
-          // return ValueListenableBuilder(
-          //   valueListenable: _imageAndText,
-          //   builder: (context, tuple, child) {
-          //     return KitPreviewOverlay(
-          //       state: state,
-          //       previewSize: previewSize,
-          //       previewRect: previewRect,
-          //       recognizedText: tuple.item2,
-          //       analysisImage: tuple.item1,
-          //       isDetectBarcodeInArea: true,
-          //       // isDrawBarcodeTracking: true,
-          //     );
-          //   },
-          // );
-
           return ValueListenableBuilder(
             valueListenable: _imageAndText,
             builder: (context, tuple, child) {
-              final img = tuple.item1;
-              if (img?.size != null && img?.inputImageRotation != null && tuple.item2 != null) {
-                final painter = TextRecognizerPainter(
-                  tuple.item2!,
-                  img!.size,
-                  img!.inputImageRotation,
-                );
-                return CustomPaint(painter: painter);
-              }
-              return const SizedBox();
+              return KitPreviewOverlay(
+                state: state,
+                previewSize: previewSize,
+                previewRect: previewRect,
+                recognizedText: tuple.item2 ?? RecognizedText(text: '', blocks: []),
+                analysisImage: tuple.item1,
+                isDetectBarcodeInArea: true,
+                // barcodes: [],
+                // isDrawBarcodeTracking: true,
+              );
             },
           );
+
+          // return ValueListenableBuilder(
+          //   valueListenable: _imageAndText,
+          //   builder: (context, tuple, child) {
+          //     final img = tuple.item1;
+          //     if (img?.size != null && img?.inputImageRotation != null && tuple.item2 != null) {
+          //       final painter = TextRecognizerPainter(
+          //         tuple.item2!,
+          //         img!.size,
+          //         img!.inputImageRotation,
+          //       );
+          //       return CustomPaint(painter: painter);
+          //     }
+          //     return const SizedBox();
+          //   },
+          // );
         },
         topActionsBuilder: (state) => const SizedBox(),
         // topActionsBuilder: (state) {

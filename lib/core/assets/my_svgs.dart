@@ -47,7 +47,7 @@ class MySvgs {
   static const String ic_user = 'assets/svgs/ic_user.svg';
   static const String ic_warning = 'assets/svgs/ic_warning.svg';
   static const String illustration_pet_profile = 'assets/svgs/illustration_pet_profile.svg';
-  static const String kittest_mask = 'assets/svgs/kittest_mask.svg';
+  static const String kit_mask = 'assets/svgs/kit_mask.svg';
   static const String ic_radio_false = 'assets/svgs/ic_radio_false.svg';
   static const String ic_radio_true = 'assets/svgs/ic_radio_true.svg';
   static const String logo_white = 'assets/svgs/logo_white.svg';
