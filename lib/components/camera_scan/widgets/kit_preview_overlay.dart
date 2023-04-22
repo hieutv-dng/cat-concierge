@@ -1,15 +1,15 @@
-import 'dart:math';
-
 import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:camerawesome/pigeon.dart';
+import 'package:cat_concierge/components/camera_scan/widgets/mlkit_utils.dart';
 import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
+import 'package:tuple/tuple.dart';
 
-import 'mlkit_utils.dart';
 import 'painters/barcode_focus_area_painter.dart';
 import 'painters/coordinates_translator.dart';
+import 'painters/text_detector_painter.dart';
 
 class KitPreviewOverlay extends StatefulWidget {
   final CameraState state;
@@ -46,7 +46,12 @@ class _KitPreviewOverlayState extends State<KitPreviewOverlay> {
   late Rect _scanAreaBLD;
   late Rect _scanAreaGLU;
 
-  final _barcodeInArea = ValueNotifier<bool>(false);
+  final _checkInArea = ValueNotifier<bool>(false);
+  final _resulrInArea = ValueNotifier<bool>(false);
+  final _BLDInArea = ValueNotifier<bool>(false);
+  final _GLUInArea = ValueNotifier<bool>(false);
+
+  final _imageAndText = ValueNotifier<Tuple2<AnalysisImage?, RecognizedText?>>(const Tuple2(null, null));
 
   @override
   void initState() {
@@ -64,7 +69,8 @@ class _KitPreviewOverlayState extends State<KitPreviewOverlay> {
   }
 
   void _refreshScanArea() {
-    final size = widget.previewRect.width * 1.4;
+    final sizeWidth = widget.previewRect.width * .7;
+    final sizeHeight = widget.previewRect.height * .75;
     // previewSize is the preview as seen by the camera but it might
     // not fulfill the current aspectRatio.
     // previewRect on the other hand is the preview as seen by the user,
@@ -74,29 +80,29 @@ class _KitPreviewOverlayState extends State<KitPreviewOverlay> {
       center: widget.previewRect.center,
       // In this example, we want the barcode scan area to be a fraction
       // of the preview that is seen by the user, so we use previewRect
-      width: size * .5,
-      height: size,
+      width: sizeWidth,
+      height: sizeHeight,
     );
 
     _scanAreaResult = Rect.fromLTWH(
       _scanArea.left,
       _scanArea.top,
-      size / 6,
-      size / 8,
+      sizeWidth / 2,
+      sizeHeight / 6,
     );
 
     _scanAreaBLD = Rect.fromLTWH(
       _scanArea.left,
-      _scanArea.bottom - size / 8,
-      size / 6,
-      size / 8,
+      _scanArea.bottom - sizeHeight / 6,
+      sizeWidth / 2,
+      sizeHeight / 6,
     );
 
     _scanAreaGLU = Rect.fromLTWH(
-      _scanArea.right - size / 6,
-      _scanArea.bottom - size / 8,
-      size / 6,
-      size / 8,
+      _scanArea.right - sizeWidth / 2,
+      _scanArea.bottom - sizeHeight / 6,
+      sizeWidth / 2,
+      sizeHeight / 6,
     );
   }
 
@@ -116,7 +122,7 @@ class _KitPreviewOverlayState extends State<KitPreviewOverlay> {
         child: Stack(children: [
           Positioned.fill(
             child: ValueListenableBuilder(
-              valueListenable: _barcodeInArea,
+              valueListenable: _checkInArea,
               builder: (context, inArea, child) {
                 return CustomPaint(
                   painter: BarcodeFocusAreaPainter(
@@ -133,7 +139,7 @@ class _KitPreviewOverlayState extends State<KitPreviewOverlay> {
               width: _scanArea.width,
               height: _scanArea.height,
               child: ValueListenableBuilder<bool>(
-                valueListenable: _barcodeInArea,
+                valueListenable: _checkInArea,
                 builder: (context, inArea, child) {
                   return SvgPicture.asset(
                     MySvgs.kit_mask,
@@ -142,6 +148,54 @@ class _KitPreviewOverlayState extends State<KitPreviewOverlay> {
                   );
                 },
               ),
+            ),
+          ),
+          Positioned(
+            top: _scanAreaResult.top,
+            left: _scanAreaResult.left,
+            width: _scanAreaResult.width,
+            height: _scanAreaResult.height,
+            child: ValueListenableBuilder(
+              valueListenable: _resulrInArea,
+              builder: (context, inArea, child) {
+                return SvgPicture.asset(
+                  MySvgs.kit_box,
+                  fit: BoxFit.fill,
+                  colorFilter: ColorFilter.mode(inArea ? Colors.green : Colors.red, BlendMode.srcIn),
+                );
+              },
+            ),
+          ),
+          Positioned(
+            top: _scanAreaBLD.top,
+            left: _scanAreaBLD.left,
+            width: _scanAreaBLD.width,
+            height: _scanAreaBLD.height,
+            child: ValueListenableBuilder(
+              valueListenable: _BLDInArea,
+              builder: (context, inArea, child) {
+                return SvgPicture.asset(
+                  MySvgs.kit_box,
+                  fit: BoxFit.fill,
+                  colorFilter: ColorFilter.mode(inArea ? Colors.green : Colors.red, BlendMode.srcIn),
+                );
+              },
+            ),
+          ),
+          Positioned(
+            top: _scanAreaGLU.top,
+            left: _scanAreaGLU.left,
+            width: _scanAreaGLU.width,
+            height: _scanAreaGLU.height,
+            child: ValueListenableBuilder(
+              valueListenable: _GLUInArea,
+              builder: (context, inArea, child) {
+                return SvgPicture.asset(
+                  MySvgs.kit_box,
+                  fit: BoxFit.fill,
+                  colorFilter: ColorFilter.mode(inArea ? Colors.green : Colors.red, BlendMode.srcIn),
+                );
+              },
             ),
           ),
           const Align(
@@ -173,7 +227,7 @@ class _KitPreviewOverlayState extends State<KitPreviewOverlay> {
 
     try {
       final rects = <String, Rect>{};
-      _barcodeInArea.value = false;
+      _checkInArea.value = false;
       for (final barcode in recognizedText.blocks
           .where((e) => e.text.isNotEmpty)
           .where((e) => e.text.trim().contains('Result card') || e.text.trim().contains('BLD') || e.text.trim().contains('GLU'))) {
@@ -196,13 +250,16 @@ class _KitPreviewOverlayState extends State<KitPreviewOverlay> {
         rects[barcode.text.trim()] = Rect.fromLTRB(topLeft.dx, topLeft.dy, bottomRight.dx, bottomRight.dy);
       }
 
-      if (rects.length == 3) {
-        final containsResult = _scanAreaResult.contains(rects['Result card']!.topLeft);
-        final containsBLD = _scanAreaBLD.contains(rects['BLD']!.bottomLeft);
-        final containsGLU = _scanAreaGLU.contains(rects['GLU']!.bottomRight);
-        _barcodeInArea.value = containsResult && containsGLU && containsBLD;
+      if (rects.length > 0) {
+        final a = _scanAreaResult.contains(rects['Result card']!.topLeft);
+        final b = _scanAreaBLD.contains(rects['BLD']!.bottomLeft);
+        final c = _scanAreaGLU.contains(rects['GLU']!.bottomRight);
+        // _resulrInArea.value = _scanAreaResult.contains(rects['Result card']!.topLeft);
+
+        _checkInArea.value = a && b && c; //&& containsGLU && containsBLD;
       } else {
-        _barcodeInArea.value = false;
+        // _resulrInArea.value = false;
+        _checkInArea.value = false;
       }
     } catch (error) {
       debugPrint('...sending image resulted error $error');
