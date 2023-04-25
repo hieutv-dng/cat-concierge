@@ -10,6 +10,7 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:camera/camera.dart';
 import 'package:cat_concierge/components/index.dart';
 import 'package:cat_concierge/core/index.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -23,12 +24,13 @@ import 'package:one/one.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+List<CameraDescription> cameras = [];
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   await dotenv.load(fileName: '.env');
   await EasyLocalization.ensureInitialized();
-  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge,
-      overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge, overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       systemNavigationBarColor: Colors.black.withOpacity(0.4), // Color for Android

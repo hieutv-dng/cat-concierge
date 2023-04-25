@@ -58,6 +58,7 @@ class MySvgs {
   static const String ic_star_outline = 'assets/svgs/ic_star_outlined.svg';
   static const String ic_star_filled = 'assets/svgs/ic_star_filled.svg';
   static const String logo_finish_feedback = 'assets/svgs/logo_finish_feedback.svg';
+  static const String ic_button_capture = 'assets/svgs/ic_button_capture.svg';
 }
 
 class Exception {

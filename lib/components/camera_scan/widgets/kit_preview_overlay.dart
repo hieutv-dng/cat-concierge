@@ -224,36 +224,45 @@ class _KitPreviewOverlayState extends State<KitPreviewOverlay> {
     final Size imageSize = img.size;
     final croppedSize = img.croppedSize;
     final ratioAnalysisToPreview = widget.previewSize.width / croppedSize.width;
-
+    print('Image SIZE: ${img.size.width}:${img.size.height}');
+    print('CROPPED SIZE: ${croppedSize.width}:${croppedSize.height}');
+    print('PreviewRect SIZE: ${widget.previewRect.width}:${widget.previewRect.height}');
+    print('PreviewSize SIZE: ${widget.previewSize.width}:${widget.previewSize.height}');
+    print('Screen SIZE: ${_screenSize.width}:${_screenSize.height}');
     try {
       final rects = <String, Rect>{};
       _checkInArea.value = false;
-      for (final barcode in recognizedText.blocks
-          .where((e) => e.text.isNotEmpty)
-          .where((e) => e.text.trim().contains('Result card') || e.text.trim().contains('BLD') || e.text.trim().contains('GLU'))) {
-        final topLeft = croppedPosition(
-          barcode.cornerPoints[0],
-          analysisImageSize: imageSize,
-          croppedSize: croppedSize,
-          screenSize: _screenSize,
-          ratio: ratioAnalysisToPreview,
-          flipXY: false,
-        ).translate(-widget.previewRect.left, -widget.previewRect.top);
-        final bottomRight = croppedPosition(
-          barcode.cornerPoints[2],
-          analysisImageSize: imageSize,
-          croppedSize: croppedSize,
-          screenSize: _screenSize,
-          ratio: ratioAnalysisToPreview,
-          flipXY: false,
-        ).translate(-widget.previewRect.left, -widget.previewRect.top);
-        rects[barcode.text.trim()] = Rect.fromLTRB(topLeft.dx, topLeft.dy, bottomRight.dx, bottomRight.dy);
-      }
+      // for (final barcode in recognizedText.blocks
+      //     .where((e) => e.text.isNotEmpty)
+      //     .where((e) => e.text.trim().contains('Result card') || e.text.trim().contains('BLD') || e.text.trim().contains('GLU'))) {
+      //   final topLeft = croppedPosition(
+      //     barcode.cornerPoints[0],
+      //     analysisImageSize: imageSize,
+      //     croppedSize: croppedSize,
+      //     screenSize: _screenSize,
+      //     ratio: ratioAnalysisToPreview,
+      //     flipXY: false,
+      //   ).translate(-widget.previewRect.left, -widget.previewRect.top);
+      //   final bottomRight = croppedPosition(
+      //     barcode.cornerPoints[2],
+      //     analysisImageSize: imageSize,
+      //     croppedSize: croppedSize,
+      //     screenSize: _screenSize,
+      //     ratio: ratioAnalysisToPreview,
+      //     flipXY: false,
+      //   ).translate(-widget.previewRect.left, -widget.previewRect.top);
+      //   final rect = Rect.fromLTRB(topLeft.dx, topLeft.dy, bottomRight.dx, bottomRight.dy);
+      //   if (barcode.text.trim() == 'BLD') print('RecognizedText BLD: bottomLeft: ${rect.bottomLeft}');
+      //   rects[barcode.text.trim()] = rect;
+      // }
 
       if (rects.length > 0) {
-        final a = _scanAreaResult.contains(rects['Result card']!.topLeft);
-        final b = _scanAreaBLD.contains(rects['BLD']!.bottomLeft);
-        final c = _scanAreaGLU.contains(rects['GLU']!.bottomRight);
+        final a = _scanAreaResult.contains(rects['Result card']!.topLeft) || _scanAreaResult.contains(rects['Result card']!.bottomRight);
+        final b = _scanAreaBLD.contains(rects['BLD']!.bottomLeft) || _scanAreaBLD.contains(rects['BLD']!.topRight);
+        final c = _scanAreaGLU.contains(rects['GLU']!.bottomRight) || _scanAreaGLU.contains(rects['GLU']!.topLeft);
+        print('Result: $a');
+        print('BLD: $b');
+        print('GLU: $c');
         // _resulrInArea.value = _scanAreaResult.contains(rects['Result card']!.topLeft);
 
         _checkInArea.value = a && b && c; //&& containsGLU && containsBLD;

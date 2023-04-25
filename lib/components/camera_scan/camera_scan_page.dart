@@ -2,9 +2,7 @@ import 'dart:io';
 
 import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:image/image.dart' as img;
 import 'package:open_filex/open_filex.dart';
@@ -13,9 +11,7 @@ import 'package:tuple/tuple.dart';
 
 import 'widgets/custom_awesome_bottom_actions.dart';
 import 'widgets/custom_awesome_capture_button.dart';
-import 'widgets/kit_preview_overlay.dart';
 import 'widgets/mlkit_utils.dart';
-import 'widgets/painters/text_detector_painter.dart';
 
 class CameraScanPage extends StatefulWidget {
   const CameraScanPage({super.key});
@@ -63,16 +59,17 @@ class _CameraScanPageState extends State<CameraScanPage> {
               ValueListenableBuilder(
                 valueListenable: _imageAndText,
                 builder: (context, tuple, child) {
-                  return KitPreviewOverlay(
-                    state: state,
-                    previewSize: previewSize,
-                    previewRect: previewRect,
-                    recognizedText: tuple.item2 ?? RecognizedText(text: '', blocks: []),
-                    analysisImage: tuple.item1,
-                    isDetectBarcodeInArea: true,
-                    // barcodes: [],
-                    // isDrawBarcodeTracking: true,
-                  );
+                  return Container();
+                  // return KitPreviewOverlay(
+                  //   state: state,
+                  //   previewSize: previewSize,
+                  //   previewRect: previewRect,
+                  //   recognizedText: tuple.item2 ?? RecognizedText(text: '', blocks: []),
+                  //   analysisImage: tuple.item1,
+                  //   isDetectBarcodeInArea: true,
+                  //   // barcodes: [],
+                  //   // isDrawBarcodeTracking: true,
+                  // );
                 },
               ),
               Positioned(
@@ -85,15 +82,15 @@ class _CameraScanPageState extends State<CameraScanPage> {
                 child: ValueListenableBuilder(
                   valueListenable: _imageAndText,
                   builder: (context, tuple, child) {
-                    final img = tuple.item1;
-                    if (img?.size != null && img?.inputImageRotation != null && tuple.item2 != null) {
-                      final painter = TextRecognizerPainter(
-                        tuple.item2!,
-                        img!.size,
-                        img.inputImageRotation,
-                      );
-                      return CustomPaint(painter: painter);
-                    }
+                    // final img = tuple.item1;
+                    // if (img?.size != null && img?.inputImageRotation != null && tuple.item2 != null) {
+                    // final painter = TextRecognizerPainter(
+                    //   tuple.item2!,
+                    //   img!.size,
+                    //   img.inputImageRotation,
+                    // );
+                    // return CustomPaint(painter: painter);
+                    // }
                     return const SizedBox();
                   },
                 ),
@@ -173,9 +170,9 @@ class _CameraScanPageState extends State<CameraScanPage> {
         onImageForAnalysis: (img) => _processImage(img),
         imageAnalysisConfig: AnalysisConfig(
           androidOptions: const AndroidAnalysisOptions.nv21(
-            width: 512,
+            width: 256,
           ),
-          maxFramesPerSecond: 10,
+          maxFramesPerSecond: 5,
           cupertinoOptions: const CupertinoAnalysisOptions.bgra8888(),
         ),
       ),
