@@ -1,12 +1,7 @@
-import 'dart:ui' as ui;
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 
-import 'coordinates_translator.dart';
-
-Size sizeCamera = Size(0.0, 0.0);
+Size sizeCamera = const Size(0.0, 0.0);
 
 class TextRecognizerPainter extends CustomPainter {
   TextRecognizerPainter(this.recognizedText, this.absoluteImageSize, this.rotation);

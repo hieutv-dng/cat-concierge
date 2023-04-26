@@ -1,8 +1,7 @@
-import 'dart:io';
-
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_mlkit_commons/google_mlkit_commons.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
@@ -177,6 +176,8 @@ class _CameraViewState extends State<CameraView> {
         child: GestureDetector(
           onTap: () async {
             if (_controller?.value.isInitialized == true) {
+              EasyLoading.show();
+              _controller?.stopImageStream();
               final fileImage = await _controller!.takePicture();
               widget.onTakePicture(fileImage);
             }
