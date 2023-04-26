@@ -1,3 +1,12 @@
+/*
+ * File: camera_detector_view.dart
+ * File Created: Wednesday, 26th April 2023 10:31:56 am
+ * Author: Dương Trí
+ * -----
+ * Last Modified: Wednesday, 26th April 2023 11:34:59 pm
+ * Modified By: Dương Trí
+ */
+
 import 'dart:io';
 
 import 'package:camera/camera.dart';
@@ -30,9 +39,8 @@ class _CameraRecognizerViewState extends State<CameraRecognizerView> {
   Rect sizeKit = Rect.zero;
   Rect _scanArea = Rect.zero;
   Rect _scanAreaResult = Rect.zero;
+  Rect _scanAreaSG = Rect.zero;
   Rect _scanAreaBLD = Rect.zero;
-  Rect _scanAreaGLU = Rect.zero;
-  final rectTexts = <String, Rect>{};
   Size _sizeCamera = const Size(0, 0);
   @override
   void initState() {
@@ -40,7 +48,7 @@ class _CameraRecognizerViewState extends State<CameraRecognizerView> {
   }
 
   @override
-  void dispose() async {
+  Future<void> dispose() async {
     _canProcess = false;
     _textRecognizer.close();
     super.dispose();
@@ -54,11 +62,7 @@ class _CameraRecognizerViewState extends State<CameraRecognizerView> {
     // but we're calculating for portrait orientation
     if (sizeCamera != _sizeCamera) {
       _sizeCamera = sizeCamera;
-      sizeKit = Rect.fromCenter(
-        center: Offset(sizeCamera.width / 2, sizeCamera.height / 2),
-        width: sizeCamera.width * 0.7,
-        height: sizeCamera.height * 0.65,
-      );
+      sizeKit = Rect.fromCenter(center: Offset(sizeCamera.width / 2, sizeCamera.height / 2), width: sizeCamera.width * 0.62, height: sizeCamera.height * 0.65);
 
       _scanArea = Rect.fromCenter(
         center: sizeKit.center,
@@ -69,22 +73,22 @@ class _CameraRecognizerViewState extends State<CameraRecognizerView> {
       _scanAreaResult = Rect.fromLTWH(
         _scanArea.left,
         _scanArea.top,
-        sizeKit.width / 2,
-        sizeKit.height / 8,
+        sizeKit.width / 3,
+        sizeKit.height / 10,
+      );
+
+      _scanAreaSG = Rect.fromLTWH(
+        _scanArea.left,
+        _scanArea.bottom - sizeKit.height / 10,
+        sizeKit.width / 3,
+        sizeKit.height / 10,
       );
 
       _scanAreaBLD = Rect.fromLTWH(
-        _scanArea.left,
-        _scanArea.bottom - sizeKit.height / 8,
-        sizeKit.width / 3,
-        sizeKit.height / 8,
-      );
-
-      _scanAreaGLU = Rect.fromLTWH(
         _scanArea.right - sizeKit.width / 3,
-        _scanArea.bottom - sizeKit.height / 8,
+        _scanArea.bottom - sizeKit.height / 3.5,
         sizeKit.width / 3,
-        sizeKit.height / 8,
+        sizeKit.height / 10,
       );
     }
     return Scaffold(
@@ -131,7 +135,7 @@ class _CameraRecognizerViewState extends State<CameraRecognizerView> {
                 valueListenable: _checkInArea,
                 builder: (context, inArea, child) {
                   return SvgPicture.asset(
-                    MySvgs.kit_mask,
+                    MySvgs.kit_mask_version2,
                     fit: BoxFit.contain,
                     colorFilter: ColorFilter.mode(inArea ? Colors.green : Colors.red, BlendMode.srcIn),
                   );
@@ -148,12 +152,13 @@ class _CameraRecognizerViewState extends State<CameraRecognizerView> {
     if (!_canProcess) return;
     if (_isBusy) return;
     _isBusy = true;
+    final rectTexts = <String, Rect>{};
     final recognizedText = await _textRecognizer.processImage(inputImage);
     if (inputImage.inputImageData?.size != null && inputImage.inputImageData?.imageRotation != null) {
       final painter = TextRecognizerPainter(recognizedText, inputImage.inputImageData!.size, inputImage.inputImageData!.imageRotation);
       _customPaint = CustomPaint(painter: painter);
       for (final textBlock in recognizedText.blocks) {
-        if (textBlock.text == 'GLU' || textBlock.text == 'BLD' || textBlock.text == 'Result card') {
+        if (textBlock.text == 'SG' || textBlock.text == 'BLD' || textBlock.text == 'Results card') {
           final left = translateX(textBlock.boundingBox.left, inputImage.inputImageData!.imageRotation, sizeCamera, inputImage.inputImageData!.size);
           final top = translateY(textBlock.boundingBox.top, inputImage.inputImageData!.imageRotation, sizeCamera, inputImage.inputImageData!.size);
           final right = translateX(textBlock.boundingBox.right, inputImage.inputImageData!.imageRotation, sizeCamera, inputImage.inputImageData!.size);
@@ -163,10 +168,10 @@ class _CameraRecognizerViewState extends State<CameraRecognizerView> {
         }
       }
       if (rectTexts.length > 2) {
-        final a = _scanAreaResult.contains(rectTexts['Result card']!.topLeft);
-        final b = _scanAreaBLD.contains(rectTexts['BLD']!.bottomLeft);
-        final c = _scanAreaGLU.contains(rectTexts['GLU']!.bottomRight);
-        _checkInArea.value = a && b && c; //&& containsGLU && containsBLD;
+        final result = _scanAreaResult.contains(rectTexts['Results card']!.topLeft);
+        final sg = _scanAreaSG.contains(rectTexts['SG']!.bottomLeft);
+        final bld = _scanAreaBLD.contains(rectTexts['BLD']!.bottomRight);
+        _checkInArea.value = result && sg && bld; //&& containsSG && containsBLD;
       } else {
         _checkInArea.value = false;
       }
@@ -184,9 +189,9 @@ class _CameraRecognizerViewState extends State<CameraRecognizerView> {
     final image = img.decodeImage(fileBytes);
     final croppedImage = img.copyCrop(
       image!,
-      x: (image.width * 0.21).toInt(),
+      x: (image.width * 0.25).toInt(),
       y: (image.height * 0.21).toInt(),
-      width: (image.width * 0.58).toInt(),
+      width: (image.width * 0.5).toInt(),
       height: (image.height * 0.585).toInt(),
     );
     return File(takeImage.path)..writeAsBytesSync(img.encodeJpg(croppedImage));

@@ -1,3 +1,12 @@
+/*
+ * File: camera_view.dart
+ * File Created: Wednesday, 26th April 2023 10:31:56 am
+ * Author: Dương Trí
+ * -----
+ * Last Modified: Wednesday, 26th April 2023 11:34:50 pm
+ * Modified By: Dương Trí
+ */
+
 import 'package:camera/camera.dart';
 import 'package:cat_concierge/main.dart';
 import 'package:flutter/foundation.dart';
@@ -120,7 +129,9 @@ class _CameraViewState extends State<CameraView> {
   }
 
   Future _stopLiveFeed() async {
-    await _controller?.stopImageStream();
+    if (_controller!.value.isStreamingImages) {
+      await _controller?.stopImageStream();
+    }
     await _controller?.dispose();
     _controller = null;
   }
@@ -133,7 +144,7 @@ class _CameraViewState extends State<CameraView> {
     final bytes = allBytes.done().buffer.asUint8List();
 
     final Size imageSize = Size(image.width.toDouble(), image.height.toDouble());
-    // print('SIZE camera: ${imageSize.width} : ${imageSize.height}');
+    // print('SIZE camera: ${imageSize.width}
     final camera = cameras[_cameraIndex];
     final imageRotation = InputImageRotationValue.fromRawValue(camera.sensorOrientation);
     if (imageRotation == null) return;
@@ -142,7 +153,7 @@ class _CameraViewState extends State<CameraView> {
 
     final planeData = image.planes.map(
       (Plane plane) {
-        // print('SIZE plane: ${plane.width}:${plane.height}');
+        // print('SIZE plane: ${plane.width}:${plane.
         return InputImagePlaneMetadata(
           bytesPerRow: plane.bytesPerRow,
           height: plane.height,
