@@ -1,10 +1,8 @@
 import 'package:camera/camera.dart';
-import 'package:cat_concierge/core/index.dart';
 import 'package:cat_concierge/main.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_mlkit_commons/google_mlkit_commons.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:one/one.dart';
