@@ -1,13 +1,13 @@
 import 'package:camera/camera.dart';
+import 'package:cat_concierge/core/index.dart';
+import 'package:cat_concierge/main.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_mlkit_commons/google_mlkit_commons.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
-
-import '../../core/index.dart';
-import '../../main.dart';
+import 'package:one/one.dart';
 
 enum ScreenMode { liveFeed, gallery }
 
@@ -16,15 +16,13 @@ class CameraView extends StatefulWidget {
     Key? key,
     required this.customPaint,
     required this.onImage,
-    this.initialDirection = CameraLensDirection.back,
     required this.onTakePicture,
+    this.initialDirection = CameraLensDirection.back,
   }) : super(key: key);
 
   final CustomPaint? customPaint;
-  // ignore: inference_failure_on_function_return_type
-  final Function(InputImage inputImage) onImage;
-  // ignore: inference_failure_on_function_return_type
-  final Function(XFile file) onTakePicture;
+  final void Function(InputImage inputImage) onImage;
+  final void Function(XFile file) onTakePicture;
   final CameraLensDirection initialDirection;
 
   @override
@@ -66,15 +64,15 @@ class _CameraViewState extends State<CameraView> {
 
   @override
   Widget build(BuildContext context) {
-    return _body();
+    return _body(context);
   }
 
-  Widget _body() {
-    final body = _liveFeedBody();
+  Widget _body(BuildContext context) {
+    final body = _liveFeedBody(context);
     return body;
   }
 
-  Widget _liveFeedBody() {
+  Widget _liveFeedBody(BuildContext context) {
     if (_controller?.value.isInitialized == false) {
       return Container();
     }
@@ -93,7 +91,7 @@ class _CameraViewState extends State<CameraView> {
       color: Colors.black,
       child: Stack(
         fit: StackFit.expand,
-        children: <Widget>[
+        children: [
           Transform.scale(
             scale: scale,
             child: Center(
@@ -101,10 +99,7 @@ class _CameraViewState extends State<CameraView> {
             ),
           ),
           if (widget.customPaint != null) widget.customPaint!,
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: _floatingActionButton(),
-          ),
+          Positioned.fill(child: _floatingActionButton(context)),
         ],
       ),
     );
@@ -168,41 +163,44 @@ class _CameraViewState extends State<CameraView> {
     widget.onImage(inputImage);
   }
 
-  Widget _floatingActionButton() {
-    return Container(
-      height: 110,
-      color: Colors.white,
-      child: Center(
-        child: GestureDetector(
-          onTap: () async {
-            if (_controller?.value.isInitialized == true) {
-              EasyLoading.show();
-              _controller?.stopImageStream();
-              final fileImage = await _controller!.takePicture();
-              widget.onTakePicture(fileImage);
-            }
-          },
-          child: Container(
-            width: 80,
-            height: 80,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 5,
-                  offset: const Offset(0, 3),
-                ),
-              ],
+  Widget _floatingActionButton(BuildContext context) {
+    final theme = Theme.of(context);
+    final bottom = MediaQuery.of(context).viewPadding.bottom;
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Container(
+          color: Colors.white,
+          alignment: Alignment.center,
+          padding: EdgeInsets.only(bottom: bottom, top: theme.spacing.small),
+          child: ElevatedButton(
+            onPressed: () async {
+              if (_controller?.value.isInitialized == true) {
+                EasyLoading.show();
+                _controller?.stopImageStream();
+                final fileImage = await _controller!.takePicture();
+                widget.onTakePicture(fileImage);
+              }
+            },
+            style: ElevatedButton.styleFrom(
+              shape: CircleBorder(side: BorderSide(color: theme.primaryColor, width: theme.spacing.small * .5)),
+              padding: EdgeInsets.all(theme.spacing.small * .5),
+              backgroundColor: Colors.white,
+              elevation: 5,
             ),
-            child: SvgPicture.asset(
-              MySvgs.ic_button_capture,
-              fit: BoxFit.cover,
+            child: Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: theme.primaryColor,
+              ),
+              margin: EdgeInsets.all(theme.spacing.small * .5),
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 }

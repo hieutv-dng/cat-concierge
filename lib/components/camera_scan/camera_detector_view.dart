@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:camera/camera.dart';
-import 'package:cat_concierge/core/assets/my_svgs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -149,14 +148,19 @@ class _CameraRecognizerViewState extends State<CameraRecognizerView> {
     _isBusy = true;
     final recognizedText = await _textRecognizer.processImage(inputImage);
     if (inputImage.inputImageData?.size != null && inputImage.inputImageData?.imageRotation != null) {
-      final painter = TextRecognizerPainter(recognizedText, inputImage.inputImageData!.size, inputImage.inputImageData!.imageRotation);
+      final painter = TextRecognizerPainter(
+          recognizedText, inputImage.inputImageData!.size, inputImage.inputImageData!.imageRotation);
       _customPaint = CustomPaint(painter: painter);
       for (final textBlock in recognizedText.blocks) {
         if (textBlock.text == 'GLU' || textBlock.text == 'BLD' || textBlock.text == 'Result card') {
-          final left = translateX(textBlock.boundingBox.left, inputImage.inputImageData!.imageRotation, sizeCamera, inputImage.inputImageData!.size);
-          final top = translateY(textBlock.boundingBox.top, inputImage.inputImageData!.imageRotation, sizeCamera, inputImage.inputImageData!.size);
-          final right = translateX(textBlock.boundingBox.right, inputImage.inputImageData!.imageRotation, sizeCamera, inputImage.inputImageData!.size);
-          final bottom = translateY(textBlock.boundingBox.bottom, inputImage.inputImageData!.imageRotation, sizeCamera, inputImage.inputImageData!.size);
+          final left = translateX(textBlock.boundingBox.left, inputImage.inputImageData!.imageRotation, sizeCamera,
+              inputImage.inputImageData!.size);
+          final top = translateY(textBlock.boundingBox.top, inputImage.inputImageData!.imageRotation, sizeCamera,
+              inputImage.inputImageData!.size);
+          final right = translateX(textBlock.boundingBox.right, inputImage.inputImageData!.imageRotation, sizeCamera,
+              inputImage.inputImageData!.size);
+          final bottom = translateY(textBlock.boundingBox.bottom, inputImage.inputImageData!.imageRotation, sizeCamera,
+              inputImage.inputImageData!.size);
           final rect = Rect.fromLTRB(left, top, right, bottom);
           rectTexts[textBlock.text.trim()] = rect;
         }
