@@ -7,19 +7,19 @@
         {
             "label": "flutter_build_appbundle",
             "type": "shell",
-            "command": "flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=BASE_URL=https://invoice-simple.utilityhelpful.com"
+            "command": "flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=BASE_URL=https://cat-concierge-be-dev.azurewebsites.net"
         },
         //-----BUILD_APK_RELEASE-----
         {
             "label": "flutter_build_apk",
             "type": "shell",
-            "command": "flutter build apk --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=BASE_URL=https://invoice-simple.utilityhelpful.com"
+            "command": "flutter build apk --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=BASE_URL=https://cat-concierge-be-dev.azurewebsites.net"
         },
         //-----BUILD_IPA_RELEASE-----
         {
             "label": "flutter_build_ipa",
             "type": "shell",
-            "command": "flutter build ipa --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=BASE_URL=https://invoice-simple.utilityhelpful.com"
+            "command": "flutter build ipa --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=BASE_URL=https://cat-concierge-be-dev.azurewebsites.net"
         },
         //-----FLUTTER_PUB_GET-----
         {
