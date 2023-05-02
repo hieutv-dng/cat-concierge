@@ -8,9 +8,8 @@
  */
 
 import 'package:cat_concierge/components/index.dart';
+import 'package:cat_concierge/core/index.dart';
 import 'package:flutter/material.dart';
-
-import '../../../core/index.dart';
 
 class TagSelector extends StatefulWidget {
   const TagSelector({super.key, required this.title, required this.data});
@@ -57,7 +56,9 @@ class _TagSelectorState extends State<TagSelector> {
       child: Container(
         margin: const EdgeInsets.all(4),
         padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(16.0), color: item.isSelected ? AppColors.primary : AppColors.primaryLightest),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16.0),
+            color: item.isSelected ? AppColors.primary : AppColors.primaryLightest),
         child: Text(item.name.toUpperCase(),
             style: AppTextStyle.fromContext(context).captionM.copyWith(
                   color: item.isSelected ? Colors.white : AppColors.primary,

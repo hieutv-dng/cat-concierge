@@ -17,8 +17,6 @@ import 'package:get/get.dart';
 import 'package:one/one.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import '../../camera_scan/camera_detector_view.dart';
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -33,8 +31,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> _openCameraScan() async {
     final filePath = await Navigator.of(context).push<String?>(MaterialPageRoute(
       builder: (context) {
-        return const CameraRecognizerView();
-        // return const CameraScanPage();
+        return const CameraScanPage();
       },
     ));
     if (filePath?.isNotEmpty ?? false) {
@@ -77,7 +74,8 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Hi, John and Pixel', maxLines: 1, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
+                  Text('Hi, John and Pixel',
+                      maxLines: 1, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
                   const SizedBox(height: 6),
                   Text('Let’s get learning', maxLines: 1, style: theme.textTheme.labelSmall),
                 ],
